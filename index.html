@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#0E5B3A">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="image" href="images/longs-peak.jpg" imagesrcset="/images/longs-peak.jpg 1x">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
@@ -31,12 +32,11 @@
     .glossy-btn{position:relative; overflow:hidden; background:linear-gradient(180deg,#12A36D,#0E5B3A); color:#fff; border-radius:16px; box-shadow:0 10px 20px rgba(14,91,58,.25)}
     .glossy-btn::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 40%); mix-blend-mode:screen; opacity:.7}
     .navglass{
-      backdrop-filter: blur(32px) saturate(220%);
-      -webkit-backdrop-filter: blur(32px) saturate(220%);
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
-      border-top: 1px solid rgba(255,255,255,0.18);
-      border-bottom: 1px solid rgba(255,255,255,0.35);
-      box-shadow: 0 18px 45px rgba(15,23,42,0.45);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      background: rgba(255,255,255,0.28);
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
     .hero-title{
       position: relative;
@@ -67,58 +67,6 @@
       -webkit-background-clip: text;
       background-clip: text;
     }
-    .faq-card{
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-      cursor: pointer;
-    }
-    .faq-card:hover{
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-      background: rgba(255,255,255,0.18);
-    }
-    .faq-answer {
-      display: none;
-      opacity: 0;
-      transition: opacity 180ms ease;
-    }
-    .faq-card.open .faq-answer {
-      display: block;
-      opacity: 1;
-    }
-
-    .faq-card {
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-      cursor: pointer;
-    }
-    .social-row{
-      display: flex;
-      justify-content: center;
-      gap: 1.75rem;
-      flex-wrap: wrap;
-    }
-    .social-link{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 0.875rem;
-      color: rgba(248,250,252,0.9);
-      transition: transform 150ms ease, box-shadow 150ms ease, color 150ms ease, filter 150ms ease;
-    }
-    .social-link img{
-      height: 2.5rem;
-      width: 2.5rem;
-      border-radius: 9999px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
-      background: rgba(15,23,42,0.85);
-    }
-    .social-link:hover{
-      transform: translateY(-4px) scale(1.05);
-      color: var(--gold);
-      filter: brightness(1.15);
-    }
-    .social-link:hover img{
-      box-shadow: 0 16px 32px rgba(0,0,0,0.5);
-    }
     /* Before/After slider */
     .ba{position:relative; overflow:hidden; border-radius:16px}
     .ba img{
@@ -139,7 +87,7 @@
       <a href="index.html#home" class="flex items-center gap-2" aria-label="Go to top">
         <picture class="h-8">
           <source srcset="images/logo.webp" type="image/webp" />
-          <img src="images/logo.webp" alt="Mile High Solar Care Logo" class="h-10 w-auto">
+          <img src="images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="128" height="32" />
         </picture>
         <span class="font-semibold">Mile High Solar Care</span>
       </a>
@@ -148,8 +96,7 @@
         <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
         <a href="index.html#process" class="navlink hover:text-[var(--gold)]">Process</a>
         <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
-        <a href="index.html#faq" class="navlink hover:text-[var(--gold)]">FAQ</a>
-	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
+        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
         <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
       </nav>
       <div class="hidden sm:flex items-center gap-2">
@@ -178,12 +125,9 @@
     </div>
     <div class="relative max-w-4xl mx-auto px-4 py-28 text-center text-white">
       <div class="inline-block px-4 py-2 mb-4 glass text-sm rounded-full">Warranty‑Safe Solar Panel Cleaning</div>
-      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">Colorado Clean. <span class="text-[#D8A020]">Peak Power.</span></h1>
+      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow">Colorado Clean. <span class="text-[#D8A020]">Peak Power.</span></h1>
       <p class="mt-4 text-xl sm:text-2xl font-semibold tracking-tight">
         Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
-      </p>
-      <p class="mt-3 text-base sm:text-lg opacity-95">
-        Pure-water wash, panel-safe brushes, and photo proof on every job.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
         <a href="tel:+19706995484" class="glossy-btn inline-flex justify-center px-6 py-3 text-base font-semibold">Call Now</a>
@@ -206,16 +150,16 @@
         </ul>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <!-- Warranty-Safe -->
-          <div class="relative rounded-2xl overflow-hidden glass h-56 flex items-end p-4">
+          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
             <img src="images/feature-warranty.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
             <div class="relative z-10">
-              <h3 class="font-semibold text-white text-sm">Warranty-Safe</h3>
-              <p class="text-slate-200 text-xs">Pure-water, panel-safe tools</p>
+              <h3 class="font-semibold text-white text-sm">Warranty‑Safe</h3>
+              <p class="text-slate-200 text-xs">Pure‑water, panel‑safe tools</p>
             </div>
           </div>
 
           <!-- Photo Proof -->
-          <div class="relative rounded-2xl overflow-hidden glass h-56 flex items-end p-4">
+          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
             <img src="images/feature-photo-proof.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Photo Proof</h3>
@@ -224,16 +168,16 @@
           </div>
 
           <!-- Local & Insured -->
-          <div class="relative rounded-2xl overflow-hidden glass h-56 flex items-end p-4">
+          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
             <img src="images/feature-local.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Local & Insured</h3>
-              <p class="text-slate-200 text-xs">Aurora-based, fully covered</p>
+              <p class="text-slate-200 text-xs">Aurora‑based, fully covered</p>
             </div>
           </div>
 
           <!-- Fast Scheduling -->
-          <div class="relative rounded-2xl overflow-hidden glass h-56 flex items-end p-4">
+          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
             <img src="images/feature-fast.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Fast Scheduling</h3>
@@ -287,8 +231,8 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
       <div class="mt-6 ba" id="ba">
-        <img class="before" src="images/solar_clean.jpg" alt="Clean solar panel" width="1600" height="700" loading="lazy">
-        <img class="after" src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1600" height="700" loading="lazy">
+        <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1600" height="700" loading="lazy">
+        <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1600" height="700" loading="lazy">
         <div class="handle" id="handle"></div>
         <div class="knob" id="knob" aria-hidden="true"></div>
       </div>
@@ -328,57 +272,6 @@
     </div>
   </section>
 
-  <section id="faq" class="py-20 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">FAQ – Solar Panel Cleaning &amp; Savings</h2>
-      <p class="mt-2 text-slate-300">Helpful answers about why cleaning matters, how often to do it, and how much extra energy clean panels can produce.</p>
-
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        <div class="glass p-6 rounded-2xl faq-card">
-          <h3 class="font-semibold text-lg faq-question">Why should I clean my solar panels?</h3>
-          <div class="faq-answer mt-2 text-slate-300 text-sm">
-            <p>Over time, dust, pollen, ash, bird droppings, and pollution build up on the glass. That layer blocks sunlight and reduces how much power your system can produce. A proper cleaning restores clarity so your panels can do the job you paid for.</p>
-          </div>
-        </div>
-
-        <div class="glass p-6 rounded-2xl faq-card">
-          <h3 class="font-semibold text-lg faq-question">How much more energy can clean panels produce?</h3>
-          <div class="faq-answer mt-2 text-slate-300 text-sm">
-            <p>Most studies and field tests show production losses of <strong>5–20%</strong> on dirty residential systems, and sometimes more on especially dusty or flat roofs. Even a 10% boost can add up to hundreds of dollars in extra power over the life of your system.</p>
-          </div>
-        </div>
-
-        <div class="glass p-6 rounded-2xl faq-card">
-          <h3 class="font-semibold text-lg faq-question">How often should I have my panels cleaned in the Denver area?</h3>
-          <div class="faq-answer mt-2 text-slate-300 text-sm">
-            <p>For most Denver Metro &amp; Front Range homes, we recommend a professional cleaning <strong>once or twice per year</strong>. If you’re near construction, dirt roads, heavy trees, wildfires, or lots of birds, you may benefit from more frequent cleanings.</p>
-          </div>
-        </div>
-
-        <div class="glass p-6 rounded-2xl faq-card">
-          <h3 class="font-semibold text-lg faq-question">Can I clean my solar panels myself with a hose or pressure washer?</h3>
-          <div class="faq-answer mt-2 text-slate-300 text-sm">
-            <p>We don’t recommend it. Hard water, harsh brushes, or high pressure can leave mineral spots, scratch the glass, or damage seals and wiring—potentially affecting your warranty. We use <strong>pure deionized water</strong> and panel-safe tools designed for solar.</p>
-          </div>
-        </div>
-
-        <div class="glass p-6 rounded-2xl faq-card">
-          <h3 class="font-semibold text-lg faq-question">Will cleaning void my solar panel warranty?</h3>
-          <div class="faq-answer mt-2 text-slate-300 text-sm">
-            <p>No—our method is specifically designed to be <strong>warranty-friendly</strong>. We avoid chemicals, abrasives, and pressure washing. We use pure water, soft brushes, and gentle rinse techniques that align with most manufacturers’ care guidelines.</p>
-          </div>
-        </div>
-
-        <div class="glass p-6 rounded-2xl faq-card">
-          <h3 class="font-semibold text-lg faq-question">How do I know if cleaning made a difference?</h3>
-          <div class="faq-answer mt-2 text-slate-300 text-sm">
-            <p>You’ll get <strong>before/after photos</strong> of your panels, and we can help you compare your system monitoring before and after the cleaning. Many homeowners notice a visible bump in their daily kWh production, especially if the panels were heavily soiled.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
   <section id="contact" class="py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
@@ -403,41 +296,7 @@
           <p class="text-sm text-slate-400">Hours: Mon–Sat 8:00–6:00</p>
         </div>
       </div>
-      <div class="mt-10 flex justify-center">
-        <img src="images/logo.webp" alt="Mile High Solar Care logo" class="h-28 w-auto opacity-90">
-      </div>
     </div>
-  </section>
-
-  <section id="stay-connected" class="py-20 bg-black text-white">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Stay Connected</h2>
-    <p class="mt-2 text-slate-300">
-      Follow our latest cleanings, before/after photos, and roof-top views across the Denver Metro & Front Range.
-    </p>
-
-    <div class="mt-8 social-row">
-      <a href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener" class="social-link">
-        <img src="images/instagram.png" alt="Instagram" />
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.facebook.com/share/16rR6f9PUK/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link">
-        <img src="images/facebook.png" alt="Facebook" />
-        <span>Facebook</span>
-      </a>
-      <a href="https://www.tiktok.com/@milehighsolarcare" target="_blank" rel="noopener" class="social-link">
-        <img src="images/tiktok.png" alt="TikTok" />
-        <span>TikTok</span>
-      </a>
-    </div>
-
-    <div class="mt-10 max-w-4xl mx-auto">
-      <div id="ig-feed" class="w-full">
-        <!-- Elfsight Instagram feed -->
-        <div class="elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151" data-elfsight-app-lazy></div>
-      </div>
-    </div>
-  </div>
   </section>
 
   <footer class="border-t border-slate-700 py-10 bg-black text-white">
@@ -457,7 +316,7 @@
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ const id = e.target.id; links.forEach(l=>l.classList.remove('active-link')); if(map[id]) map[id].classList.add('active-link'); } });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-	    ['pricing','included','process','service-area','benefits','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
+    ['pricing','included','process','service-area','benefits','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
 
     // Parallax hero
     const hero = document.getElementById('heroParallax');
@@ -558,18 +417,6 @@ Notes: ${data.notes||''}`
       "acceptedAnswer": {"@type": "Answer","text": "Rain helps, but can leave mineral spots. A pure‑water wash avoids residues."}
     }]
   }
-  </script>
-  <script src="https://elfsightcdn.com/platform.js" async></script>
-  <script>
-    document.querySelectorAll('.faq-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const isOpen = card.classList.contains('open');
-        document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('open'));
-        if (!isOpen) {
-          card.classList.add('open');
-        }
-      });
-    });
   </script>
 </body>
 </html>
