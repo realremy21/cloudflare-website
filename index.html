@@ -193,22 +193,127 @@
       .cta-secondary:hover{border-color: #fff; box-shadow: 0 14px 28px rgba(0,0,0,0.26)}
     }
 
-    /* Header CTAs: slimmer nav-sized buttons (do not affect hero CTAs) */
-    .header-ctas .cta-btn{
-      min-height: 40px;
-      padding: 0.5rem 1.05rem;
-      font-size: 0.9375rem; /* 15px */
-      box-shadow: none !important;
-    }
-    .header-ctas .cta-secondary{border-width: 1px}
-    .header-ctas .cta-primary,
-    .header-ctas .cta-primary:hover{box-shadow:none !important}
+	    /* Header CTAs: slimmer nav-sized buttons (do not affect hero CTAs) */
+	    .header-ctas .cta-btn{
+	      min-height: 40px;
+	      padding: 0.5rem 1.05rem;
+	      font-size: 0.9375rem; /* 15px */
+	      box-shadow: none !important;
+	    }
+	    .header-ctas .cta-secondary{border-width: 1px}
+	    .header-ctas .cta-primary,
+	    .header-ctas .cta-primary:hover{box-shadow:none !important}
 
-    /* Mobile sticky CTA bar (match hero CTA system) */
-    .mobile-cta-bar{
-      padding-bottom: env(safe-area-inset-bottom);
-      opacity: 0;
-      pointer-events: none;
+	    /* Mobile hamburger menu */
+	    .mobile-menu-toggle{
+	      width: 44px;
+	      height: 44px;
+	      display: inline-flex;
+	      align-items: center;
+	      justify-content: center;
+	      border-radius: 16px;
+	      background: rgba(0,0,0,0.25);
+	      border: 1px solid rgba(18,163,109,0.35);
+	      transition: background-color 160ms ease, border-color 160ms ease;
+	      -webkit-tap-highlight-color: transparent;
+	    }
+	    .mobile-menu-toggle:focus-visible{outline: 2px solid #12A36D; outline-offset: 4px}
+	    .hamburger{
+	      display:flex;
+	      flex-direction:column;
+	      gap: 5px;
+	      width: 20px;
+	    }
+	    .hamburger-bar{
+	      height: 2px;
+	      width: 100%;
+	      background: #12A36D;
+	      border-radius: 9999px;
+	      transition: transform 180ms ease, opacity 180ms ease;
+	    }
+	    @media (min-width: 769px){
+	      .mobile-menu-toggle{display:none}
+	    }
+
+	    .mobile-nav{
+	      display:flex;
+	      align-items:center;
+	      gap: 1.25rem;
+	    }
+	    @media (max-width: 768px){
+	      .mobile-nav{
+	        position:absolute;
+	        top: calc(100% + 10px);
+	        left: 1rem;
+	        right: 1rem;
+	        display:block;
+	        padding: 0.5rem;
+	        border-radius: 20px;
+	        background: rgba(0,0,0,0.92);
+	        border: 1px solid rgba(255,255,255,0.10);
+	        backdrop-filter: blur(18px) saturate(160%);
+	        -webkit-backdrop-filter: blur(18px) saturate(160%);
+	        box-shadow: 0 18px 38px rgba(0,0,0,0.45);
+	        opacity: 0;
+	        transform: translateY(-8px);
+	        pointer-events: none;
+	        transition: transform 180ms ease, opacity 180ms ease;
+	      }
+	      header.is-mobile-open .mobile-nav{
+	        opacity: 1;
+	        transform: translateY(0);
+	        pointer-events: auto;
+	      }
+	      header.is-mobile-open .hamburger-bar:nth-child(1){transform: translateY(7px) rotate(45deg)}
+	      header.is-mobile-open .hamburger-bar:nth-child(2){opacity: 0}
+	      header.is-mobile-open .hamburger-bar:nth-child(3){transform: translateY(-7px) rotate(-45deg)}
+
+	      .mobile-nav .site-nav{
+	        display:flex;
+	        flex-direction:column;
+	        gap: 0.25rem;
+	        padding: 0.25rem;
+	      }
+	      .mobile-nav .navlink{
+	        display:block;
+	        padding: 0.85rem 1rem;
+	        border-radius: 16px;
+	        color: rgba(248,250,252,0.92);
+	        background: transparent;
+	      }
+	      .mobile-nav .navlink:active{
+	        background: rgba(18,163,109,0.16);
+	        color: #12A36D;
+	      }
+	      .mobile-nav .active-link{
+	        color: #12A36D;
+	        font-weight: 700;
+	      }
+	      @media (hover:hover){
+	        .mobile-nav .navlink:hover{
+	          background: rgba(18,163,109,0.12);
+	          color: #12A36D;
+	        }
+	      }
+
+	      .mobile-nav .header-ctas{
+	        display:flex;
+	        flex-direction:column;
+	        gap: 0.6rem;
+	        padding: 0.25rem;
+	        margin-top: 0.25rem;
+	      }
+	      .mobile-nav .header-ctas .cta-btn{
+	        width: 100%;
+	        justify-content:center;
+	      }
+	    }
+
+	    /* Mobile sticky CTA bar (match hero CTA system) */
+	    .mobile-cta-bar{
+	      padding-bottom: env(safe-area-inset-bottom);
+	      opacity: 0;
+	      pointer-events: none;
       transform: translateY(10px);
       transition: opacity 160ms ease, transform 160ms ease;
     }
@@ -229,30 +334,39 @@
     }
   </style>
 </head>
-<body class="antialiased text-slate-900">
-  <!-- Header -->
-  <header class="fixed top-0 inset-x-0 z-50 navglass text-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="index.html#home" class="flex items-center gap-2" aria-label="Go to top">
-        <picture class="h-8">
-          <source srcset="images/logo.webp" type="image/webp" />
-          <img src="images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="128" height="32" />
-        </picture>
-        <span class="font-semibold">Mile High Solar Care</span>
-      </a>
-	      <nav class="hidden md:flex items-center gap-6 text-sm">
-	        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
-	        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
-	        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
-	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
-	        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
-	      </nav>
-	      <div class="header-ctas hidden sm:flex items-center gap-3">
-	        <a href="tel:+19706995484" class="cta-btn cta-secondary text-base font-semibold">Call</a>
-	        <a href="index.html#contact" class="cta-btn cta-primary glossy-btn text-base font-semibold">Get a Quote</a>
+	<body class="antialiased text-slate-900">
+	  <!-- Header -->
+	  <header class="fixed top-0 inset-x-0 z-50 navglass text-slate-50">
+	    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between relative">
+	      <a href="index.html#home" class="flex items-center gap-2" aria-label="Go to top">
+	        <picture class="h-8">
+	          <source srcset="images/logo.webp" type="image/webp" />
+	          <img src="images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="128" height="32" />
+	        </picture>
+	        <span class="font-semibold">Mile High Solar Care</span>
+	      </a>
+	      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+	        <span class="hamburger" aria-hidden="true">
+	          <span class="hamburger-bar"></span>
+	          <span class="hamburger-bar"></span>
+	          <span class="hamburger-bar"></span>
+	        </span>
+	      </button>
+	      <div class="mobile-nav" id="mobileNav">
+		      <nav class="site-nav items-center gap-6 text-sm">
+		        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
+		        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
+		        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
+		        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
+		        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
+		      </nav>
+		      <div class="header-ctas items-center gap-3">
+		        <a href="tel:+19706995484" class="cta-btn cta-secondary text-base font-semibold">Call</a>
+		        <a href="index.html#contact" class="cta-btn cta-primary glossy-btn text-base font-semibold">Get a Quote</a>
+		      </div>
 	      </div>
-	    </div>
-	  </header>
+		    </div>
+		  </header>
 
 	  <!-- Mobile sticky Call -->
 	  <div class="mobile-cta-bar sm:hidden fixed bottom-4 inset-x-4 z-50 flex">
@@ -604,11 +718,11 @@
 	    ['pricing','included','service-area','benefits','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
 
 	    // Mobile sticky CTA: show only after hero
-	    (function initMobileStickyCTA(){
-	      const bar = document.querySelector('.mobile-cta-bar');
-	      const home = document.getElementById('home');
-	      if(!bar || !home) return;
-	      const mq = window.matchMedia('(max-width: 639px)');
+		    (function initMobileStickyCTA(){
+		      const bar = document.querySelector('.mobile-cta-bar');
+		      const home = document.getElementById('home');
+		      if(!bar || !home) return;
+		      const mq = window.matchMedia('(max-width: 639px)');
 	      let io;
 	      function setVisible(visible){
 	        bar.classList.toggle('is-visible', visible);
@@ -625,13 +739,49 @@
 	        io.observe(home);
 	      }
 	      setup();
-	      mq.addEventListener?.('change', setup);
+		      mq.addEventListener?.('change', setup);
+		    })();
+
+	    // Mobile menu
+	    (function initMobileMenu(){
+	      const header = document.querySelector('header');
+	      const toggle = document.querySelector('.mobile-menu-toggle');
+	      const nav = document.getElementById('mobileNav');
+	      if(!header || !toggle || !nav) return;
+
+	      const mq = window.matchMedia('(max-width: 768px)');
+
+	      function setOpen(open){
+	        header.classList.toggle('is-mobile-open', open);
+	        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+	      }
+
+	      function toggleOpen(){
+	        if(!mq.matches) return;
+	        setOpen(!header.classList.contains('is-mobile-open'));
+	      }
+
+	      toggle.addEventListener('click', toggleOpen);
+
+	      nav.addEventListener('click', (e)=>{
+	        if(!mq.matches) return;
+	        const link = e.target.closest('a');
+	        if(link) setOpen(false);
+	      });
+
+	      window.addEventListener('keydown', (e)=>{
+	        if(e.key === 'Escape') setOpen(false);
+	      });
+
+	      mq.addEventListener?.('change', ()=>{
+	        if(!mq.matches) setOpen(false);
+	      });
 	    })();
 
-	    // Parallax hero
-	    const hero = document.getElementById('heroParallax');
-	    window.addEventListener('scroll', ()=>{
-	      const y = window.scrollY * 0.15;
+		    // Parallax hero
+		    const hero = document.getElementById('heroParallax');
+		    window.addEventListener('scroll', ()=>{
+		      const y = window.scrollY * 0.15;
       hero.style.transform = `translate3d(0, ${y}px, 0)`;
     }, {passive:true});
 
