@@ -88,6 +88,7 @@
 	    .hero-title{position:relative; color:#ffffff}
 	    .hero-title .hero-glow{
 	      text-shadow:
+	        0 2px 6px rgba(0,0,0,0.45),
 	        0 1px 2px rgba(255,255,255,0.6),
 	        0 0 12px rgba(245,190,80,0.65),
 	        0 0 24px rgba(245,190,80,0.45);
@@ -95,7 +96,22 @@
 	    .hero-title .hero-contrast{
 	      color:#D8A020;
 	      font-weight:900;
-	      text-shadow: 0 10px 26px rgba(0,0,0,0.70);
+	      text-shadow:
+	        0 2px 6px rgba(0,0,0,0.45),
+	        0 10px 26px rgba(0,0,0,0.70);
+	    }
+	    .hero-subheadline{
+	      color: rgba(255,255,255,0.9);
+	      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+	      line-height: 1.35;
+	      font-weight: 500;
+	    }
+	    .hero-warranty{
+	      color: rgba(255,255,255,0.85);
+	      text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+	      font-weight: 500;
+	      letter-spacing: 0.04em;
+	      font-size: 0.95rem;
 	    }
     /* Before/After slider */
     .ba{position:relative; overflow:hidden; border-radius:16px}
@@ -199,8 +215,8 @@
       border: 2px solid rgba(255,255,255,0.95);
       box-shadow: 0 10px 20px rgba(0,0,0,0.18);
     }
-    #home .cta-primary.glossy-btn{background: var(--accent) !important; background-image: none !important}
-    #home .cta-primary.glossy-btn::before{opacity: 0 !important}
+    .cta-primary.glossy-btn{background: var(--accent) !important; background-image: none !important}
+    .cta-primary.glossy-btn::before{opacity: 0 !important}
     @media (min-width: 769px){
       #home .hero-ctas .cta-btn{min-width: 190px}
     }
@@ -209,6 +225,17 @@
       .cta-primary:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.34)}
       .cta-secondary:hover{border-color: #fff; box-shadow: 0 14px 28px rgba(0,0,0,0.26)}
     }
+
+    /* Header CTAs: slimmer nav-sized buttons (do not affect hero CTAs) */
+    .header-ctas .cta-btn{
+      min-height: 40px;
+      padding: 0.5rem 1.05rem;
+      font-size: 0.9375rem; /* 15px */
+      box-shadow: none !important;
+    }
+    .header-ctas .cta-secondary{border-width: 1px}
+    .header-ctas .cta-primary,
+    .header-ctas .cta-primary:hover{box-shadow:none !important}
 
     /* Mobile sticky CTA bar (match hero CTA system) */
     .mobile-cta-bar{
@@ -253,14 +280,12 @@
 	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
 	        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
 	      </nav>
-      <div class="hidden sm:flex items-center gap-2">
-        <a href="tel:+19706995484" class="inline-flex items-center px-3 py-1.5 bg-[var(--gold)] text-black font-semibold rounded-xl shadow hover:bg-[#f4c54a] transition-colors">
-          Call
-        </a>
-        <a href="index.html#contact" class="glossy-btn px-3 py-1.5">Get a Quote</a>
-      </div>
-    </div>
-  </header>
+	      <div class="header-ctas hidden sm:flex items-center gap-3">
+	        <a href="tel:+19706995484" class="cta-btn cta-secondary text-base font-semibold">Call</a>
+	        <a href="index.html#contact" class="cta-btn cta-primary glossy-btn text-base font-semibold">Get a Quote</a>
+	      </div>
+	    </div>
+	  </header>
 
 	  <!-- Mobile sticky Call -->
 	  <div class="mobile-cta-bar sm:hidden fixed bottom-4 inset-x-4 z-50 flex">
@@ -277,31 +302,29 @@
 			      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
 			    </div>
 			    <div class="hero-overlay relative z-10 max-w-4xl mx-auto px-4 py-28 text-center text-white">
-			      <div class="hidden md:inline-block px-4 py-2 mb-4 glass text-sm rounded-full">Warranty‑Safe Solar Panel Cleaning</div>
 			      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow"><span class="hero-glow">Colorado Clean.</span> <span class="hero-contrast">Peak Power.</span></h1>
-			      <p class="hidden md:block mt-4 text-xl sm:text-2xl font-semibold tracking-tight">
-			        Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
+			      <p class="hero-subheadline hidden md:block mt-5 text-lg sm:text-xl">
+			        Residential Solar Panel Cleaning for the Denver Metro & Front Range
 			      </p>
 			      <div class="hero-ctas hidden md:flex mt-8 flex-col sm:flex-row gap-3 justify-center">
 			        <a href="tel:+19706995484" class="cta-btn cta-primary glossy-btn text-base font-semibold">Call Now</a>
 			        <a href="index.html#pricing" class="cta-btn cta-secondary text-base font-semibold text-white">View Pricing</a>
 			      </div>
+			      <div class="hero-warranty hidden md:block mt-5 text-sm">Warranty‑Safe Solar Panel Cleaning</div>
 			    </div>
 			  </section>
 
 		  <section class="hero-mobile-details md:hidden text-white" aria-label="Hero details">
 		    <div class="hero-mobile-surface">
 		      <div class="max-w-4xl mx-auto px-4 py-10">
-		        <p class="text-xl font-semibold tracking-tight">
-		          Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
+		        <p class="hero-subheadline text-lg">
+		          Residential Solar Panel Cleaning for the Denver Metro & Front Range
 		        </p>
-		        <div class="mt-6 flex gap-3">
+		        <div class="mt-5 flex gap-3">
 		          <a href="tel:+19706995484" class="cta-btn cta-primary text-base flex-1">Call Now</a>
 		          <a href="index.html#pricing" class="cta-btn cta-secondary-glass text-base flex-1" aria-label="View pricing">View Pricing</a>
 		        </div>
-		        <div class="mt-4 flex justify-center">
-		          <div class="glass rounded-full px-3 py-1.5 text-xs text-white/80">Warranty‑Safe Solar Panel Cleaning</div>
-		        </div>
+		        <div class="hero-warranty mt-5 text-sm">Warranty‑Safe Solar Panel Cleaning</div>
 		      </div>
 		    </div>
 		  </section>
