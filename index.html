@@ -37,30 +37,43 @@
       body{padding-bottom:96px}
       .ba img{height:16rem}
     }
-    @media (max-width: 768px){
-      /* Mobile hero improvements (no desktop changes) */
-      body{background:#000}
-      #home{
-        min-height:auto !important;
-        height:100svh;
-        max-height:100vh;
-        padding-top:0 !important;
-      }
-      #home .hero-overlay{
-        padding-top:5.25rem !important;
-        padding-bottom:2.25rem !important;
-        height:100%;
-        display:flex;
-        flex-direction:column;
-        justify-content:flex-end;
-      }
-      #heroParallax img{filter:none}
-      #heroParallax > div{
-        background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0) 70%) !important;
-      }
-      #home .hero-title{
-        font-size: clamp(2.05rem, 8.6vw, 2.55rem) !important;
-        line-height: 1.06 !important;
+		    @media (max-width: 768px){
+		      /* Mobile hero improvements (no desktop changes) */
+		      body{background:#000}
+		      #home{
+		        min-height:auto !important;
+		        height:100svh;
+		        max-height:100vh;
+		        padding-top:0 !important;
+		      }
+		      #home{min-height:90vh !important}
+		      /* Keep the hero background centered and stable on mobile */
+		      #heroParallax{
+		        transform:none !important;
+		        background-image: none !important;
+		      }
+		      #heroParallax picture{display:block}
+		      #heroParallax img{
+		        width:100%;
+		        height:100%;
+		        object-fit: cover;
+		        object-position: top center;
+		      }
+		      #home .hero-overlay{
+		        padding-top:5.25rem !important;
+		        padding-bottom:2.25rem !important;
+		        height:100%;
+		        display:flex;
+	        flex-direction:column;
+	        justify-content:flex-end;
+		      }
+		      #heroParallax img{filter:none}
+		      #heroParallax > div{
+		        background: linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.24) 100%) !important;
+		      }
+		      #home .hero-title{
+		        font-size: clamp(2.05rem, 8.6vw, 2.55rem) !important;
+		        line-height: 1.06 !important;
         text-wrap: balance;
         max-width: 28ch;
         margin-left:auto;
@@ -539,7 +552,7 @@
 	  </section>
 
 <!-- WHY SOLAR MAINTENANCE IS IMPORTANT -->
-<section id="why-solar-maintenance" class="bg-neutral-900 text-white py-16 sm:py-20">
+<section id="why-solar-maintenance" class="bg-black text-white py-16 sm:py-20">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-4xl font-bold">Why Solar Maintenance Is Important</h2>
     <p class="text-slate-300 mt-3">
@@ -762,7 +775,7 @@
           <input class="glass px-4 py-3 rounded-xl" type="text" name="address" placeholder="Service address (city OK)" aria-label="Service address" />
           <input class="glass px-4 py-3 rounded-xl" type="text" name="panels" placeholder="# of panels (approx)" aria-label="Number of panels" />
           <textarea class="glass px-4 py-3 rounded-xl" name="notes" rows="4" placeholder="Any details (two‑story, steep roof, debris, timing)"></textarea>
-          <button id="submitBtn" class="glossy-btn font-semibold px-6 py-3" type="submit">Send</button>
+	          <button id="submitBtn" class="cta-btn cta-primary glossy-btn text-base font-semibold w-full" type="submit">Send</button>
           <p class="text-xs text-slate-400">Trouble? Email <a class="text-[var(--gold)] hover:underline" href="mailto:quote@milehighsolarcare.com">quote@milehighsolarcare.com</a> or call/text.</p>
           <div id="formMsg" class="hidden text-sm"></div>
         </form>
