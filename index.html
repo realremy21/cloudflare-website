@@ -18,8 +18,56 @@
       --glass: rgba(255,255,255,.14);
       --glass-b: rgba(255,255,255,.35);
     }
+    *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+    html, body{overflow-x:hidden}
     :target{scroll-margin-top:90px}
+    img, iframe{max-width:100%}
+    @media (max-width: 639px){
+      body{padding-bottom:96px}
+      .ba img{height:16rem}
+      .social-bubble{width:56px; height:56px}
+    }
+    @media (max-width: 768px){
+      /* Mobile hero improvements (no desktop changes) */
+      body{background:#000}
+      #home{
+        min-height:auto !important;
+        height:100svh;
+        max-height:100vh;
+        padding-top:0 !important;
+      }
+      #home .hero-overlay{
+        padding-top:5.25rem !important;
+        padding-bottom:2.25rem !important;
+        height:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-end;
+      }
+      #heroParallax img{filter:none}
+      #heroParallax > div{
+        background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0) 70%) !important;
+      }
+      #home .hero-title{
+        font-size: clamp(2.05rem, 8.6vw, 2.55rem) !important;
+        line-height: 1.06 !important;
+        text-wrap: balance;
+        max-width: 28ch;
+        margin-left:auto;
+        margin-right:auto;
+        text-shadow: 0 10px 26px rgba(0,0,0,0.62), 0 0 18px rgba(0,0,0,0.45);
+      }
+      .hero-mobile-details .cta-btn{min-height:56px}
+      .hero-mobile-details .cta-secondary-glass{
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.32);
+        backdrop-filter: blur(18px) saturate(165%);
+        -webkit-backdrop-filter: blur(18px) saturate(165%);
+        box-shadow: 0 10px 18px rgba(0,0,0,0.18);
+        color:#fff;
+      }
+    }
     .glass{backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); background:var(--glass); border:1px solid var(--glass-b); border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.15)}
     .active-link{
       color: var(--gold);
@@ -140,6 +188,69 @@
     }
     .brand-anchor a:focus-visible{outline: 2px solid var(--gold); outline-offset: 6px}
     .brand-anchor a:hover img{opacity: 0.95; transform: translateY(-1px)}
+
+    /* Hero CTAs */
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding: 0.78rem 1.35rem;
+      border-radius:9999px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease, border-color 150ms ease;
+      will-change: transform;
+    }
+    .cta-btn:active{transform: translateY(0) scale(0.99)}
+    .cta-btn:focus-visible{outline: 2px solid var(--gold); outline-offset: 4px}
+    .cta-primary{
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.30);
+      font-weight: 800;
+    }
+    .cta-secondary{
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.95);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    }
+    #home .cta-primary.glossy-btn{background: var(--accent) !important; background-image: none !important}
+    #home .cta-primary.glossy-btn::before{opacity: 0 !important}
+    @media (min-width: 769px){
+      #home .hero-ctas .cta-btn{min-width: 190px}
+    }
+    @media (hover:hover){
+      .cta-btn:hover{transform: translateY(-1px)}
+      .cta-primary:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.34)}
+      .cta-secondary:hover{border-color: #fff; box-shadow: 0 14px 28px rgba(0,0,0,0.26)}
+    }
+
+    /* Mobile sticky CTA bar (match hero CTA system) */
+    .mobile-cta-bar{
+      padding-bottom: env(safe-area-inset-bottom);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+    .mobile-cta-bar.is-visible{opacity: 1; pointer-events: auto; transform: translateY(0)}
+    .mobile-cta-bar .cta-btn{flex:1; min-height:56px; box-shadow:none !important}
+    .mobile-cta-bar .cta-primary{border:none !important}
+
+    /* Mobile hero content surface */
+    .hero-mobile-surface{
+      background: rgba(0,0,0,0.92);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-left: 1px solid rgba(255,255,255,0.06);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+    }
   </style>
 </head>
 <body class="antialiased text-slate-900">
@@ -153,14 +264,13 @@
         </picture>
         <span class="font-semibold">Mile High Solar Care</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
-        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
-        <a href="index.html#process" class="navlink hover:text-[var(--gold)]">Process</a>
-        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
-        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
-        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
-      </nav>
+	      <nav class="hidden md:flex items-center gap-6 text-sm">
+	        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
+	        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
+	        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
+	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
+	        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
+	      </nav>
       <div class="hidden sm:flex items-center gap-2">
         <a href="tel:+19706995484" class="inline-flex items-center px-3 py-1.5 bg-[var(--gold)] text-black font-semibold rounded-xl shadow hover:bg-[#f4c54a] transition-colors">
           Call
@@ -170,36 +280,52 @@
     </div>
   </header>
 
-  <!-- Mobile sticky Call/Text -->
-  <div class="sm:hidden fixed bottom-4 inset-x-4 z-50 flex gap-3">
-    <a href="tel:+19706995484" class="flex-1 text-center glossy-btn py-3 font-semibold">Call</a>
-    <a href="sms:+19706995484" class="flex-1 text-center glass py-3 font-semibold">Text</a>
-  </div>
+	  <!-- Mobile sticky Call -->
+	  <div class="mobile-cta-bar sm:hidden fixed bottom-4 inset-x-4 z-50 flex">
+	    <a href="tel:+19706995484" class="cta-btn cta-primary text-base w-full">Call</a>
+	  </div>
 
-  <!-- Hero with parallax -->
-  <section id="home" class="relative min-h-[680px] pt-24 overflow-hidden">
-    <div id="heroParallax" class="absolute inset-0 -z-10 will-change-transform">
-      <picture class="absolute inset-0">
-        <source srcset="images/hero.webp" type="image/webp" />
-        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="w-full h-full object-cover" width="2200" height="1200" />
-      </picture>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
-    </div>
-    <div class="relative max-w-4xl mx-auto px-4 py-28 text-center text-white">
-      <div class="inline-block px-4 py-2 mb-4 glass text-sm rounded-full">Warranty‑Safe Solar Panel Cleaning</div>
-      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow">Colorado Clean. <span class="text-[#D8A020]">Peak Power.</span></h1>
-      <p class="mt-4 text-xl sm:text-2xl font-semibold tracking-tight">
-        Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="tel:+19706995484" class="glossy-btn inline-flex justify-center px-6 py-3 text-base font-semibold">Call Now</a>
-        <a href="index.html#pricing" class="glass inline-flex justify-center px-6 py-3 text-base font-semibold text-white">View Pricing</a>
-      </div>
-    </div>
-  </section>
+		  <!-- Hero with parallax -->
+			  <section id="home" class="relative min-h-[680px] pt-24 overflow-hidden">
+			    <div id="heroParallax" class="absolute inset-0 -z-10 will-change-transform">
+			      <picture class="absolute inset-0">
+			        <source srcset="images/hero.webp" type="image/webp" />
+			        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="w-full h-full object-cover" width="2200" height="1200" />
+			      </picture>
+			      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
+			    </div>
+			    <div class="hero-overlay relative z-10 max-w-4xl mx-auto px-4 py-28 text-center text-white">
+			      <div class="hidden md:inline-block px-4 py-2 mb-4 glass text-sm rounded-full">Warranty‑Safe Solar Panel Cleaning</div>
+			      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow">Colorado Clean. <span class="text-[#D8A020]">Peak Power.</span></h1>
+			      <p class="hidden md:block mt-4 text-xl sm:text-2xl font-semibold tracking-tight">
+			        Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
+			      </p>
+			      <div class="hero-ctas hidden md:flex mt-8 flex-col sm:flex-row gap-3 justify-center">
+			        <a href="tel:+19706995484" class="cta-btn cta-primary glossy-btn text-base font-semibold">Call Now</a>
+			        <a href="index.html#pricing" class="cta-btn cta-secondary text-base font-semibold text-white">View Pricing</a>
+			      </div>
+			    </div>
+			  </section>
+
+		  <section class="hero-mobile-details md:hidden text-white" aria-label="Hero details">
+		    <div class="hero-mobile-surface">
+		      <div class="max-w-4xl mx-auto px-4 py-10">
+		        <p class="text-xl font-semibold tracking-tight">
+		          Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
+		        </p>
+		        <div class="mt-6 flex gap-3">
+		          <a href="tel:+19706995484" class="cta-btn cta-primary text-base flex-1">Call Now</a>
+		          <a href="index.html#pricing" class="cta-btn cta-secondary-glass text-base flex-1" aria-label="View pricing">View Pricing</a>
+		        </div>
+		        <div class="mt-4 flex justify-center">
+		          <div class="glass rounded-full px-3 py-1.5 text-xs text-white/80">Warranty‑Safe Solar Panel Cleaning</div>
+		        </div>
+		      </div>
+		    </div>
+		  </section>
 
   <!-- Included / Badges -->
-  <section id="included" class="py-20 bg-black text-white">
+  <section id="included" class="py-16 sm:py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What’s Included & Why It’s Warranty‑Safe</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-2">
@@ -252,7 +378,7 @@
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="py-20 bg-black text-white">
+  <section id="pricing" class="py-16 sm:py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Simple, Transparent Pricing</h2>
       <p class="mt-2 text-slate-300">Most homes fall into these ranges. Final price confirmed after a quick photo/roof check.</p>
@@ -276,22 +402,10 @@
     </div>
   </section>
 
-  <!-- Process -->
-  <section id="process" class="py-20 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">How It Works</h2>
-      <div class="mt-8 grid gap-6 sm:grid-cols-3">
-        <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">1) Quick Quote</h3><p class="mt-2 text-slate-300">Send your address & rough panel count (photos help!).</p></div>
-        <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">2) Schedule</h3><p class="mt-2 text-slate-300">We’ll confirm price, time window, and access details.</p></div>
-        <div class="glass p-6 rounded-2xl"><h3 class="font-semibold">3) Clean & Proof</h3><p class="mt-2 text-slate-300">Warranty‑safe clean + before/after photos. Done.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Before/After Slider (interactive) -->
-  <section id="gallery" class="py-20 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
+	  <!-- Before/After Slider (interactive) -->
+		  <section id="gallery" class="py-16 sm:py-20 bg-black text-white">
+	    <div class="max-w-6xl mx-auto px-4">
+	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
       <div class="mt-6 ba" id="ba">
         <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1600" height="700" loading="lazy">
         <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1600" height="700" loading="lazy">
@@ -302,7 +416,7 @@
   </section>
 
 	  <!-- Benefits -->
-	  <section id="benefits" class="py-20 bg-black text-white">
+	  <section id="benefits" class="py-16 sm:py-20 bg-black text-white">
 	    <div class="max-w-6xl mx-auto px-4">
 	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Homeowners Care About When Choosing a Solar Cleaner</h2>
 	      <div class="mt-8 grid gap-6 md:grid-cols-3">
@@ -323,7 +437,7 @@
 	  </section>
 
   <!-- Service Area -->
-  <section id="service-area" class="py-20 bg-black text-white">
+  <section id="service-area" class="py-16 sm:py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Service Area</h2>
       <p class="mt-2 text-slate-300">
@@ -335,7 +449,7 @@
   </section>
 
   <!-- Contact -->
-	  <section id="contact" class="py-20 bg-black text-white">
+	  <section id="contact" class="py-16 sm:py-20 bg-black text-white">
 	    <div class="max-w-6xl mx-auto px-4">
 	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Get a Fast Quote</h2>
 	    <p class="mt-2 text-slate-300">Use the form — we’ll reply quickly with a price and earliest availability. If it doesn’t submit, your email app will open as a fallback.</p>
@@ -419,15 +533,40 @@
     // Active section highlight
     const links = document.querySelectorAll('.navlink');
     const map = {}; links.forEach(a=>map[a.getAttribute('href').slice(1)] = a);
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ const id = e.target.id; links.forEach(l=>l.classList.remove('active-link')); if(map[id]) map[id].classList.add('active-link'); } });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-    ['pricing','included','process','service-area','benefits','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
+	    const obs = new IntersectionObserver((entries)=>{
+	      entries.forEach(e=>{ if(e.isIntersecting){ const id = e.target.id; links.forEach(l=>l.classList.remove('active-link')); if(map[id]) map[id].classList.add('active-link'); } });
+	    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+	    ['pricing','included','service-area','benefits','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
 
-    // Parallax hero
-    const hero = document.getElementById('heroParallax');
-    window.addEventListener('scroll', ()=>{
-      const y = window.scrollY * 0.15;
+	    // Mobile sticky CTA: show only after hero
+	    (function initMobileStickyCTA(){
+	      const bar = document.querySelector('.mobile-cta-bar');
+	      const home = document.getElementById('home');
+	      if(!bar || !home) return;
+	      const mq = window.matchMedia('(max-width: 639px)');
+	      let io;
+	      function setVisible(visible){
+	        bar.classList.toggle('is-visible', visible);
+	      }
+	      function setup(){
+	        setVisible(false);
+	        if(io){ io.disconnect(); io = undefined; }
+	        if(!mq.matches) return;
+	        io = new IntersectionObserver((entries)=>{
+	          entries.forEach((entry)=>{
+	            setVisible(!entry.isIntersecting);
+	          });
+	        }, { threshold: 0.01 });
+	        io.observe(home);
+	      }
+	      setup();
+	      mq.addEventListener?.('change', setup);
+	    })();
+
+	    // Parallax hero
+	    const hero = document.getElementById('heroParallax');
+	    window.addEventListener('scroll', ()=>{
+	      const y = window.scrollY * 0.15;
       hero.style.transform = `translate3d(0, ${y}px, 0)`;
     }, {passive:true});
 
