@@ -34,20 +34,12 @@
 	        object-position: center 70%;
 	      }
 	    }
-	    .hero,
-	    .hero-section,
-	    .home-hero{
-	      background-size: cover;
-	      background-position: center;
-	    }
-	    @media (max-width: 768px){
-	      .hero,
-	      .hero-section,
-	      .home-hero{
-	        background-image: url('/Image.jpeg');
-	        background-position: center;
-	      }
-	    }
+		    .hero,
+		    .hero-section,
+		    .home-hero{
+		      background-size: cover;
+		      background-position: center;
+		    }
 	    /* Hero bottom fade to blend into black sections (desktop) */
 	    #home::after{
 	      content:"";
@@ -62,35 +54,43 @@
       body{padding-bottom:96px}
       .ba img{height:16rem}
     }
-		    @media (max-width: 768px){
-		      /* Mobile hero fade (seamless iOS-safe transition) */
-		      #home::after{display:none}
-		      #home.hero,
-		      .home-hero{
-		        border-bottom: none !important;
-		        box-shadow: none !important;
-		        background-color: #000;
-		        outline: none !important;
-		      }
-		      #home.hero{position: relative}
-		      #home.hero::after{
-		        content: "";
-		        position: absolute;
-		        left: 0;
-		        right: 0;
-		        bottom: 0;
-		        height: 140px;
-		        background: linear-gradient(
-		          to bottom,
-		          rgba(0,0,0,0) 0%,
-		          rgba(0,0,0,0.6) 45%,
-		          rgba(0,0,0,0.85) 75%,
-		          #000 100%
-		        );
-		        pointer-events: none;
-		        z-index: 1;
-		      }
-		      .hero-mobile-details{background:#000}
+			    @media (max-width: 768px){
+			      /* Mobile hero image + seam-free fade (iOS-safe) */
+			      #home::after{display:none}
+			      .hero-media{
+			        position: relative;
+			        overflow: hidden;
+			        background:#000;
+			        min-height: 60vh;
+			      }
+			      .hero-media img{
+			        display:block;
+			        width:100%;
+			        height:100%;
+			        object-fit:cover;
+			        background:#000;
+			        transform:translateZ(0);
+			        -webkit-transform:translateZ(0);
+			      }
+			      .hero-media::after{
+			        content:"";
+			        position:absolute;
+			        left:0;
+			        right:0;
+			        bottom:-2px;
+			        height:180px;
+			        pointer-events:none;
+			        background: linear-gradient(to bottom,
+			          rgba(0,0,0,0) 0%,
+			          rgba(0,0,0,0.35) 35%,
+			          rgba(0,0,0,0.75) 70%,
+			          rgba(0,0,0,1) 100%
+			        );
+			        z-index: 0;
+			      }
+			      .hero-mobile-details{background:#000}
+			      .hero-mobile-surface{background:#000; border-top:none; box-shadow:none; outline:none}
+			      #included{background:#000; border-top:none; box-shadow:none; outline:none}
 
 		      /* Mobile hero improvements (no desktop changes) */
 		      body{background:#000}
@@ -105,7 +105,7 @@
 			      #heroParallax{
 			        transform:none !important;
 			      }
-		      #heroParallax picture{display:none}
+			      #heroParallax picture{display:block}
 		      #home .hero-overlay{
 		        padding-top:5.25rem !important;
 		        padding-bottom:2.25rem !important;
@@ -481,14 +481,15 @@
 	  </div>
 
 			  <!-- Hero with parallax -->
-				  <section id="home" class="hero relative min-h-[680px] pt-24 overflow-hidden">
-			    <div id="heroParallax" class="home-hero absolute inset-0 -z-10 will-change-transform">
-				      <picture class="absolute inset-0">
-				        <source srcset="images/hero.webp" type="image/webp" />
-					        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="hero-image w-full h-full object-cover" width="2200" height="1200" />
-				      </picture>
-				      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
-				    </div>
+					  <section id="home" class="hero hero-media relative min-h-[680px] pt-24 overflow-hidden">
+				    <div id="heroParallax" class="home-hero absolute inset-0 -z-10 will-change-transform">
+					      <picture class="absolute inset-0">
+					        <source media="(max-width: 768px)" srcset="/Image.jpeg" type="image/jpeg" />
+					        <source srcset="images/hero.webp" type="image/webp" />
+						        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="hero-image w-full h-full object-cover" width="2200" height="1200" />
+					      </picture>
+					      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
+					    </div>
 				    <div class="hero-overlay relative z-10 max-w-4xl mx-auto px-4 py-28 text-center text-white">
 			      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow"><span class="hero-glow">Colorado Clean.</span> <span class="hero-contrast">Peak Power.</span></h1>
 			      <p class="hero-subheadline hidden md:block mt-5 text-lg sm:text-xl">
