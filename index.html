@@ -208,6 +208,23 @@
 		    .mobile-menu-button{-webkit-tap-highlight-color: transparent}
 		    .mobile-menu-overlay{display:none}
 
+		    /* Included section: desktop image cards match checklist height */
+		    @media (min-width: 1024px){
+		      #included .included-layout{align-items: stretch}
+		      #included .included-cards{
+		        display: grid !important;
+		        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+		        height: 100%;
+		        align-items: stretch;
+		      }
+		      #included .included-cards > div{
+		        width: auto !important;
+		        height: 100% !important;
+		        aspect-ratio: unset !important;
+		        flex-shrink: initial !important;
+		      }
+		    }
+
 		    /* Explicit layout controls (desktop/tablet vs mobile) */
 			    @media (max-width: 768px) {
 			      /* ===== MOBILE HAMBURGER ICON (BRAND CUSTOM) ===== */
@@ -429,23 +446,23 @@
 		  </section>
 
   <!-- Included / Badges -->
-  <section id="included" class="py-16 sm:py-20 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What’s Included & Why It’s Warranty‑Safe</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        <ul class="space-y-3 text-slate-300 glass p-6 rounded-2xl">
-          <li>✔️ Pure‑water system (no minerals left behind)</li>
-          <li>✔️ Panel‑safe soft brushes (no abrasives)</li>
-          <li>✔️ No harsh chemicals (manufacturer‑friendly)</li>
+	  <section id="included" class="py-16 sm:py-20 bg-black text-white">
+	    <div class="max-w-6xl mx-auto px-4">
+	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What’s Included & Why It’s Warranty‑Safe</h2>
+	      <div class="included-layout mt-8 grid gap-6 md:grid-cols-2">
+	        <ul class="space-y-3 text-slate-300 glass p-6 rounded-2xl">
+	          <li>✔️ Pure‑water system (no minerals left behind)</li>
+	          <li>✔️ Panel‑safe soft brushes (no abrasives)</li>
+	          <li>✔️ No harsh chemicals (manufacturer‑friendly)</li>
           <li>✔️ Before/After photo proof of results</li>
           <li>✔️ Inverter screenshot on request</li>
         </ul>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <!-- Warranty-Safe -->
-          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-            <img src="images/feature-warranty.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
-            <div class="relative z-10">
-              <h3 class="font-semibold text-white text-sm">Warranty‑Safe</h3>
+	        <div class="included-cards grid grid-cols-2 sm:grid-cols-4 gap-3">
+	          <!-- Warranty-Safe -->
+	          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
+	            <img src="images/feature-warranty.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+	            <div class="relative z-10">
+	              <h3 class="font-semibold text-white text-sm">Warranty‑Safe</h3>
               <p class="text-slate-200 text-xs">Pure‑water, panel‑safe tools</p>
             </div>
           </div>
