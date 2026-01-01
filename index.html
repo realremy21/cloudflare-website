@@ -224,14 +224,21 @@
 		        flex-shrink: initial !important;
 		      }
 		    }
-
-		    /* Why Solar Maintenance: desktop left alignment */
-		    @media (min-width: 1024px){
-		      #why-solar-maintenance > div{
-		        max-width: 72rem; /* match max-w-6xl sections */
-		        text-align: left;
-		      }
+		    
+		    /* Solar benefits accordion (smooth open/close) */
+		    .sba-panel{
+		      display:grid;
+		      grid-template-rows: 0fr;
+		      opacity: 0;
+		      transition: grid-template-rows 220ms ease, opacity 220ms ease;
 		    }
+		    .sba-panel-inner{overflow:hidden}
+		    .sba-item.is-open .sba-panel{
+		      grid-template-rows: 1fr;
+		      opacity: 1;
+		    }
+		    .sba-item.is-open .sba-chevron{transform: rotate(180deg)}
+		    .sba-chevron{transition: transform 180ms ease}
 
 		    /* Explicit layout controls (desktop/tablet vs mobile) */
 			    @media (max-width: 768px) {
@@ -532,97 +539,165 @@
 	  </section>
 
 <!-- WHY SOLAR MAINTENANCE IS IMPORTANT -->
-<section id="why-solar-maintenance" class="bg-neutral-900 text-white py-20 px-6">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-4">
-      Why Solar Maintenance Is Important
-    </h2>
-    <p class="text-slate-300 mb-12">
+<section id="why-solar-maintenance" class="bg-neutral-900 text-white py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold">Why Solar Maintenance Is Important</h2>
+    <p class="text-slate-300 mt-3">
       Tap to explore how professional solar maintenance protects your system and your investment.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
-      <div class="space-y-3 group">
-        <h3 class="text-2xl font-semibold flex flex-col items-center gap-3 md:flex-row md:items-center">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors group-hover:text-[#12A36D] group-hover:border-[rgba(18,163,109,0.45)] group-hover:bg-[rgba(18,163,109,0.12)]">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+    <div class="mt-10 max-w-3xl space-y-4" data-sba>
+      <div class="sba-item glass rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
+          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
               <path d="M12 3a9 9 0 1 0 9 9"></path>
               <path d="M12 12l6-6"></path>
               <path d="M12 12l-3 3"></path>
             </svg>
           </span>
-          <span>Efficiency</span>
-        </h3>
-        <p class="text-slate-300">
-          Dirt, dust, and pollen can reduce solar output by up to 25%.
-          Routine cleaning restores peak energy production.
-        </p>
+          <span class="flex-1">
+            <span class="block text-lg font-semibold">Efficiency</span>
+            <span class="block mt-2 text-slate-200">Dirty panels can reduce production and raise your effective cost per kWh.</span>
+          </span>
+          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="sba-panel">
+          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
+            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
+              <li>Example loss: 10% on ~9,000 kWh/year is ~900 kWh/year.</li>
+              <li>At $0.14/kWh, that’s ~$126/year; at 20% it’s ~$252/year.</li>
+              <li>That lost production repeats every year until cleaned (rates vary by utility and usage).</li>
+            </ul>
+            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-3 group">
-        <h3 class="text-2xl font-semibold flex flex-col items-center gap-3 md:flex-row md:items-center">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors group-hover:text-[#12A36D] group-hover:border-[rgba(18,163,109,0.45)] group-hover:bg-[rgba(18,163,109,0.12)]">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+      <div class="sba-item glass rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
+          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
               <circle cx="12" cy="12" r="9"></circle>
               <path d="M12 7v6l3 2"></path>
             </svg>
           </span>
-          <span>Longevity</span>
-        </h3>
-        <p class="text-slate-300">
-          Preventative maintenance reduces wear, corrosion, and micro-cracking,
-          helping panels reach their full 25–30 year lifespan.
-        </p>
+          <span class="flex-1">
+            <span class="block text-lg font-semibold">Longevity</span>
+            <span class="block mt-2 text-slate-200">Buildup can trap moisture and heat, accelerating wear and avoidable service calls.</span>
+          </span>
+          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="sba-panel">
+          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
+            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
+              <li>A single troubleshooting trip or electrician visit commonly runs ~$150–$300+.</li>
+              <li>Replacing a damaged panel can be ~$250–$500+ for the part, plus labor and time.</li>
+              <li>Protecting components helps your system reach its intended 25–30 year life.</li>
+            </ul>
+            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-3 group">
-        <h3 class="text-2xl font-semibold flex flex-col items-center gap-3 md:flex-row md:items-center">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors group-hover:text-[#12A36D] group-hover:border-[rgba(18,163,109,0.45)] group-hover:bg-[rgba(18,163,109,0.12)]">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+      <div class="sba-item glass rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
+          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
               <path d="M12 3l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V7l8-4z"></path>
               <path d="M12 8v5"></path>
               <path d="M12 16h.01"></path>
             </svg>
           </span>
-          <span>Safety</span>
-        </h3>
-        <p class="text-slate-300">
-          Debris buildup can create hot spots and electrical risks.
-          Professional cleaning ensures safe system operation.
-        </p>
+          <span class="flex-1">
+            <span class="block text-lg font-semibold">Safety</span>
+            <span class="block mt-2 text-slate-200">Debris and hotspots can increase electrical risk and roof hazards.</span>
+          </span>
+          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="sba-panel">
+          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
+            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
+              <li>Electrical diagnostics or repairs can cost ~$200–$600+ depending on access and parts.</li>
+              <li>A roof leak or damaged flashing repair can be ~$300–$1,500+.</li>
+              <li>Regular maintenance reduces the chance of small issues turning into expensive ones.</li>
+            </ul>
+            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-3 group">
-        <h3 class="text-2xl font-semibold flex flex-col items-center gap-3 md:flex-row md:items-center">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors group-hover:text-[#12A36D] group-hover:border-[rgba(18,163,109,0.45)] group-hover:bg-[rgba(18,163,109,0.12)]">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+      <div class="sba-item glass rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
+          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
               <path d="M12 2v20"></path>
               <path d="M17 7H10a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6H7"></path>
             </svg>
           </span>
-          <span>Cost Savings</span>
-        </h3>
-        <p class="text-slate-300">
-          Clean panels mean higher output, faster ROI,
-          and fewer costly repairs over time.
-        </p>
+          <span class="flex-1">
+            <span class="block text-lg font-semibold">Cost Savings</span>
+            <span class="block mt-2 text-slate-200">Higher output lowers utility costs and helps you hit ROI sooner.</span>
+          </span>
+          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="sba-panel">
+          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
+            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
+              <li>If you’re losing ~$150–$300/year in production, that’s ~$750–$1,500 over 5 years.</li>
+              <li>Cleaning often costs less than one year of avoidable production loss (home size varies).</li>
+              <li>Keeping output high improves payback and protects your investment.</li>
+            </ul>
+            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-3 md:col-span-2 group">
-        <h3 class="text-2xl font-semibold flex flex-col items-center gap-3 md:flex-row md:items-center">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors group-hover:text-[#12A36D] group-hover:border-[rgba(18,163,109,0.45)] group-hover:bg-[rgba(18,163,109,0.12)]">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+      <div class="sba-item glass rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
+          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
               <path d="M12 3l10 18H2L12 3z"></path>
               <path d="M12 9v4"></path>
               <path d="M12 17h.01"></path>
             </svg>
           </span>
-          <span>Damage Prevention</span>
-        </h3>
-        <p class="text-slate-300">
-          Bird droppings, ash, and grime can etch glass surfaces.
-          Regular maintenance prevents permanent panel damage.
-        </p>
+          <span class="flex-1">
+            <span class="block text-lg font-semibold">Damage Prevention</span>
+            <span class="block mt-2 text-slate-200">Mineral deposits and droppings can etch glass and create permanent performance loss.</span>
+          </span>
+          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="sba-panel">
+          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
+            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
+              <li>Etching can’t always be restored with cleaning—replacement is sometimes the only fix.</li>
+              <li>Even one panel replacement can total ~$400–$900+ installed depending on access.</li>
+              <li>Regular washes prevent buildup from becoming irreversible damage.</li>
+            </ul>
+            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -785,8 +860,8 @@
 		      mq.addEventListener?.('change', setup);
 		    })();
 
-	    // Mobile menu
-	    (function initMobileMenu(){
+    // Mobile menu
+    (function initMobileMenu(){
 	      const header = document.querySelector('header');
 	      const toggle = document.querySelector('.mobile-menu-toggle');
 	      const overlay = document.getElementById('mobileNav');
@@ -834,12 +909,39 @@
 
 	      syncNodes();
 	      mq.addEventListener?.('change', syncNodes);
-	    })();
+    })();
 
-		    // Parallax hero
-		    const hero = document.getElementById('heroParallax');
-		    window.addEventListener('scroll', ()=>{
-		      const y = window.scrollY * 0.15;
+    // Solar benefits accordion
+    (function initSolarBenefitsAccordion(){
+      const root = document.querySelector('[data-sba]');
+      if(!root) return;
+      const items = Array.from(root.querySelectorAll('.sba-item'));
+      if(items.length === 0) return;
+
+      function setOpen(item, open){
+        item.classList.toggle('is-open', open);
+        const btn = item.querySelector('.sba-toggle');
+        if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      // Default: open the first card for immediate cost visibility
+      items.forEach((item, idx)=> setOpen(item, idx === 0));
+
+      items.forEach((item)=>{
+        const btn = item.querySelector('.sba-toggle');
+        if(!btn) return;
+        btn.addEventListener('click', ()=>{
+          const isOpen = item.classList.contains('is-open');
+          items.forEach((it)=> setOpen(it, false));
+          setOpen(item, !isOpen);
+        });
+      });
+    })();
+
+    // Parallax hero
+    const hero = document.getElementById('heroParallax');
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY * 0.15;
       hero.style.transform = `translate3d(0, ${y}px, 0)`;
     }, {passive:true});
 
