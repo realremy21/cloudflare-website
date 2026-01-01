@@ -205,7 +205,7 @@
 	    .header-ctas .cta-primary:hover{box-shadow:none !important}
 
 	    /* Mobile hamburger menu */
-	    .mobile-menu-toggle{
+	    .mobile-menu-button{
 	      width: 44px;
 	      height: 44px;
 	      display: inline-flex;
@@ -217,7 +217,7 @@
 	      transition: background-color 160ms ease, border-color 160ms ease;
 	      -webkit-tap-highlight-color: transparent;
 	    }
-	    .mobile-menu-toggle:focus-visible{outline: 2px solid #12A36D; outline-offset: 4px}
+	    .mobile-menu-button:focus-visible{outline: 2px solid #12A36D; outline-offset: 4px}
 	    .hamburger{
 	      display:flex;
 	      flex-direction:column;
@@ -231,22 +231,33 @@
 	      border-radius: 9999px;
 	      transition: transform 180ms ease, opacity 180ms ease;
 	    }
-	    @media (min-width: 769px){
-	      .mobile-menu-toggle{display:none}
+	    .mobile-menu-overlay{display:none}
+
+	    /* Explicit layout controls (desktop/tablet vs mobile) */
+	    @media (max-width: 768px) {
+	      .desktop-nav { display: none !important; }
+	      .desktop-ctas { display: none !important; }
+	      .mobile-menu-button { display: inline-flex; }
+	    }
+	    @media (min-width: 769px) {
+	      .desktop-nav { display: flex; }
+	      .desktop-ctas { display: flex; }
+	      .mobile-menu-button { display: none; }
+	      .mobile-menu-overlay { display: none !important; }
 	    }
 
 	    .mobile-nav{
-	      display:flex;
+	      display:block;
 	      align-items:center;
 	      gap: 1.25rem;
 	    }
 	    @media (max-width: 768px){
 	      .mobile-nav{
+	        display:block;
 	        position:absolute;
 	        top: calc(100% + 10px);
 	        left: 1rem;
 	        right: 1rem;
-	        display:block;
 	        padding: 0.5rem;
 	        border-radius: 20px;
 	        background: rgba(0,0,0,0.92);
@@ -307,6 +318,10 @@
 	        width: 100%;
 	        justify-content:center;
 	      }
+
+	      /* When desktop nodes are moved into the mobile overlay */
+	      .mobile-menu-overlay .desktop-nav{display:flex !important}
+	      .mobile-menu-overlay .desktop-ctas{display:flex !important}
 	    }
 
 	    /* Mobile sticky CTA bar (match hero CTA system) */
@@ -345,26 +360,25 @@
 	        </picture>
 	        <span class="font-semibold">Mile High Solar Care</span>
 	      </a>
-	      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+	      <nav class="desktop-nav site-nav hidden md:flex items-center gap-6 text-sm">
+	        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
+	        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
+	        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
+	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
+	        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
+	      </nav>
+	      <div class="header-ctas desktop-ctas hidden sm:flex items-center gap-3">
+	        <a href="tel:+19706995484" class="cta-btn cta-secondary text-base font-semibold">Call</a>
+	        <a href="index.html#contact" class="cta-btn cta-primary glossy-btn text-base font-semibold">Get a Quote</a>
+	      </div>
+	      <button class="mobile-menu-toggle mobile-menu-button" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
 	        <span class="hamburger" aria-hidden="true">
 	          <span class="hamburger-bar"></span>
 	          <span class="hamburger-bar"></span>
 	          <span class="hamburger-bar"></span>
 	        </span>
 	      </button>
-	      <div class="mobile-nav" id="mobileNav">
-		      <nav class="site-nav items-center gap-6 text-sm">
-		        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
-		        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
-		        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
-		        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
-		        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
-		      </nav>
-		      <div class="header-ctas items-center gap-3">
-		        <a href="tel:+19706995484" class="cta-btn cta-secondary text-base font-semibold">Call</a>
-		        <a href="index.html#contact" class="cta-btn cta-primary glossy-btn text-base font-semibold">Get a Quote</a>
-		      </div>
-	      </div>
+	      <div class="mobile-nav mobile-menu-overlay" id="mobileNav"></div>
 		    </div>
 		  </header>
 
@@ -746,14 +760,30 @@
 	    (function initMobileMenu(){
 	      const header = document.querySelector('header');
 	      const toggle = document.querySelector('.mobile-menu-toggle');
-	      const nav = document.getElementById('mobileNav');
-	      if(!header || !toggle || !nav) return;
+	      const overlay = document.getElementById('mobileNav');
+	      const desktopNav = document.querySelector('.desktop-nav');
+	      const desktopCtas = document.querySelector('.desktop-ctas');
+	      if(!header || !toggle || !overlay || !desktopNav || !desktopCtas) return;
 
 	      const mq = window.matchMedia('(max-width: 768px)');
 
 	      function setOpen(open){
 	        header.classList.toggle('is-mobile-open', open);
 	        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+	      }
+
+	      function syncNodes(){
+	        if(mq.matches){
+	          overlay.append(desktopNav, desktopCtas);
+	          overlay.classList.add('is-ready');
+	          setOpen(false);
+	          return;
+	        }
+
+	        header.classList.remove('is-mobile-open');
+	        toggle.setAttribute('aria-expanded', 'false');
+	        header.querySelector('div').insertBefore(desktopNav, toggle);
+	        header.querySelector('div').insertBefore(desktopCtas, toggle);
 	      }
 
 	      function toggleOpen(){
@@ -763,7 +793,7 @@
 
 	      toggle.addEventListener('click', toggleOpen);
 
-	      nav.addEventListener('click', (e)=>{
+	      overlay.addEventListener('click', (e)=>{
 	        if(!mq.matches) return;
 	        const link = e.target.closest('a');
 	        if(link) setOpen(false);
@@ -773,9 +803,8 @@
 	        if(e.key === 'Escape') setOpen(false);
 	      });
 
-	      mq.addEventListener?.('change', ()=>{
-	        if(!mq.matches) setOpen(false);
-	      });
+	      syncNodes();
+	      mq.addEventListener?.('change', syncNodes);
 	    })();
 
 		    // Parallax hero
