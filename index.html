@@ -23,6 +23,17 @@
     html, body{overflow-x:hidden}
     :target{scroll-margin-top:90px}
 	    img, iframe{max-width:100%}
+	    .hero-image{
+	      width: 100%;
+	      height: 100%;
+	      object-fit: cover;
+	      object-position: center;
+	    }
+	    @media (max-width: 768px) {
+	      .hero-image{
+	        object-position: center 70%;
+	      }
+	    }
 	    /* Hero bottom fade to blend into black sections */
 	    #home::after{
 	      content:"";
@@ -53,12 +64,6 @@
 		        background-image: none !important;
 		      }
 		      #heroParallax picture{display:block}
-		      #heroParallax img{
-		        width:100%;
-		        height:100%;
-		        object-fit: cover;
-		        object-position: top center;
-		      }
 		      #home .hero-overlay{
 		        padding-top:5.25rem !important;
 		        padding-bottom:2.25rem !important;
@@ -441,10 +446,10 @@
 			    <div id="heroParallax" class="absolute inset-0 -z-10 will-change-transform">
 			      <picture class="absolute inset-0">
 			        <source srcset="images/hero.webp" type="image/webp" />
-			        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="w-full h-full object-cover" width="2200" height="1200" />
-			      </picture>
-			      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
-			    </div>
+				        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="hero-image w-full h-full object-cover" width="2200" height="1200" />
+				      </picture>
+				      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-transparent"></div>
+				    </div>
 			    <div class="hero-overlay relative z-10 max-w-4xl mx-auto px-4 py-28 text-center text-white">
 			      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow"><span class="hero-glow">Colorado Clean.</span> <span class="hero-contrast">Peak Power.</span></h1>
 			      <p class="hero-subheadline hidden md:block mt-5 text-lg sm:text-xl">
