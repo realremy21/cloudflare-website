@@ -78,6 +78,68 @@
     .ba .after{position:absolute; inset:0; clip-path: inset(0 0 0 50%)}
     .ba .handle{position:absolute; top:0; bottom:0; left:50%; width:2px; background:white; box-shadow:0 0 0 1px rgba(0,0,0,.2)}
     .ba .knob{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:34px; height:34px; border-radius:9999px; background:white; box-shadow:0 1px 6px rgba(0,0,0,.25)}
+
+    /* Instagram feed */
+    .instagram-embed{width:100%}
+    .instagram-embed > .elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151{width:100%}
+    .instagram-feed iframe{display:block; width:100% !important; max-width:100% !important; border:0}
+
+    /* Social icons */
+    .social-icons{display:flex; gap:12px; flex-wrap:wrap; padding:0; margin:0; list-style:none}
+    .social-bubble{
+      width:52px; height:52px;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:9999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+      transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .social-bubble img{width:26px; height:26px; object-fit:contain; border-radius:10px}
+    .social-bubble:hover{transform: translateY(-1px) scale(1.04); border-color: rgba(216,160,32,0.45); box-shadow: 0 14px 34px rgba(0,0,0,0.32)}
+    .social-bubble:active{transform: scale(0.98)}
+    .social-bubble:focus-visible{outline: 2px solid var(--gold); outline-offset: 3px}
+
+    .brand-anchor{
+      padding-top: 90px;
+      padding-bottom: 70px;
+      display:flex;
+      justify-content:center;
+    }
+    .brand-anchor a{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 22px;
+      border-radius: 9999px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .brand-anchor a::before{
+      content:"";
+      position:absolute;
+      inset:-12px;
+      border-radius:9999px;
+      background: radial-gradient(closest-side, rgba(216,160,32,0.16), rgba(255,255,255,0.06) 45%, rgba(0,0,0,0) 72%);
+      filter: blur(12px);
+      opacity: 0.85;
+      pointer-events:none;
+    }
+    .brand-anchor img{
+      position:relative;
+      z-index:1;
+      width:118px;
+      height:auto;
+      opacity:0.82;
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+    @media (min-width: 768px){
+      .brand-anchor{padding-top:110px; padding-bottom:90px}
+      .brand-anchor img{width:156px}
+    }
+    .brand-anchor a:focus-visible{outline: 2px solid var(--gold); outline-offset: 6px}
+    .brand-anchor a:hover img{opacity: 0.95; transform: translateY(-1px)}
   </style>
 </head>
 <body class="antialiased text-slate-900">
@@ -273,10 +335,10 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Get a Fast Quote</h2>
-    <p class="mt-2 text-slate-300">Use the form — we’ll reply quickly with a price and earliest availability. If it doesn’t submit, your email app will open as a fallback.</p>
+	  <section id="contact" class="py-20 bg-black text-white">
+	    <div class="max-w-6xl mx-auto px-4">
+	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Get a Fast Quote</h2>
+	    <p class="mt-2 text-slate-300">Use the form — we’ll reply quickly with a price and earliest availability. If it doesn’t submit, your email app will open as a fallback.</p>
       <div class="mt-8 grid gap-8 md:grid-cols-2">
         <form id="qform" class="grid grid-cols-1 gap-4" action="mailto:quote@milehighsolarcare.com" method="post" enctype="text/plain" novalidate>
           <input class="glass px-4 py-3 rounded-xl" type="text" name="name" placeholder="Your name" required aria-label="Your name" />
@@ -296,13 +358,57 @@
           <p class="text-sm text-slate-400">Hours: Mon–Sat 8:00–6:00</p>
         </div>
       </div>
-    </div>
-  </section>
+	    </div>
+	  </section>
 
-  <footer class="border-t border-slate-700 py-10 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-300">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-        <p>© <span id="y"></span> Mile High Solar Care — Colorado Clean. Peak Power.</p>
+		  <!-- Instagram Feed -->
+		  <section class="instagram-feed py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
+		    <div class="max-w-6xl mx-auto px-4">
+		      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+		        <div>
+		          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">On Social</h2>
+		          <p class="mt-2 text-slate-300">Follow along for recent jobs, tips, and updates.</p>
+		        </div>
+		        <nav aria-label="Social media">
+		          <ul class="social-icons sm:justify-end">
+		            <li>
+		              <a class="social-bubble" href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+		                <img src="images/instagram.png" alt="" width="26" height="26" loading="lazy" decoding="async" />
+		              </a>
+		            </li>
+		            <li>
+		              <a class="social-bubble" href="https://www.facebook.com/share/16rR6f9PUK/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+		                <img src="images/facebook.png" alt="" width="26" height="26" loading="lazy" decoding="async" />
+		              </a>
+		            </li>
+		            <li>
+		              <a class="social-bubble" href="https://www.tiktok.com/@milehighsolarcare" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+		                <img src="images/tiktok.png" alt="" width="26" height="26" loading="lazy" decoding="async" />
+		              </a>
+		            </li>
+		          </ul>
+		        </nav>
+		      </div>
+		      <div class="instagram-embed glass rounded-2xl overflow-hidden">
+		        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+		        <script src="https://elfsightcdn.com/platform.js" async></script>
+		        <div
+		          class="elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151"
+	          data-elfsight-app-lazy>
+	        </div>
+	      </div>
+	      <div class="brand-anchor">
+	        <a href="index.html#home" aria-label="Back to top">
+	          <img src="images/logo.webp" alt="Mile High Solar Care" loading="lazy" decoding="async" />
+	        </a>
+	      </div>
+	    </div>
+	  </section>
+
+	  <footer class="border-t border-slate-700 py-10 bg-black text-white">
+	    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-300">
+	      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+	        <p>© <span id="y"></span> Mile High Solar Care — Colorado Clean. Peak Power.</p>
         <p>Serving Denver, Aurora & the Front Range • <a class="text-[var(--gold)] hover:underline" href="tel:+19706995484">(970) 699‑5484</a></p>
       </div>
     </div>
@@ -416,7 +522,7 @@ Notes: ${data.notes||''}`
       "name": "Is rain enough to keep panels clean?",
       "acceptedAnswer": {"@type": "Answer","text": "Rain helps, but can leave mineral spots. A pure‑water wash avoids residues."}
     }]
-  }
-  </script>
+	  }
+	  </script>
 </body>
 </html>
