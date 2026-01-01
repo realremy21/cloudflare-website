@@ -204,37 +204,43 @@
 	    .header-ctas .cta-primary,
 	    .header-ctas .cta-primary:hover{box-shadow:none !important}
 
-	    /* Mobile hamburger menu */
-	    .mobile-menu-button{
-	      width: 44px;
-	      height: 44px;
-	      display: inline-flex;
-	      align-items: center;
-	      justify-content: center;
-	      border-radius: 16px;
-	      background: rgba(0,0,0,0.25);
-	      border: 1px solid rgba(18,163,109,0.35);
-	      transition: background-color 160ms ease, border-color 160ms ease;
-	      -webkit-tap-highlight-color: transparent;
-	    }
-	    .mobile-menu-button:focus-visible{outline: 2px solid #12A36D; outline-offset: 4px}
-	    .hamburger{
-	      display:flex;
-	      flex-direction:column;
-	      gap: 5px;
-	      width: 20px;
-	    }
-	    .hamburger-bar{
-	      height: 2px;
-	      width: 100%;
-	      background: #12A36D;
-	      border-radius: 9999px;
-	      transition: transform 180ms ease, opacity 180ms ease;
-	    }
-	    .mobile-menu-overlay{display:none}
+		    /* Mobile hamburger menu */
+		    .mobile-menu-button{-webkit-tap-highlight-color: transparent}
+		    .mobile-menu-overlay{display:none}
 
-	    /* Explicit layout controls (desktop/tablet vs mobile) */
-	    @media (max-width: 768px) {
+		    /* Explicit layout controls (desktop/tablet vs mobile) */
+			    @media (max-width: 768px) {
+			      /* ===== MOBILE HAMBURGER ICON (BRAND CUSTOM) ===== */
+		      .hamburger,
+		      .menu-toggle,
+		      .mobile-menu-button{
+		        background: transparent !important;
+		        border: none !important;
+		        box-shadow: none !important;
+		        padding: 0 !important;
+		      }
+			      .mobile-menu-button{
+			        width: 34px;
+			        height: 28px;
+		        display: flex;
+		        flex-direction: column;
+		        justify-content: center;
+		        gap: 6px;
+			        cursor: pointer;
+			      }
+			      .mobile-menu-button:focus-visible{outline: 2px solid var(--accent); outline-offset: 4px}
+			      .mobile-menu-button .line{
+			        display:block;
+			        height: 3px;
+			        border-radius: 2px;
+			        background-color: var(--accent);
+			        transition: transform 0.25s ease, opacity 0.25s ease;
+			      }
+		      /* Intentional asymmetry to match reference */
+		      .mobile-menu-button .line-1{width: 22px; margin-left: 2px}
+		      .mobile-menu-button .line-2{width: 26px; margin-left: 0}
+		      .mobile-menu-button .line-3{width: 20px; margin-left: 6px}
+
 	      .desktop-nav { display: none !important; }
 	      .desktop-ctas { display: none !important; }
 	      .mobile-menu-button { display: inline-flex; }
@@ -251,7 +257,7 @@
 	      align-items:center;
 	      gap: 1.25rem;
 	    }
-	    @media (max-width: 768px){
+		    @media (max-width: 768px){
 	      .mobile-nav{
 	        display:block;
 	        position:absolute;
@@ -270,14 +276,14 @@
 	        pointer-events: none;
 	        transition: transform 180ms ease, opacity 180ms ease;
 	      }
-	      header.is-mobile-open .mobile-nav{
-	        opacity: 1;
-	        transform: translateY(0);
-	        pointer-events: auto;
-	      }
-	      header.is-mobile-open .hamburger-bar:nth-child(1){transform: translateY(7px) rotate(45deg)}
-	      header.is-mobile-open .hamburger-bar:nth-child(2){opacity: 0}
-	      header.is-mobile-open .hamburger-bar:nth-child(3){transform: translateY(-7px) rotate(-45deg)}
+		      header.is-mobile-open .mobile-nav{
+		        opacity: 1;
+		        transform: translateY(0);
+		        pointer-events: auto;
+		      }
+		      header.is-mobile-open .mobile-menu-button .line-1{transform: translateY(9px) rotate(45deg); width: 26px; margin-left: 0}
+		      header.is-mobile-open .mobile-menu-button .line-2{opacity: 0}
+		      header.is-mobile-open .mobile-menu-button .line-3{transform: translateY(-9px) rotate(-45deg); width: 26px; margin-left: 0}
 
 	      .mobile-nav .site-nav{
 	        display:flex;
@@ -372,11 +378,9 @@
 	        <a href="index.html#contact" class="cta-btn cta-primary glossy-btn text-base font-semibold">Get a Quote</a>
 	      </div>
 	      <button class="mobile-menu-toggle mobile-menu-button" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
-	        <span class="hamburger" aria-hidden="true">
-	          <span class="hamburger-bar"></span>
-	          <span class="hamburger-bar"></span>
-	          <span class="hamburger-bar"></span>
-	        </span>
+	        <span class="line line-1" aria-hidden="true"></span>
+	        <span class="line line-2" aria-hidden="true"></span>
+	        <span class="line line-3" aria-hidden="true"></span>
 	      </button>
 	      <div class="mobile-nav mobile-menu-overlay" id="mobileNav"></div>
 		    </div>
