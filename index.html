@@ -22,7 +22,17 @@
     html{scroll-behavior:smooth}
     html, body{overflow-x:hidden}
     :target{scroll-margin-top:90px}
-    img, iframe{max-width:100%}
+	    img, iframe{max-width:100%}
+	    /* Hero bottom fade to blend into black sections */
+	    #home::after{
+	      content:"";
+	      position:absolute;
+	      left:0; right:0; bottom:0;
+	      height: clamp(80px, 18vw, 180px);
+	      background: linear-gradient(to bottom, rgba(0,0,0,0), #000);
+	      pointer-events:none;
+	      z-index: 0;
+	    }
     @media (max-width: 639px){
       body{padding-bottom:96px}
       .ba img{height:16rem}
