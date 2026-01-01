@@ -56,7 +56,6 @@
         max-width: 28ch;
         margin-left:auto;
         margin-right:auto;
-        text-shadow: 0 10px 26px rgba(0,0,0,0.62), 0 0 18px rgba(0,0,0,0.45);
       }
       .hero-mobile-details .cta-btn{min-height:56px}
       .hero-mobile-details .cta-secondary-glass{
@@ -86,35 +85,18 @@
       border-bottom: 1px solid rgba(255,255,255,0.45);
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
-    .hero-title{
-      position: relative;
-      color: #ffffff;
-      text-shadow:
-        0 8px 24px rgba(0,0,0,0.55),
-        0 0 18px rgba(255,255,255,0.75);
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,1),
-        rgba(245,245,245,0.85),
-        rgba(230,230,230,0.95)
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-    .hero-title span{
-      color: #D8A020;
-      text-shadow:
-        0 8px 24px rgba(0,0,0,0.65),
-        0 0 18px rgba(255,200,80,0.75);
-      background: linear-gradient(
-        to bottom,
-        rgba(255,220,130,1),
-        rgba(216,160,32,1),
-        rgba(180,120,20,1)
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
+	    .hero-title{position:relative; color:#ffffff}
+	    .hero-title .hero-glow{
+	      text-shadow:
+	        0 1px 2px rgba(255,255,255,0.6),
+	        0 0 12px rgba(245,190,80,0.65),
+	        0 0 24px rgba(245,190,80,0.45);
+	    }
+	    .hero-title .hero-contrast{
+	      color:#D8A020;
+	      font-weight:900;
+	      text-shadow: 0 10px 26px rgba(0,0,0,0.70);
+	    }
     /* Before/After slider */
     .ba{position:relative; overflow:hidden; border-radius:16px}
     .ba img{
@@ -296,7 +278,7 @@
 			    </div>
 			    <div class="hero-overlay relative z-10 max-w-4xl mx-auto px-4 py-28 text-center text-white">
 			      <div class="hidden md:inline-block px-4 py-2 mb-4 glass text-sm rounded-full">Warranty‑Safe Solar Panel Cleaning</div>
-			      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow">Colorado Clean. <span class="text-[#D8A020]">Peak Power.</span></h1>
+			      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow"><span class="hero-glow">Colorado Clean.</span> <span class="hero-contrast">Peak Power.</span></h1>
 			      <p class="hidden md:block mt-4 text-xl sm:text-2xl font-semibold tracking-tight">
 			        Residential <span class="text-[var(--gold)]">Solar Panel Cleaning</span> for the Denver Metro & Front Range
 			      </p>
