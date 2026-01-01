@@ -63,31 +63,32 @@
       .ba img{height:16rem}
     }
 		    @media (max-width: 768px){
-		      /* Mobile: replace desktop fade with a softer seam-free blend (iOS) */
+		      /* Mobile hero fade (seamless iOS-safe transition) */
 		      #home::after{display:none}
-		      .hero,
-		      .hero-section,
+		      #home.hero,
 		      .home-hero{
 		        border-bottom: none !important;
 		        box-shadow: none !important;
 		        background-color: #000;
-		        position: relative;
+		        outline: none !important;
 		      }
-		      .hero::after,
-		      .hero-section::after,
-		      .home-hero::after{
+		      #home.hero{position: relative}
+		      #home.hero::after{
 		        content: "";
 		        position: absolute;
 		        left: 0;
 		        right: 0;
 		        bottom: 0;
-		        height: 80px;
+		        height: 140px;
 		        background: linear-gradient(
 		          to bottom,
 		          rgba(0,0,0,0) 0%,
-		          rgba(0,0,0,1) 100%
+		          rgba(0,0,0,0.6) 45%,
+		          rgba(0,0,0,0.85) 75%,
+		          #000 100%
 		        );
 		        pointer-events: none;
+		        z-index: 1;
 		      }
 		      .hero-mobile-details{background:#000}
 
