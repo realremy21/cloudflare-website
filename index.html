@@ -64,29 +64,27 @@
 				      /* Mobile hero image (no fades/overlays) */
 				      #home::after{display:none}
 				      .hero-media{position:relative; overflow:hidden; min-height:60vh}
-				      .hero-media img{display:block; width:100%; height:auto}
+				      .hero-media img{display:block; width:100%; height:100%; object-fit:cover}
 				      .hero-mobile-details{background:#000}
 				      .hero-mobile-surface{background:#000; border-top:none; box-shadow:none; outline:none}
 				      #included{background:#000; border-top:none; box-shadow:none; outline:none}
 
-			      /* Mobile hero improvements (no desktop changes) */
-			      body{background:#000}
-			      #home{
-		        min-height:auto !important;
-		        height:100svh;
-		        max-height:100vh;
-		        padding-top:0 !important;
-		      }
-		      #home{
-		        min-height:100vh !important;
-		        background-size:cover;
-		        background-position:center;
-		        background-repeat:no-repeat;
-		      }
-			      /* Keep the hero background centered and stable on mobile */
-				      #heroParallax{
-				        transform:none !important;
-				      }
+				      /* Mobile hero improvements (no desktop changes) */
+				      body{background:#000}
+				      #home{
+			        min-height:100vh !important;
+			        min-height:100svh !important;
+			        height:100vh;
+			        height:100svh;
+			        padding-top:0 !important;
+			        background-size:cover;
+			        background-position:center;
+			        background-repeat:no-repeat;
+			      }
+				      /* Keep the hero background centered and stable on mobile */
+					      #heroParallax{
+					        transform:none !important;
+					      }
 			      #heroParallax picture{display:block}
 			      #home .hero-overlay{
 			        padding-top:5.25rem !important;
