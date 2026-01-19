@@ -22,7 +22,23 @@
     html{scroll-behavior:smooth}
     html, body{overflow-x:hidden}
     :target{scroll-margin-top:90px}
-			    img, iframe{max-width:100%}
+	    img, iframe{max-width:100%}
+	    summary[data-who-story]{
+	      cursor:pointer;
+	      display:inline-flex;
+	      align-items:center;
+	      padding:0.45rem 0.9rem;
+	      border-radius:999px;
+	      border:1px solid var(--accent);
+	      background:rgba(14, 91, 58, 0.22);
+	      color:#E6F4EE;
+	      transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease;
+	    }
+	    summary[data-who-story]:hover{
+	      background:rgba(14, 91, 58, 0.36);
+	      box-shadow:0 0 0 3px rgba(14, 91, 58, 0.2);
+	    }
+	    summary[data-who-story]::-webkit-details-marker{display:none}
 			    .cert-badge{
 			      height: 130px;
 			      max-width: 360px;
@@ -855,6 +871,33 @@
 		      </div>
 					    </div>
 					  </section>
+
+  <!-- Who We Are -->
+  <section class="py-16 sm:py-20 bg-black text-white">
+    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight max-w-6xl mx-auto px-4">Who We Are</h2>
+    <div class="mt-6 max-w-6xl mx-auto px-4">
+      <img src="images/jeremy-meral.jpg" alt="Jeremy and Meral Runnels, founders of Mile High Solar Care" class="rounded-2xl" style="display:block;width:100%;max-width:min(90%, 340px);margin:0 auto;" loading="lazy">
+    </div>
+    <details class="mt-6 max-w-6xl mx-auto px-4">
+      <summary data-who-story class="font-semibold">Read Our Story ▾</summary>
+      <p class="mt-4 text-slate-300">Mile High Solar Care was built from lived experience, hard lessons, and a deep conviction that people deserve better.</p>
+      <p class="mt-4 text-slate-300">Before starting this company with my wife, Meral, I spent over six years in corporate America. I began at the very bottom—answering phones—and worked my way up to collaborating directly with executive leadership and CEOs. Along the way, I learned a great deal about innovation, problem-solving, and how large organizations operate.</p>
+      <p class="mt-4 text-slate-300">But I also learned something else.</p>
+      <p class="mt-4 text-slate-300">I saw firsthand how often people are treated as expendable. How loyalty is praised—until it’s inconvenient. How “values” look good on a wall, but don’t always show up when people need them most.</p>
+      <p class="mt-4 text-slate-300">After a layoff and a transition into healthcare, I believed I had found something different. I thought working in a hospital system would mean helping people in a more direct, meaningful way. But over time, it became clear that many of the same corporate priorities still existed—metrics over people, systems over compassion.</p>
+      <p class="mt-4 text-slate-300">Then everything changed.</p>
+      <p class="mt-4 text-slate-300">When Meral was diagnosed with an extremely aggressive form of breast cancer, we experienced those systems from the other side—at our most vulnerable. Watching how she was treated, even as an employee, removed any remaining illusion. It became painfully clear how easily people can be reduced to numbers, schedules, or policies.</p>
+      <p class="mt-4 text-slate-300">That season clarified everything.</p>
+      <p class="mt-4 text-slate-300">We realized that if we wanted to build something rooted in integrity, care, and accountability, we had to build it ourselves.</p>
+      <p class="mt-4 text-slate-300">Mile High Solar Care exists because we believe work should honor people—not exploit them. That trust is earned, not assumed. And that when someone invites you to work on their home, you owe them honesty, excellence, and respect.</p>
+      <p class="mt-4 text-slate-300">We’re not interested in cutting corners or chasing volume. We’re here to do things the right way—show up when we say we will, communicate clearly, stand behind our work, and treat every customer like a neighbor.</p>
+      <p class="mt-4 text-slate-300">This business is also about freedom—the freedom to choose integrity over pressure, family over burnout, and long-term impact over short-term gain. The American Dream was never about working endlessly for someone else’s bottom line. It was about building something meaningful, with the people you love, that serves others well.</p>
+      <p class="mt-4 text-slate-300">We’re grateful for the road that led us here, for the faith that guides us, and for every customer who trusts us with their home.</p>
+      <p class="mt-4 text-slate-300">That trust is not something we take lightly.</p>
+      <p class="mt-4 text-slate-300 whitespace-pre-line">— Jeremy &amp; Meral Runnels
+Founders, Mile High Solar Care</p>
+    </details>
+  </section>
 
 				  <!-- Social -->
 				  <section class="social-section py-10 sm:py-12 bg-black text-white border-t border-slate-800/60">
