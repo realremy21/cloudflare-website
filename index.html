@@ -326,6 +326,7 @@
     @media (hover:hover){
       #reviews-showcase .reviews-marquee:hover .reviews-track{animation-play-state: paused}
     }
+    #reviews-showcase .reviews-marquee.is-touching .reviews-track{animation-play-state: paused}
     @media (max-width: 768px){
       #reviews-showcase .reviews-marquee{
         overflow-x: auto;
@@ -333,8 +334,6 @@
         scrollbar-width: thin;
         scroll-snap-type: x proximity;
       }
-      #reviews-showcase .reviews-track{animation: none}
-      #reviews-showcase .reviews-group[aria-hidden="true"]{display: none}
       #reviews-showcase .review-card{
         flex-basis: min(86vw, 340px);
         scroll-snap-align: start;
@@ -1218,6 +1217,23 @@ Founders, Mile High Solar Care</p>
 	      setup();
 		      mq.addEventListener?.('change', setup);
 		    })();
+
+    // Reviews marquee: pause while actively touching on mobile
+    (function initReviewsTouchPause(){
+      const section = document.getElementById('reviews-showcase');
+      if(!section) return;
+      const marquee = section.querySelector('.reviews-marquee');
+      if(!marquee) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(reduceMotion.matches) return;
+
+      const pause = ()=> marquee.classList.add('is-touching');
+      const resume = ()=> marquee.classList.remove('is-touching');
+
+      marquee.addEventListener('touchstart', pause, { passive: true });
+      marquee.addEventListener('touchend', resume, { passive: true });
+      marquee.addEventListener('touchcancel', resume, { passive: true });
+    })();
 
     // Mobile menu
     (function initMobileMenu(){
