@@ -335,6 +335,10 @@
         scrollbar-width: thin;
         scroll-snap-type: x proximity;
       }
+      #reviews-showcase .reviews-track{
+        animation: none;
+        transform: none;
+      }
       #reviews-showcase .review-card{
         flex-basis: min(86vw, 340px);
         scroll-snap-align: start;
@@ -1218,7 +1222,7 @@ Founders, Mile High Solar Care</p>
 		      mq.addEventListener?.('change', setup);
 		    })();
 
-    // Reviews marquee: keep seamless loop and pause while actively touching on mobile
+    // Reviews marquee: desktop uses CSS animation; mobile uses slow JS infinite scroll
     (function initReviewsMarquee(){
       const section = document.getElementById('reviews-showcase');
       if(!section) return;
@@ -1230,24 +1234,71 @@ Founders, Mile High Solar Care</p>
       // Keep Group B an exact copy of Group A so both halves are identical widths.
       groups[1].innerHTML = groups[0].innerHTML;
 
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const mobileMq = window.matchMedia('(max-width: 768px)');
+      const reduceMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const speed = 0.2;
+      let isTouching = false;
+      let rafId = null;
 
-      const pause = ()=> marquee.classList.add('is-touching');
-      const resume = ()=> marquee.classList.remove('is-touching');
+      function wrapAtMidpoint(){
+        const half = marquee.scrollWidth / 2;
+        if(half <= 0) return;
+        if(marquee.scrollLeft >= half) marquee.scrollLeft -= half;
+        if(marquee.scrollLeft < 0) marquee.scrollLeft += half;
+      }
+
+      function tick(){
+        if(mobileMq.matches && !reduceMotionMq.matches && !isTouching){
+          marquee.scrollLeft += speed;
+          wrapAtMidpoint();
+        }
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function start(){
+        if(rafId !== null) return;
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function stop(){
+        if(rafId === null) return;
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+
+      function updateMode(){
+        if(mobileMq.matches && !reduceMotionMq.matches){
+          start();
+          wrapAtMidpoint();
+          return;
+        }
+        stop();
+        if(!mobileMq.matches){
+          marquee.scrollLeft = 0;
+        }
+      }
+
+      function pause(){
+        isTouching = true;
+        marquee.classList.add('is-touching');
+      }
+
+      function resume(){
+        isTouching = false;
+        marquee.classList.remove('is-touching');
+        if(mobileMq.matches) wrapAtMidpoint();
+      }
 
       marquee.addEventListener('touchstart', pause, { passive: true });
       marquee.addEventListener('touchend', resume, { passive: true });
       marquee.addEventListener('touchcancel', resume, { passive: true });
-
-      // If a swipe reaches the second copy, wrap to equivalent midpoint position.
       marquee.addEventListener('scroll', ()=>{
-        if(reduceMotion.matches) return;
-        const half = marquee.scrollWidth / 2;
-        if(half <= 0) return;
-        if(marquee.scrollLeft >= half){
-          marquee.scrollLeft -= half;
-        }
+        if(mobileMq.matches) wrapAtMidpoint();
       }, { passive: true });
+
+      updateMode();
+      mobileMq.addEventListener?.('change', updateMode);
+      reduceMotionMq.addEventListener?.('change', updateMode);
     })();
 
     // Mobile menu
