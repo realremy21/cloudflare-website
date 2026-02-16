@@ -271,7 +271,7 @@
       flex-wrap: nowrap;
       width: max-content;
       gap: 0;
-      animation: reviews-scroll 46s linear infinite;
+      animation: reviews-scroll 70s linear infinite;
       will-change: transform;
     }
     #reviews-showcase .reviews-group{
@@ -337,10 +337,6 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scroll-snap-type: x proximity;
-      }
-      #reviews-showcase .reviews-track{
-        animation: none;
-        transform: none;
       }
       #reviews-showcase .review-card{
         flex: 0 0 auto;
@@ -1226,7 +1222,7 @@ Founders, Mile High Solar Care</p>
 		      mq.addEventListener?.('change', setup);
 		    })();
 
-    // Reviews marquee: desktop uses CSS animation; mobile uses slow JS infinite scroll
+    // Reviews marquee: keep duplicate groups synchronized; CSS drives motion.
     (function initReviewsMarquee(){
       const section = document.getElementById('reviews-showcase');
       if(!section) return;
@@ -1238,43 +1234,13 @@ Founders, Mile High Solar Care</p>
       // Keep Group B an exact copy of Group A so both halves are identical widths.
       groups[1].innerHTML = groups[0].innerHTML;
 
-      const reduceMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const speed = 0.2;
-      let isTouching = false;
-
-      function wrapAtMidpoint(){
-        const half = viewport.scrollWidth / 2;
-        if(half <= 0) return;
-        if(viewport.scrollLeft >= half) viewport.scrollLeft -= half;
-      }
-
-      function tick(){
-        if(window.innerWidth <= 768 && !reduceMotionMq.matches && !isTouching){
-          viewport.scrollLeft += speed;
-          wrapAtMidpoint();
-        }
-        requestAnimationFrame(tick);
-      }
-
-      function pause(){
-        isTouching = true;
+      // Pause animation while touching so manual swipe stays predictable on mobile.
+      viewport.addEventListener('touchstart', ()=>{
         viewport.classList.add('is-touching');
-      }
-
-      function resume(){
-        isTouching = false;
-        viewport.classList.remove('is-touching');
-        if(window.innerWidth <= 768) wrapAtMidpoint();
-      }
-
-      viewport.addEventListener('touchstart', pause, { passive: true });
+      }, { passive: true });
+      const resume = ()=> viewport.classList.remove('is-touching');
       viewport.addEventListener('touchend', resume, { passive: true });
       viewport.addEventListener('touchcancel', resume, { passive: true });
-      viewport.addEventListener('scroll', ()=>{
-        if(window.innerWidth <= 768) wrapAtMidpoint();
-      }, { passive: true });
-
-      requestAnimationFrame(tick);
     })();
 
     // Mobile menu
