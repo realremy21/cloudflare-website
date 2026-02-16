@@ -241,6 +241,114 @@
     .social-embed{width:100%}
     .social-embed iframe{display:block; width:100% !important; max-width:100% !important; border:0}
 
+    /* Reviews marquee */
+    #reviews-showcase .reviews-marquee{
+      position: relative;
+      margin-top: 1.75rem;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    #reviews-showcase .reviews-marquee::before,
+    #reviews-showcase .reviews-marquee::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: clamp(28px, 4vw, 56px);
+      pointer-events: none;
+      z-index: 2;
+    }
+    #reviews-showcase .reviews-marquee::before{
+      left: 0;
+      background: linear-gradient(to right, #000 0%, rgba(0,0,0,0) 100%);
+    }
+    #reviews-showcase .reviews-marquee::after{
+      right: 0;
+      background: linear-gradient(to left, #000 0%, rgba(0,0,0,0) 100%);
+    }
+    #reviews-showcase .reviews-track{
+      display: flex;
+      width: max-content;
+      animation: reviews-scroll 46s linear infinite;
+      will-change: transform;
+    }
+    #reviews-showcase .reviews-group{
+      display: flex;
+      gap: 1rem;
+      padding: 0.4rem 0;
+      flex-shrink: 0;
+    }
+    #reviews-showcase .review-card{
+      flex: 0 0 clamp(260px, 31vw, 340px);
+      padding: 1rem;
+      border-radius: 1rem;
+      background: linear-gradient(180deg, rgba(14,91,58,0.2) 0%, rgba(8,34,24,0.55) 100%);
+      border: 1px solid rgba(90, 180, 125, 0.36);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+    }
+    #reviews-showcase .review-stars{
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+    #reviews-showcase .review-quote{
+      margin-top: 0.65rem;
+      color: rgba(241, 245, 249, 0.95);
+      line-height: 1.45;
+      font-size: 0.96rem;
+    }
+    #reviews-showcase .review-meta{
+      margin-top: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+    #reviews-showcase .review-name{
+      font-size: 0.9rem;
+      color: #d1fae5;
+      font-weight: 600;
+    }
+    #reviews-showcase .review-source{
+      display: inline-flex;
+      align-items: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      padding: 0.2rem 0.55rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    @media (hover:hover){
+      #reviews-showcase .reviews-marquee:hover .reviews-track{animation-play-state: paused}
+    }
+    @media (max-width: 768px){
+      #reviews-showcase .reviews-marquee{
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scroll-snap-type: x proximity;
+      }
+      #reviews-showcase .reviews-track{animation: none}
+      #reviews-showcase .reviews-group[aria-hidden="true"]{display: none}
+      #reviews-showcase .review-card{
+        flex-basis: min(86vw, 340px);
+        scroll-snap-align: start;
+      }
+    }
+    @media (prefers-reduced-motion: reduce){
+      #reviews-showcase .reviews-track{animation: none}
+      #reviews-showcase .reviews-group[aria-hidden="true"]{display: none}
+    }
+    @keyframes reviews-scroll{
+      from{transform: translate3d(0,0,0)}
+      to{transform: translate3d(-50%,0,0)}
+    }
+
     /* Hero CTAs */
     .cta-btn{
       display:inline-flex;
@@ -869,8 +977,136 @@
 				          </div>
 			        </div>
 		      </div>
-					    </div>
-					  </section>
+						    </div>
+						  </section>
+
+  <!-- Reviews -->
+  <section id="reviews-showcase" class="py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Customers Are Saying</h2>
+      <div class="reviews-marquee" aria-label="Customer reviews">
+        <div class="reviews-track">
+          <div class="reviews-group">
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"Excellent job from start to finish. Communication was clear, scheduling was easy, and the results were immediately noticeable. My panels looked brand new afterward, and I could tell the difference right away. Professional, respectful, and clearly knowledgeable. Highly recommend."</p>
+              <div class="review-meta">
+                <p class="review-name">Jake</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"Excellent customer service and work quality. Super easy to work with and very kind people."</p>
+              <div class="review-meta">
+                <p class="review-name">Gavin</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"Very friendly 10/10 recommend."</p>
+              <div class="review-meta">
+                <p class="review-name">Nova</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"They showed up on time and did a very good job. They pointed out issues with my panels and provided before and after photos. I definitely recommend them for your panel needs and will use them again."</p>
+              <div class="review-meta">
+                <p class="review-name">Gregory</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"5.0 Star Rating across all reviews. We are grateful for every customer who trusts us with their home."</p>
+              <div class="review-meta">
+                <p class="review-name">Mile High Solar Care</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what I long suspected. Those panels do get reeeeally marred and dusty. Now, they sparkle! With their infectious 'can do' attitude and positivity, Jeremy and Meryl make quick work of the cleaning. I look forward to their return to keep my solar panels in tip-top shape."</p>
+              <div class="review-meta">
+                <p class="review-name">Nancy</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">"Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a noticeable layer of dust and buildup. They were professional, explained everything clearly, and handled our steep roof safely. Panels look crystal clear now and we’ve already seen improved performance. We’ll definitely have them back in the next 6–12 months!"</p>
+              <div class="review-meta">
+                <p class="review-name">Daniel</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+          </div>
+          <div class="reviews-group" aria-hidden="true">
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"Excellent job from start to finish. Communication was clear, scheduling was easy, and the results were immediately noticeable. My panels looked brand new afterward, and I could tell the difference right away. Professional, respectful, and clearly knowledgeable. Highly recommend."</p>
+              <div class="review-meta">
+                <p class="review-name">Jake</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"Excellent customer service and work quality. Super easy to work with and very kind people."</p>
+              <div class="review-meta">
+                <p class="review-name">Gavin</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"Very friendly 10/10 recommend."</p>
+              <div class="review-meta">
+                <p class="review-name">Nova</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"They showed up on time and did a very good job. They pointed out issues with my panels and provided before and after photos. I definitely recommend them for your panel needs and will use them again."</p>
+              <div class="review-meta">
+                <p class="review-name">Gregory</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"5.0 Star Rating across all reviews. We are grateful for every customer who trusts us with their home."</p>
+              <div class="review-meta">
+                <p class="review-name">Mile High Solar Care</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what I long suspected. Those panels do get reeeeally marred and dusty. Now, they sparkle! With their infectious 'can do' attitude and positivity, Jeremy and Meryl make quick work of the cleaning. I look forward to their return to keep my solar panels in tip-top shape."</p>
+              <div class="review-meta">
+                <p class="review-name">Nancy</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <p class="review-stars">★★★★★</p>
+              <p class="review-quote">"Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a noticeable layer of dust and buildup. They were professional, explained everything clearly, and handled our steep roof safely. Panels look crystal clear now and we’ve already seen improved performance. We’ll definitely have them back in the next 6–12 months!"</p>
+              <div class="review-meta">
+                <p class="review-name">Daniel</p>
+                <span class="review-source">Google</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="mt-5 inline-block text-sm text-[var(--gold)] hover:underline">Read more reviews</a>
+    </div>
+  </section>
 
   <!-- Who We Are -->
   <section class="py-16 sm:py-20 bg-black text-white">
