@@ -268,6 +268,7 @@
     }
     #reviews-showcase .reviews-track{
       display: flex;
+      flex-wrap: nowrap;
       width: max-content;
       gap: 0;
       animation: reviews-scroll 46s linear infinite;
@@ -280,7 +281,8 @@
       flex-shrink: 0;
     }
     #reviews-showcase .review-card{
-      flex: 0 0 clamp(260px, 31vw, 340px);
+      flex: 0 0 auto;
+      width: clamp(260px, 31vw, 340px);
       padding: 1rem;
       border-radius: 1rem;
       background: linear-gradient(180deg, rgba(14,91,58,0.2) 0%, rgba(8,34,24,0.55) 100%);
@@ -331,6 +333,7 @@
     @media (max-width: 768px){
       #reviews-showcase .reviews-marquee{
         overflow-x: auto;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scroll-snap-type: x proximity;
@@ -340,7 +343,8 @@
         transform: none;
       }
       #reviews-showcase .review-card{
-        flex-basis: min(86vw, 340px);
+        flex: 0 0 auto;
+        width: min(86vw, 340px);
         scroll-snap-align: start;
       }
     }
@@ -1226,79 +1230,51 @@ Founders, Mile High Solar Care</p>
     (function initReviewsMarquee(){
       const section = document.getElementById('reviews-showcase');
       if(!section) return;
-      const marquee = section.querySelector('.reviews-marquee');
+      const viewport = section.querySelector('.reviews-marquee');
       const track = section.querySelector('.reviews-track');
       const groups = track ? Array.from(track.querySelectorAll('.reviews-group')) : [];
-      if(!marquee || !track || groups.length < 2) return;
+      if(!viewport || !track || groups.length < 2) return;
 
       // Keep Group B an exact copy of Group A so both halves are identical widths.
       groups[1].innerHTML = groups[0].innerHTML;
 
-      const mobileMq = window.matchMedia('(max-width: 768px)');
       const reduceMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
       const speed = 0.2;
       let isTouching = false;
-      let rafId = null;
 
       function wrapAtMidpoint(){
-        const half = marquee.scrollWidth / 2;
+        const half = viewport.scrollWidth / 2;
         if(half <= 0) return;
-        if(marquee.scrollLeft >= half) marquee.scrollLeft -= half;
-        if(marquee.scrollLeft < 0) marquee.scrollLeft += half;
+        if(viewport.scrollLeft >= half) viewport.scrollLeft -= half;
       }
 
       function tick(){
-        if(mobileMq.matches && !reduceMotionMq.matches && !isTouching){
-          marquee.scrollLeft += speed;
+        if(window.innerWidth <= 768 && !reduceMotionMq.matches && !isTouching){
+          viewport.scrollLeft += speed;
           wrapAtMidpoint();
         }
-        rafId = requestAnimationFrame(tick);
-      }
-
-      function start(){
-        if(rafId !== null) return;
-        rafId = requestAnimationFrame(tick);
-      }
-
-      function stop(){
-        if(rafId === null) return;
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-
-      function updateMode(){
-        if(mobileMq.matches && !reduceMotionMq.matches){
-          start();
-          wrapAtMidpoint();
-          return;
-        }
-        stop();
-        if(!mobileMq.matches){
-          marquee.scrollLeft = 0;
-        }
+        requestAnimationFrame(tick);
       }
 
       function pause(){
         isTouching = true;
-        marquee.classList.add('is-touching');
+        viewport.classList.add('is-touching');
       }
 
       function resume(){
         isTouching = false;
-        marquee.classList.remove('is-touching');
-        if(mobileMq.matches) wrapAtMidpoint();
+        viewport.classList.remove('is-touching');
+        if(window.innerWidth <= 768) wrapAtMidpoint();
       }
 
-      marquee.addEventListener('touchstart', pause, { passive: true });
-      marquee.addEventListener('touchend', resume, { passive: true });
-      marquee.addEventListener('touchcancel', resume, { passive: true });
-      marquee.addEventListener('scroll', ()=>{
-        if(mobileMq.matches) wrapAtMidpoint();
+      viewport.addEventListener('touchstart', pause, { passive: true });
+      viewport.addEventListener('touchend', resume, { passive: true });
+      viewport.addEventListener('touchcancel', resume, { passive: true });
+      viewport.addEventListener('scroll', ()=>{
+        if(window.innerWidth <= 768) wrapAtMidpoint();
       }, { passive: true });
 
-      updateMode();
-      mobileMq.addEventListener?.('change', updateMode);
-      reduceMotionMq.addEventListener?.('change', updateMode);
+      requestAnimationFrame(tick);
     })();
 
     // Mobile menu
