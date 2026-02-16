@@ -269,6 +269,7 @@
     #reviews-showcase .reviews-track{
       display: flex;
       width: max-content;
+      gap: 0;
       animation: reviews-scroll 46s linear infinite;
       will-change: transform;
     }
@@ -341,7 +342,6 @@
     }
     @media (prefers-reduced-motion: reduce){
       #reviews-showcase .reviews-track{animation: none}
-      #reviews-showcase .reviews-group[aria-hidden="true"]{display: none}
     }
     @keyframes reviews-scroll{
       from{transform: translate3d(0,0,0)}
@@ -1218,14 +1218,19 @@ Founders, Mile High Solar Care</p>
 		      mq.addEventListener?.('change', setup);
 		    })();
 
-    // Reviews marquee: pause while actively touching on mobile
-    (function initReviewsTouchPause(){
+    // Reviews marquee: keep seamless loop and pause while actively touching on mobile
+    (function initReviewsMarquee(){
       const section = document.getElementById('reviews-showcase');
       if(!section) return;
       const marquee = section.querySelector('.reviews-marquee');
-      if(!marquee) return;
+      const track = section.querySelector('.reviews-track');
+      const groups = track ? Array.from(track.querySelectorAll('.reviews-group')) : [];
+      if(!marquee || !track || groups.length < 2) return;
+
+      // Keep Group B an exact copy of Group A so both halves are identical widths.
+      groups[1].innerHTML = groups[0].innerHTML;
+
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if(reduceMotion.matches) return;
 
       const pause = ()=> marquee.classList.add('is-touching');
       const resume = ()=> marquee.classList.remove('is-touching');
@@ -1233,6 +1238,16 @@ Founders, Mile High Solar Care</p>
       marquee.addEventListener('touchstart', pause, { passive: true });
       marquee.addEventListener('touchend', resume, { passive: true });
       marquee.addEventListener('touchcancel', resume, { passive: true });
+
+      // If a swipe reaches the second copy, wrap to equivalent midpoint position.
+      marquee.addEventListener('scroll', ()=>{
+        if(reduceMotion.matches) return;
+        const half = marquee.scrollWidth / 2;
+        if(half <= 0) return;
+        if(marquee.scrollLeft >= half){
+          marquee.scrollLeft -= half;
+        }
+      }, { passive: true });
     })();
 
     // Mobile menu
