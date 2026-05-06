@@ -17,9 +17,9 @@
   <meta name="twitter:description" content="Warranty-safe solar panel cleaning, critter guard installation, and maintenance for Denver, Aurora, and the Front Range." />
   <meta name="twitter:image" content="https://www.milehighsolarcare.com/images/hero.jpg" />
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="image" href="/images/hero.webp" imagesrcset="/images/hero.webp 1x">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="image" href="/images/Image.jpeg" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="stylesheet" href="/assets/tailwind.css">
   <style>
     :root{
       --ink: #0B4A30;
@@ -771,7 +771,7 @@
 	      <a href="index.html#home" class="flex items-center gap-2" aria-label="Go to top">
 	        <picture class="h-8">
 	          <source srcset="images/logo.webp" type="image/webp" />
-	          <img src="images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="128" height="32" />
+	          <img src="images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="128" height="32" decoding="async" />
 	        </picture>
 	        <span class="font-semibold">Mile High Solar Care</span>
 	      </a>
@@ -807,7 +807,7 @@
 						      <picture class="absolute inset-0">
 						        <source media="(max-width: 768px)" srcset="images/Image.jpeg" type="image/jpeg" />
 						        <source srcset="images/hero.webp" type="image/webp" />
-							        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="hero-image w-full object-cover" width="2200" height="1200" />
+								        <img src="images/hero.jpg" alt="Colorado home with clean solar panels and Denver skyline" class="hero-image w-full object-cover" width="2200" height="1200" decoding="async" fetchpriority="high" />
 						      </picture>
 							      <div class="hero-overlay absolute inset-0"></div>
 							    </div>
@@ -872,7 +872,7 @@
 	        <div class="included-cards grid grid-cols-2 sm:grid-cols-4 gap-3">
 	          <!-- Warranty-Safe -->
 	          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-	            <img src="images/feature-warranty.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+		            <img src="images/feature-warranty.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" width="900" height="600" loading="lazy" decoding="async" alt="" />
 	            <div class="relative z-10">
 	              <h3 class="font-semibold text-white text-sm">Warranty‑Safe</h3>
               <p class="text-slate-200 text-xs">Pure‑water, panel‑safe tools</p>
@@ -881,7 +881,7 @@
 
           <!-- Photo Proof -->
           <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-            <img src="images/feature-photo-proof.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+	            <img src="images/feature-photo-proof.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" width="900" height="1350" loading="lazy" decoding="async" alt="" />
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Photo Proof</h3>
               <p class="text-slate-200 text-xs">Before/after shots of every job</p>
@@ -890,7 +890,7 @@
 
           <!-- Local & Insured -->
           <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-            <img src="images/feature-local.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+	            <img src="images/feature-local.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" width="900" height="600" loading="lazy" decoding="async" alt="" />
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Local & Insured</h3>
               <p class="text-slate-200 text-xs">Aurora‑based, fully covered</p>
@@ -899,7 +899,7 @@
 
           <!-- Fast Scheduling -->
           <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-            <img src="images/feature-fast.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+	            <img src="images/feature-fast.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" width="900" height="900" loading="lazy" decoding="async" alt="" />
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Fast Scheduling</h3>
               <p class="text-slate-200 text-xs">Clear ETAs, quick turnaround</p>
@@ -1141,8 +1141,8 @@
 		    <div class="max-w-6xl mx-auto px-4">
 		      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
       <div class="mt-6 ba" id="ba">
-        <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1600" height="700" loading="lazy">
-        <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1600" height="700" loading="lazy">
+        <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1400" height="939" loading="lazy" decoding="async">
+        <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1400" height="933" loading="lazy" decoding="async">
         <div class="handle" id="handle"></div>
         <div class="knob" id="knob" aria-hidden="true"></div>
       </div>
@@ -1223,8 +1223,8 @@
 				          <div id="certifications" class="pt-2">
 					            <p class="text-xs uppercase tracking-wider text-[var(--gold)]">Certifications</p>
 					            <div class="mt-3 flex flex-wrap items-center gap-5 justify-start">
-					              <img src="images/osha-badge.png" alt="OSHA badge" class="cert-badge" loading="lazy" additionally="" />
-					              <img src="images/isca-badge.png" alt="ISCA badge" class="cert-badge" loading="lazy" additionally="" />
+					              <img src="images/osha-badge.png" alt="OSHA badge" class="cert-badge" width="720" height="480" loading="lazy" decoding="async" />
+					              <img src="images/isca-badge.png" alt="ISCA badge" class="cert-badge" width="720" height="480" loading="lazy" decoding="async" />
 					            </div>
 				          </div>
 			        </div>
@@ -1364,7 +1364,7 @@
   <section class="py-16 sm:py-20 bg-black text-white">
     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight max-w-6xl mx-auto px-4">Who We Are</h2>
     <div class="mt-6 max-w-6xl mx-auto px-4">
-      <img src="images/jeremy-meral.jpg" alt="Jeremy and Meral Runnels, founders of Mile High Solar Care" class="rounded-2xl" style="display:block;width:100%;max-width:min(90%, 340px);margin:0 auto;" loading="lazy">
+	      <img src="images/jeremy-meral.jpg" alt="Jeremy and Meral Runnels, founders of Mile High Solar Care" class="rounded-2xl" style="display:block;width:100%;max-width:min(90%, 340px);margin:0 auto;" width="900" height="1159" loading="lazy" decoding="async">
     </div>
     <details class="mt-6 max-w-6xl mx-auto px-4">
       <summary data-who-story class="font-semibold">Read Our Story ▾</summary>
@@ -1421,8 +1421,7 @@ Founders, Mile High Solar Care</p>
 			      </nav>
 			      <div class="social-embed mt-8 max-w-[1000px] mx-auto">
 			        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-			        <script src="https://elfsightcdn.com/platform.js" async></script>
-			        <div class="elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151" data-elfsight-app-lazy></div>
+				        <div class="elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151" data-elfsight-app-lazy></div>
 			      </div>
 			    </div>
 			  </section>
@@ -1570,32 +1569,86 @@ Founders, Mile High Solar Care</p>
       });
     })();
 
-    // Parallax hero
-    const hero = document.getElementById('heroParallax');
-    window.addEventListener('scroll', ()=>{
-      const y = window.scrollY * 0.15;
-      hero.style.transform = `translate3d(0, ${y}px, 0)`;
-    }, {passive:true});
+	    // Parallax hero
+	    (function initHeroParallax(){
+	      const hero = document.getElementById('heroParallax');
+	      if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	      let ticking = false;
+	      function update(){
+	        hero.style.transform = `translate3d(0, ${window.scrollY * 0.15}px, 0)`;
+	        ticking = false;
+	      }
+	      window.addEventListener('scroll', ()=>{
+	        if(ticking) return;
+	        ticking = true;
+	        requestAnimationFrame(update);
+	      }, {passive:true});
+	    })();
 
-    // Before/After slider
-    const ba = document.getElementById('ba');
-    const afterImg = ba.querySelector('.after');
-    const handle = document.getElementById('handle');
-    const knob = document.getElementById('knob');
-    function setX(x){
-      const rect = ba.getBoundingClientRect();
-      let pct = (x - rect.left) / rect.width;
-      pct = Math.max(0.05, Math.min(0.95, pct));
-      const right = (1-pct)*100;
-      afterImg.style.clipPath = `inset(0 0 0 ${pct*100}%)`;
-      handle.style.left = `${pct*100}%`;
-      knob.style.left = `${pct*100}%`;
-    }
-    setX(ba.getBoundingClientRect().left + ba.getBoundingClientRect().width*0.5);
-    ba.addEventListener('mousemove', (e)=> setX(e.clientX));
-    ba.addEventListener('touchmove', (e)=> setX(e.touches[0].clientX));
+	    // Before/After slider
+	    (function initBeforeAfterSlider(){
+	      const ba = document.getElementById('ba');
+	      if(!ba) return;
+	      const afterImg = ba.querySelector('.after');
+	      const handle = document.getElementById('handle');
+	      const knob = document.getElementById('knob');
+	      if(!afterImg || !handle || !knob) return;
+	      let rect = ba.getBoundingClientRect();
+	      let pendingX = rect.left + rect.width * 0.5;
+	      let ticking = false;
+	      function measure(){
+	        rect = ba.getBoundingClientRect();
+	      }
+	      function render(){
+	        let pct = (pendingX - rect.left) / rect.width;
+	        pct = Math.max(0.05, Math.min(0.95, pct));
+	        afterImg.style.clipPath = `inset(0 0 0 ${pct*100}%)`;
+	        handle.style.left = `${pct*100}%`;
+	        knob.style.left = `${pct*100}%`;
+	        ticking = false;
+	      }
+	      function setX(x){
+	        pendingX = x;
+	        if(ticking) return;
+	        ticking = true;
+	        requestAnimationFrame(render);
+	      }
+	      render();
+	      ba.addEventListener('mousemove', (e)=> setX(e.clientX), {passive:true});
+	      ba.addEventListener('touchmove', (e)=> setX(e.touches[0].clientX), {passive:true});
+	      window.addEventListener('resize', measure, {passive:true});
+	      if('ResizeObserver' in window) new ResizeObserver(measure).observe(ba);
+	    })();
 
-	    // Form: progressive enhancement POST to /api/quote, fallback to mailto
+	    // Load the Instagram widget only when the social section is close to view.
+	    (function initDeferredElfsight(){
+	      const embed = document.querySelector('.elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151');
+	      if(!embed) return;
+	      let loaded = false;
+	      function load(){
+	        if(loaded) return;
+	        loaded = true;
+	        const script = document.createElement('script');
+	        script.src = 'https://elfsightcdn.com/platform.js';
+	        script.async = true;
+	        document.head.appendChild(script);
+	      }
+	      if('IntersectionObserver' in window){
+	        const io = new IntersectionObserver((entries)=>{
+	          if(entries.some(entry => entry.isIntersecting)){
+	            io.disconnect();
+	            load();
+	          }
+	        }, { rootMargin: '800px 0px' });
+	        io.observe(embed);
+	      } else {
+	        load();
+	      }
+	      const idle = window.requestIdleCallback || ((cb)=> window.setTimeout(cb, 3500));
+	      idle(load, { timeout: 6000 });
+	    })();
+
+		    // Form: progressive enhancement POST to /api/quote, fallback to mailto
     const form = document.getElementById('qform');
     const formMsg = document.getElementById('formMsg');
     const submitBtn = document.getElementById('submitBtn');
