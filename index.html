@@ -6,9 +6,19 @@
   <title>Mile High Solar Care — Colorado Clean. Peak Power.</title>
   <meta name="description" content="Warranty‑safe solar panel cleaning for Denver & Aurora using pure water and panel‑safe tools. Fast quotes, clear pricing, photo proof." />
   <meta name="theme-color" content="#0E5B3A">
+  <link rel="canonical" href="https://www.milehighsolarcare.com/" />
+  <meta property="og:title" content="Mile High Solar Care — Colorado Clean. Peak Power." />
+  <meta property="og:description" content="Warranty-safe solar panel cleaning, critter guard installation, and maintenance for Denver, Aurora, and the Front Range." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.milehighsolarcare.com/" />
+  <meta property="og:image" content="https://www.milehighsolarcare.com/images/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mile High Solar Care — Colorado Clean. Peak Power." />
+  <meta name="twitter:description" content="Warranty-safe solar panel cleaning, critter guard installation, and maintenance for Denver, Aurora, and the Front Range." />
+  <meta name="twitter:image" content="https://www.milehighsolarcare.com/images/hero.jpg" />
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="image" href="images/longs-peak.jpg" imagesrcset="/images/longs-peak.jpg 1x">
+  <link rel="preload" as="image" href="/images/hero.webp" imagesrcset="/images/hero.webp 1x">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
@@ -1176,19 +1186,34 @@
 			  <section id="contact" class="py-16 sm:py-20 bg-black text-white">
 			    <div class="max-w-6xl mx-auto px-4">
 			      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Request a Solar Service Quote</h2>
-			    <p class="mt-2 text-slate-300">Use the form for solar panel cleaning, critter guard installation, or critter guard maintenance, and we’ll reply quickly with pricing and earliest availability. If it doesn’t submit, your email app will open as a fallback.</p>
+				    <p class="mt-2 text-slate-300">Use the form for solar panel cleaning, critter guard installation, or critter guard maintenance. We’ll confirm scope, pricing, and earliest availability before service.</p>
 
 	      <div class="mt-8 grid gap-8 md:grid-cols-2">
-	        <form id="qform" class="grid grid-cols-1 gap-4" action="mailto:quote@milehighsolarcare.com" method="post" enctype="text/plain" novalidate>
-	          <input class="glass px-4 py-3 rounded-xl" type="text" name="name" placeholder="Your name" required aria-label="Your name" />
-	          <input class="glass px-4 py-3 rounded-xl" type="email" name="email" placeholder="Your email" required aria-label="Your email" />
-          <input class="glass px-4 py-3 rounded-xl" type="tel" name="phone" placeholder="Your phone (optional)" aria-label="Your phone" />
-          <input class="glass px-4 py-3 rounded-xl" type="text" name="address" placeholder="Service address (city OK)" aria-label="Service address" />
-          <input class="glass px-4 py-3 rounded-xl" type="text" name="panels" placeholder="# of panels (approx)" aria-label="Number of panels" />
-          <textarea class="glass px-4 py-3 rounded-xl" name="notes" rows="4" placeholder="Any details (cleaning, critter guard install/maintenance, two‑story, steep roof, debris, timing)"></textarea>
-	          <button id="submitBtn" class="cta-btn cta-primary glossy-btn text-base font-semibold w-full" type="submit">Send</button>
-          <p class="text-xs text-slate-400">Trouble? Email <a class="text-[var(--gold)] hover:underline" href="mailto:quote@milehighsolarcare.com">quote@milehighsolarcare.com</a> or call/text.</p>
-          <div id="formMsg" class="hidden text-sm"></div>
+		        <form id="qform" class="grid grid-cols-1 gap-4" action="mailto:quote@milehighsolarcare.com" method="post" enctype="text/plain" novalidate>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+		          <input class="glass px-4 py-3 rounded-xl" type="text" name="name" placeholder="Your name" required aria-label="Your name" />
+		          <input class="glass px-4 py-3 rounded-xl" type="email" name="email" placeholder="Your email" required aria-label="Your email" />
+	          <input class="glass px-4 py-3 rounded-xl" type="tel" name="phone" placeholder="Your phone" aria-label="Your phone" />
+          <select class="glass px-4 py-3 rounded-xl" name="service" aria-label="Service type">
+            <option value="">Service needed</option>
+            <option value="Solar panel cleaning">Solar panel cleaning</option>
+            <option value="Critter guard installation">Critter guard installation</option>
+            <option value="Critter guard maintenance">Critter guard maintenance</option>
+            <option value="Not sure">Not sure yet</option>
+          </select>
+          <select class="glass px-4 py-3 rounded-xl" name="preferredContact" aria-label="Preferred contact method">
+            <option value="">Preferred contact method</option>
+            <option value="Text">Text</option>
+            <option value="Call">Call</option>
+            <option value="Email">Email</option>
+          </select>
+	          <input class="glass px-4 py-3 rounded-xl" type="text" name="address" placeholder="Service address (city OK)" aria-label="Service address" />
+	          <input class="glass px-4 py-3 rounded-xl" type="text" name="panels" placeholder="# of panels (approx)" aria-label="Number of panels" />
+          <input class="glass px-4 py-3 rounded-xl" type="text" name="timing" placeholder="Preferred timing or urgency" aria-label="Preferred timing or urgency" />
+	          <textarea class="glass px-4 py-3 rounded-xl" name="notes" rows="4" placeholder="Any details (cleaning, critter guard install/maintenance, two‑story, steep roof, debris, timing)"></textarea>
+		          <button id="submitBtn" class="cta-btn cta-primary glossy-btn text-base font-semibold w-full" type="submit">Request My Quote</button>
+	          <p class="text-xs text-slate-400">By submitting, you agree that Mile High Solar Care may contact you about your quote request. Trouble? Email <a class="text-[var(--gold)] hover:underline" href="mailto:quote@milehighsolarcare.com">quote@milehighsolarcare.com</a> or call/text.</p>
+	          <div id="formMsg" class="hidden text-sm" aria-live="polite"></div>
         </form>
 		        <div class="space-y-3 text-slate-300">
 		          <p><span class="font-semibold">Phone:</span> <a class="text-[var(--gold)] hover:underline" href="tel:+19706995484">(970) 699‑5484</a></p>
@@ -1570,49 +1595,56 @@ Founders, Mile High Solar Care</p>
     ba.addEventListener('mousemove', (e)=> setX(e.clientX));
     ba.addEventListener('touchmove', (e)=> setX(e.touches[0].clientX));
 
-    // Form: progressive enhancement POST to /api/quote, fallback to mailto
+	    // Form: progressive enhancement POST to /api/quote, fallback to mailto
     const form = document.getElementById('qform');
     const formMsg = document.getElementById('formMsg');
     const submitBtn = document.getElementById('submitBtn');
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      formMsg.className = 'text-sm text-slate-300';
-      formMsg.textContent = 'Sending...';
-      submitBtn.disabled = true;
+	      formMsg.className = 'text-sm text-slate-300';
+	      formMsg.textContent = 'Sending your request...';
+	      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      // Simple validation
-      if(!data.name || !data.email){
-        formMsg.className = 'text-sm text-red-600';
-        formMsg.textContent = 'Please enter your name and email.';
-        submitBtn.disabled = false;
-        return;
-      }
-      try {
-        const res = await fetch('/api/quote', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
-        if(res.ok){
-          formMsg.className = 'text-sm text-green-600';
-          formMsg.textContent = 'Thanks! Your request was sent. We’ll get back to you shortly.';
-          form.reset();
-          submitBtn.disabled = false;
-          return;
-        }
-        throw new Error('Bad status');
+	      const data = Object.fromEntries(new FormData(form).entries());
+	      // Simple validation
+	      if(!data.name || !data.email){
+	        formMsg.className = 'text-sm text-red-600';
+	        formMsg.textContent = 'Please enter your name and email.';
+	        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request My Quote';
+	        return;
+	      }
+	      try {
+	        const res = await fetch('/api/quote', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
+	        if(res.ok){
+	          formMsg.className = 'text-sm text-green-600';
+	          formMsg.textContent = 'Thanks. Your quote request was sent, and a confirmation email is on the way.';
+	          form.reset();
+	          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request My Quote';
+	          return;
+	        }
+	        throw new Error('Bad status');
       } catch(err){
         // Fallback to mailto:
         const body = encodeURIComponent(
           `Name: ${data.name}
 Email: ${data.email}
 Phone: ${data.phone||''}
+Service: ${data.service||''}
+Preferred contact: ${data.preferredContact||''}
 Address: ${data.address||''}
 Panels: ${data.panels||''}
+Timing: ${data.timing||''}
 Notes: ${data.notes||''}`
-        );
-        window.location.href = `mailto:quote@milehighsolarcare.com?subject=New%20Quote%20Request&body=${body}`;
-        formMsg.className = 'text-sm text-slate-300';
-        formMsg.textContent = 'Opening your email app... If it does not open, email quote@milehighsolarcare.com.';
-        submitBtn.disabled = false;
-      }
+	        );
+	        window.location.href = `mailto:quote@milehighsolarcare.com?subject=New%20Quote%20Request&body=${body}`;
+	        formMsg.className = 'text-sm text-slate-300';
+	        formMsg.textContent = 'Opening your email app as a backup. If it does not open, email quote@milehighsolarcare.com or call/text (970) 699-5484.';
+	        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request My Quote';
+	      }
 		    });
 		  </script>
 
@@ -1622,12 +1654,16 @@ Notes: ${data.notes||''}`
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mile High Solar Care",
-    "image": "/images/logo.png",
+    "image": "https://www.milehighsolarcare.com/images/logo.png",
     "telephone": "+1-970-699-5484",
     "areaServed": ["Denver", "Aurora", "Front Range"],
-    "url": "https://milehighsolarcare.com",
+    "url": "https://www.milehighsolarcare.com/",
     "priceRange": "$$",
-    "sameAs": []
+    "sameAs": [
+      "https://www.instagram.com/milehighsolarcare",
+      "https://www.facebook.com/share/16rR6f9PUK/?mibextid=wwXIfr",
+      "https://www.tiktok.com/@milehighsolarcare"
+    ]
   }
   </script>
 	  <script type="application/ld+json">

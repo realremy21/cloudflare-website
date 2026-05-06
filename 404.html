@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Page Not Found | Mile High Solar Care</title>
+  <style>
+    :root {
+      --accent: #0E5B3A;
+      --gold: #D8A020;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #000;
+      color: #fff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(100% - 32px, 680px);
+      text-align: center;
+    }
+    img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 8vw, 4.5rem);
+      line-height: 1;
+    }
+    p {
+      margin: 18px auto 0;
+      color: #cbd5e1;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      max-width: 44rem;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      background: linear-gradient(180deg, #12A36D, var(--accent));
+    }
+    .button.secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.32);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/images/logo.webp" alt="Mile High Solar Care" />
+    <h1>Page Not Found</h1>
+    <p>The page you requested does not exist. For solar panel cleaning, critter guard installation, or maintenance, head back home or call/text us directly.</p>
+    <div class="actions">
+      <a class="button" href="/">Back Home</a>
+      <a class="button secondary" href="tel:+19706995484">Call (970) 699-5484</a>
+    </div>
+  </main>
+</body>
+</html>

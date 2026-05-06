@@ -1,2 +1,25 @@
 # cloudflare-website
 Repository for Cloudflare website
+
+## Quote Form Backend
+
+The quote form posts to `functions/api/quote.js`, a Cloudflare Pages Function.
+
+Production requires these Cloudflare Pages secrets/variables:
+
+- `RESEND_API_KEY` secret: Resend API key for transactional email.
+- `QUOTE_TO_EMAIL` variable: recipient for internal quote alerts. Defaults to `quote@milehighsolarcare.com`.
+- `QUOTE_FROM_EMAIL` variable: verified sender address. Defaults to `quote@milehighsolarcare.com`.
+- `QUOTE_FROM_NAME` variable: sender display name. Defaults to `Mile High Solar Care`.
+
+After configuring secrets, submit a clearly labeled test lead and confirm:
+
+1. The form shows a success message.
+2. `QUOTE_TO_EMAIL` receives the internal quote alert.
+3. The test customer email receives the confirmation.
+
+## SEO / Routing Notes
+
+- `sitemap.xml` and `404.html` must live at the deployed asset root.
+- `robots.txt` uses the absolute sitemap URL required by crawlers.
+- Canonical host redirect from `milehighsolarcare.com` to `www.milehighsolarcare.com` should be configured as a Cloudflare Redirect Rule. Cloudflare Pages `_redirects` only accepts relative source paths, so the host-level redirect does not belong in this repository file.
