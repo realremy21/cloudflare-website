@@ -18,8 +18,35 @@ After configuring secrets, submit a clearly labeled test lead and confirm:
 2. `QUOTE_TO_EMAIL` receives the internal quote alert.
 3. The test customer email receives the confirmation.
 
+The form also captures lead attribution fields for the internal alert:
+
+- submitted page URL
+- first landing page in the current session
+- referrer
+- `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content`
+
+Clickable call, text, email, quote, and local-page CTAs include `data-lead-event` hooks. If Google Analytics, Google Tag Manager, Facebook Pixel, or another listener is installed later, the existing frontend hook will send lead-capture events without changing the markup again.
+
 ## SEO / Routing Notes
 
 - `sitemap.xml` and `404.html` must live at the deployed asset root.
 - `robots.txt` uses the absolute sitemap URL required by crawlers.
 - Canonical host redirect from `milehighsolarcare.com` to `www.milehighsolarcare.com` should be configured as a Cloudflare Redirect Rule. Cloudflare Pages `_redirects` only accepts relative source paths, so the host-level redirect does not belong in this repository file.
+
+Recommended Cloudflare Redirect Rule:
+
+- Rule name: `Redirect apex to www`
+- If incoming requests match: hostname equals `milehighsolarcare.com`
+- Then: Static redirect to `https://www.milehighsolarcare.com${uri.path}${uri.query}`
+- Status code: `301` or `308`
+- Preserve query string: yes
+
+Recommended Google Search Console actions after each SEO deployment:
+
+1. Submit `https://www.milehighsolarcare.com/sitemap.xml`.
+2. Request indexing for:
+   - `https://www.milehighsolarcare.com/`
+   - `https://www.milehighsolarcare.com/solar-panel-cleaning-denver/`
+   - `https://www.milehighsolarcare.com/solar-panel-cleaning-aurora/`
+   - `https://www.milehighsolarcare.com/water-guidelines/`
+3. If old preview domains appear in search, use Search Console removals or Cloudflare preview-domain controls to reduce duplicate results.

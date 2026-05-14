@@ -49,8 +49,8 @@
         <a href="../water-guidelines/" class="navlink hover:text-[var(--gold)]">Water Guidelines</a>
       </nav>
       <div class="flex items-center gap-3">
-        <a href="tel:+19706995484" class="cta-btn cta-secondary font-semibold">Call</a>
-        <a href="../index.html#contact" class="cta-btn cta-primary font-semibold">Get a Quote</a>
+        <a href="tel:+19706995484" class="cta-btn cta-secondary font-semibold" data-lead-event="click_call" data-lead-label="aurora_header_call">Call</a>
+        <a href="../index.html#contact" class="cta-btn cta-primary font-semibold" data-lead-event="click_quote_cta" data-lead-label="aurora_header_quote">Get a Quote</a>
       </div>
     </div>
   </header>
@@ -67,8 +67,8 @@
           <h1 class="mt-4 max-w-4xl text-4xl sm:text-6xl font-extrabold tracking-tight">Solar Panel Cleaning in Aurora, CO</h1>
           <p class="mt-5 max-w-3xl text-lg sm:text-xl text-slate-100 leading-8">Warranty-safe pure-water solar panel cleaning, critter guard installation, and maintenance for Aurora homes and commercial systems.</p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="../index.html#contact" class="cta-btn cta-primary">Request an Aurora Quote</a>
-            <a href="tel:+19706995484" class="cta-btn cta-secondary">Call (970) 699-5484</a>
+            <a href="../index.html#contact" class="cta-btn cta-primary" data-lead-event="click_quote_cta" data-lead-label="aurora_hero_quote">Request an Aurora Quote</a>
+            <a href="tel:+19706995484" class="cta-btn cta-secondary" data-lead-event="click_call" data-lead-label="aurora_hero_call">Call (970) 699-5484</a>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
         <div class="glass p-6">
           <h2 class="text-2xl font-bold">Get an Aurora solar service quote</h2>
           <p class="mt-3 text-slate-300">Use the main quote form and include your Aurora address or nearest cross streets, approximate panel count, and whether you need cleaning, critter guard, or both.</p>
-          <a href="../index.html#contact" class="cta-btn cta-primary mt-6 w-full">Start My Quote</a>
+          <a href="../index.html#contact" class="cta-btn cta-primary mt-6 w-full" data-lead-event="click_quote_cta" data-lead-label="aurora_content_quote">Start My Quote</a>
         </div>
       </div>
     </section>
@@ -129,6 +129,23 @@
     },
     "areaServed": {"@type": "City", "name": "Aurora"}
   }
+  </script>
+  <script>
+    function trackLeadEvent(eventName, detail = {}){
+      const payload = {event_category:'lead_capture', page_location:window.location.href, ...detail};
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:eventName, ...payload});
+      if(typeof window.gtag === 'function') window.gtag('event', eventName, payload);
+      if(typeof window.fbq === 'function') window.fbq('trackCustom', eventName, payload);
+    }
+    document.addEventListener('click', (event)=>{
+      const target = event.target.closest('[data-lead-event]');
+      if(!target) return;
+      trackLeadEvent(target.dataset.leadEvent, {
+        event_label: target.dataset.leadLabel || target.textContent.trim(),
+        link_url: target.href || ''
+      });
+    }, {capture:true});
   </script>
 </body>
 </html>
