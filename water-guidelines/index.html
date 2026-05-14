@@ -6,6 +6,13 @@
   <title>Solar Panel Cleaning Water Restrictions in Denver | Mile High Solar Care</title>
   <meta name="description" content="Learn how Mile High Solar Care handles solar panel cleaning during water restrictions across Denver, Aurora, Boulder, Fort Collins, Colorado Springs, and the Front Range using controlled, low-water, environmentally responsible methods." />
   <meta name="theme-color" content="#0E5B3A">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY6MS8MRDG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BY6MS8MRDG');
+  </script>
   <link rel="canonical" href="https://www.milehighsolarcare.com/water-guidelines/" />
   <meta property="og:title" content="Solar Panel Cleaning Water Restrictions in Denver | Mile High Solar Care" />
   <meta property="og:description" content="Learn how Mile High Solar Care handles solar panel cleaning during water restrictions across Denver, Aurora, Boulder, Fort Collins, Colorado Springs, and the Front Range using controlled, low-water, environmentally responsible methods." />
@@ -160,8 +167,8 @@
         <a href="../index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
       </nav>
       <div class="header-ctas flex items-center gap-3">
-        <a href="tel:+19706995484" class="cta-btn cta-secondary font-semibold">Call</a>
-        <a href="../index.html#contact" class="cta-btn cta-primary font-semibold">Get a Quote</a>
+        <a href="tel:+19706995484" class="cta-btn cta-secondary font-semibold" data-lead-event="click_call" data-lead-label="water_header_call">Call</a>
+        <a href="../index.html#contact" class="cta-btn cta-primary font-semibold" data-lead-event="click_quote_cta" data-lead-label="water_header_quote">Get a Quote</a>
       </div>
     </div>
   </header>
@@ -266,7 +273,7 @@
             <p>You can also reference your local water provider for the most current rules, but we’re always available to make the process simple and stress-free.</p>
           </div>
           <div class="mt-6">
-            <a href="../index.html#contact" class="cta-btn cta-primary">Ask Us About Your Area</a>
+            <a href="../index.html#contact" class="cta-btn cta-primary" data-lead-event="click_quote_cta" data-lead-label="water_area_quote">Ask Us About Your Area</a>
           </div>
           <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
             <p class="text-sm font-semibold text-white">MHSC advantage</p>
@@ -312,13 +319,32 @@
     <div class="max-w-6xl mx-auto px-4 text-sm text-slate-300">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
         <p>© <span id="y"></span> Mile High Solar Care — Colorado Clean. Peak Power.</p>
-        <p>Serving Denver, Aurora &amp; the Front Range • <a class="text-[var(--gold)] hover:underline" href="tel:+19706995484">(970) 699‑5484</a></p>
+        <p>Serving Denver, Aurora &amp; the Front Range • <a class="text-[var(--gold)] hover:underline" href="tel:+19706995484" data-lead-event="click_call" data-lead-label="water_footer_call">(970) 699‑5484</a></p>
       </div>
     </div>
   </footer>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    function trackLeadEvent(eventName, detail = {}){
+      const payload = {
+        event_category: 'lead_capture',
+        page_location: window.location.href,
+        ...detail
+      };
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, ...payload });
+      if(typeof window.gtag === 'function') window.gtag('event', eventName, payload);
+      if(typeof window.fbq === 'function') window.fbq('trackCustom', eventName, payload);
+    }
+    document.addEventListener('click', (event)=>{
+      const target = event.target.closest('[data-lead-event]');
+      if(!target) return;
+      trackLeadEvent(target.dataset.leadEvent, {
+        event_label: target.dataset.leadLabel || target.textContent.trim(),
+        link_url: target.href || ''
+      });
+    }, { capture: true });
   </script>
   <script type="application/ld+json">
     {

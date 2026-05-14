@@ -27,6 +27,29 @@ The form also captures lead attribution fields for the internal alert:
 
 Clickable call, text, email, quote, and local-page CTAs include `data-lead-event` hooks. If Google Analytics, Google Tag Manager, Facebook Pixel, or another listener is installed later, the existing frontend hook will send lead-capture events without changing the markup again.
 
+## Analytics
+
+Google Analytics 4 is installed with measurement ID `G-BY6MS8MRDG`.
+
+Lead-capture events sent from the site include:
+
+- `click_quote_cta`
+- `click_call`
+- `click_sms`
+- `click_email`
+- `click_local_page`
+- `quote_form_submit_attempt`
+- `quote_form_submit_success`
+- `quote_form_mailto_fallback`
+- `generate_lead`
+
+Recommended GA4 key events:
+
+- `generate_lead`
+- `quote_form_submit_success`
+- `click_call`
+- `click_sms`
+
 ## SEO / Routing Notes
 
 - `sitemap.xml` and `404.html` must live at the deployed asset root.

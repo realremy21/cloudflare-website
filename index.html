@@ -6,6 +6,13 @@
   <title>Denver Solar Panel Cleaning & Critter Guard | Mile High Solar Care</title>
   <meta name="description" content="Warranty-safe solar panel cleaning and critter guard service for Denver, Aurora, and the Front Range. Fast quotes, clear pricing, photo proof." />
   <meta name="theme-color" content="#0E5B3A">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY6MS8MRDG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BY6MS8MRDG');
+  </script>
   <link rel="canonical" href="https://www.milehighsolarcare.com/" />
   <meta property="og:title" content="Denver Solar Panel Cleaning & Critter Guard | Mile High Solar Care" />
   <meta property="og:description" content="Warranty-safe solar panel cleaning, critter guard installation, and maintenance for Denver, Aurora, and the Front Range." />
@@ -1748,6 +1755,7 @@ Founders, Mile High Solar Care</p>
 	        const res = await fetch('/api/quote', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
 	        if(res.ok){
             trackLeadEvent('quote_form_submit_success', { event_label: 'quote_form' });
+            trackLeadEvent('generate_lead', { event_label: 'quote_form', method: 'quote_form' });
 	          formMsg.className = 'text-sm text-green-600';
 	          formMsg.textContent = 'Thanks. Your quote request was sent, and a confirmation email is on the way.';
 	          form.reset();
