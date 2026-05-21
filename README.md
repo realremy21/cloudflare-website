@@ -71,5 +71,7 @@ Recommended Google Search Console actions after each SEO deployment:
    - `https://www.milehighsolarcare.com/`
    - `https://www.milehighsolarcare.com/solar-panel-cleaning-denver/`
    - `https://www.milehighsolarcare.com/solar-panel-cleaning-aurora/`
+   - `https://www.milehighsolarcare.com/commercial-rooftop-solar-cleaning/`
+   - `https://www.milehighsolarcare.com/solar-panel-critter-guard-denver/`
    - `https://www.milehighsolarcare.com/water-guidelines/`
 3. If old preview domains appear in search, use Search Console removals or Cloudflare preview-domain controls to reduce duplicate results.

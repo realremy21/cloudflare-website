@@ -1354,6 +1354,8 @@
       <div class="mt-6 flex flex-wrap gap-3">
         <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-denver/" data-lead-event="click_local_page" data-lead-label="service_area_denver">Denver solar panel cleaning</a>
         <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-aurora/" data-lead-event="click_local_page" data-lead-label="service_area_aurora">Aurora solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/commercial-rooftop-solar-cleaning/" data-lead-event="click_local_page" data-lead-label="service_area_commercial">Commercial rooftop solar cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-critter-guard-denver/" data-lead-event="click_local_page" data-lead-label="service_area_critter_guard">Solar panel critter guard</a>
       </div>
     </div>
   </section>
@@ -1362,7 +1364,7 @@
 			  <section id="contact" class="py-16 sm:py-20 bg-black text-white">
 			    <div class="max-w-6xl mx-auto px-4">
 			      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Start Your Solar Quote in 60 Seconds</h2>
-				    <p class="mt-2 text-slate-300">Use the short form for solar panel cleaning, critter guard installation, attic solar fans, plug-in solar panels, or maintenance questions. We review the details and confirm scope, pricing, and earliest availability before service.</p>
+				    <p class="mt-2 text-slate-300">Use the short form for solar panel cleaning, critter guard installation, commercial rooftop/O&amp;M support, attic solar fans, plug-in solar panels, or maintenance questions. We review the details and confirm scope, pricing, and earliest availability before service.</p>
 				    <p class="mt-3 text-sm text-slate-400">The form usually takes about a minute. Most quote requests receive same-day follow-up during business hours.</p>
 
 	      <div class="mt-8 grid gap-8 md:grid-cols-2">
@@ -1384,10 +1386,18 @@
             <option value="Solar panel cleaning">Solar panel cleaning</option>
             <option value="Critter guard installation">Critter guard installation</option>
             <option value="Critter guard maintenance">Critter guard maintenance</option>
+            <option value="Commercial rooftop solar / O&M support">Commercial rooftop solar / O&amp;M support</option>
             <option value="Attic solar fan cleaning or maintenance">Attic solar fan cleaning or maintenance</option>
             <option value="Plug-in solar panel cleaning">Plug-in solar panel cleaning</option>
             <option value="Solar maintenance check">Solar maintenance check</option>
             <option value="Not sure">Not sure yet</option>
+          </select>
+          <select class="glass px-4 py-3 rounded-xl" name="propertyType" aria-label="Property type">
+            <option value="">Property type</option>
+            <option value="Homeowner / residential">Homeowner / residential</option>
+            <option value="Commercial building">Commercial building</option>
+            <option value="HOA / property manager">HOA / property manager</option>
+            <option value="Solar company / partner">Solar company / partner</option>
           </select>
           <select class="glass px-4 py-3 rounded-xl" name="preferredContact" aria-label="Preferred contact method">
             <option value="">Preferred contact method</option>
@@ -1419,6 +1429,10 @@
 		              <li>
 		                <span class="quote-trust-check" aria-hidden="true">✓</span>
 		                <span><strong class="text-white">Professional proof.</strong> Warranty-safe methods and before/after photos are part of the service standard.</span>
+		              </li>
+		              <li>
+		                <span class="quote-trust-check" aria-hidden="true">✓</span>
+		                <span><strong class="text-white">Residential and commercial ready.</strong> We can quote homes, commercial rooftops, HOAs, and partner maintenance requests.</span>
 		              </li>
 		            </ul>
 		          </div>
@@ -1562,7 +1576,7 @@
           </div>
         </div>
       </div>
-      <a href="#" class="mt-5 inline-block text-sm text-[var(--gold)] hover:underline">Read more reviews</a>
+      <a href="https://www.google.com/search?q=Mile+High+Solar+Care+reviews" target="_blank" rel="noopener noreferrer" class="mt-5 inline-block text-sm text-[var(--gold)] hover:underline" data-lead-event="click_reviews" data-lead-label="read_more_reviews">Read more reviews</a>
     </div>
   </section>
 
@@ -1655,22 +1669,39 @@ Founders, Mile High Solar Care</p>
 		    (function initMobileStickyCTA(){
 		      const bar = document.querySelector('.mobile-cta-bar');
 		      const home = document.getElementById('home');
+		      const contact = document.getElementById('contact');
 		      if(!bar || !home) return;
 		      const mq = window.matchMedia('(max-width: 639px)');
 	      let io;
-	      function setVisible(visible){
-	        bar.classList.toggle('is-visible', visible);
+	      let contactIo;
+	      let pastHero = false;
+	      let inContact = false;
+	      function syncVisible(){
+	        bar.classList.toggle('is-visible', pastHero && !inContact);
 	      }
 	      function setup(){
-	        setVisible(false);
+	        pastHero = false;
+	        inContact = false;
+	        syncVisible();
 	        if(io){ io.disconnect(); io = undefined; }
+	        if(contactIo){ contactIo.disconnect(); contactIo = undefined; }
 	        if(!mq.matches) return;
 	        io = new IntersectionObserver((entries)=>{
 	          entries.forEach((entry)=>{
-	            setVisible(!entry.isIntersecting);
+	            pastHero = !entry.isIntersecting;
+	            syncVisible();
 	          });
 	        }, { threshold: 0.01 });
 	        io.observe(home);
+	        if(contact){
+	          contactIo = new IntersectionObserver((entries)=>{
+	            entries.forEach((entry)=>{
+	              inContact = entry.isIntersecting;
+	              syncVisible();
+	            });
+	          }, { rootMargin: '-20% 0px -20% 0px', threshold: 0.01 });
+	          contactIo.observe(contact);
+	        }
 	      }
 	      setup();
 		      mq.addEventListener?.('change', setup);
@@ -1939,6 +1970,7 @@ Founders, Mile High Solar Care</p>
 Email: ${data.email}
 Phone: ${data.phone||''}
 Service: ${data.service||''}
+Property type: ${data.propertyType||''}
 Preferred contact: ${data.preferredContact||''}
 Address: ${data.address||''}
 Panels: ${data.panels||''}
@@ -2014,6 +2046,14 @@ UTM campaign: ${data.utmCampaign||''}`
           "serviceType": "Solar panel critter guard installation",
           "areaServed": "Denver Metro and Front Range"
         }
+      },{
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial rooftop solar maintenance",
+          "serviceType": "Commercial solar panel cleaning and O&M support",
+          "areaServed": "Denver Metro and Front Range"
+        }
       }]
     },
     "sameAs": [
@@ -2043,6 +2083,10 @@ UTM campaign: ${data.utmCampaign||''}`
 	      "@type": "Question",
 	      "name": "Can solar maintenance save money?",
 	      "acceptedAnswer": {"@type": "Answer","text": "Higher output can lower utility costs and improve return on investment, especially during high-production seasons."}
+	    },{
+	      "@type": "Question",
+	      "name": "Do you service commercial rooftop solar arrays?",
+	      "acceptedAnswer": {"@type": "Answer","text": "Yes. Mile High Solar Care can help with commercial rooftop solar cleaning, inspection support, photo documentation, and maintenance coordination for Denver Metro and Front Range properties."}
 	    },{
 	      "@type": "Question",
 	      "name": "What damage can happen if panels aren’t cleaned?",
