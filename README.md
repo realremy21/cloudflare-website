@@ -12,6 +12,12 @@ Production requires these Cloudflare Pages secrets/variables:
 - `QUOTE_FROM_EMAIL` variable: verified sender address. Defaults to `quote@milehighsolarcare.com`.
 - `QUOTE_FROM_NAME` variable: sender display name. Defaults to `Mile High Solar Care`.
 
+Current MHSC email routing standard:
+
+- `quote@milehighsolarcare.com` is the canonical website quote-form/backend lead inbox.
+- `hello@milehighsolarcare.com` is the public/business-card/general intake email.
+- Keep both roles distinct in future website copy, calendar notes, and operations docs.
+
 After configuring secrets, submit a clearly labeled test lead and confirm:
 
 1. The form shows a success message.
