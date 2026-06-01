@@ -295,6 +295,28 @@
     }
     .text-link:hover{color:var(--gold)}
     .text-link:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+    .form-status{
+      margin-top: 0.25rem;
+      border-radius: 0.85rem;
+      padding: 0.75rem 0.9rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .form-status-info{
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.78);
+      color: #E2E8F0;
+    }
+    .form-status-error{
+      border: 1px solid rgba(252, 165, 165, 0.72);
+      background: rgba(127, 29, 29, 0.78);
+      color: #FEE2E2;
+    }
+    .form-status-success{
+      border: 1px solid rgba(134, 239, 172, 0.72);
+      background: rgba(20, 83, 45, 0.78);
+      color: #DCFCE7;
+    }
     .glossy-btn{position:relative; overflow:hidden; background:linear-gradient(180deg,#12A36D,#0E5B3A); color:#fff; border-radius:16px; box-shadow:0 10px 20px rgba(14,91,58,.25)}
     .glossy-btn::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 40%); mix-blend-mode:screen; opacity:.7}
 	    .navglass{
@@ -1943,7 +1965,7 @@ Founders, Mile High Solar Care</p>
       e.preventDefault();
       populateAttributionFields();
       trackLeadEvent('quote_form_submit_attempt', { event_label: 'quote_form' });
-	      formMsg.className = 'text-sm text-slate-300';
+	      formMsg.className = 'form-status form-status-info text-sm';
 	      formMsg.textContent = 'Sending your request...';
 	      submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
@@ -1951,7 +1973,7 @@ Founders, Mile High Solar Care</p>
 	      const data = Object.fromEntries(new FormData(form).entries());
 	      // Simple validation
 	      if(!data.name || !data.email){
-	        formMsg.className = 'text-sm text-red-600';
+	        formMsg.className = 'form-status form-status-error text-sm';
 	        formMsg.textContent = 'Please enter your name and email.';
 	        submitBtn.disabled = false;
         submitBtn.textContent = 'Start My Quote';
@@ -1962,7 +1984,7 @@ Founders, Mile High Solar Care</p>
 	        if(res.ok){
             trackLeadEvent('quote_form_submit_success', { event_label: 'quote_form' });
             trackLeadEvent('generate_lead', { event_label: 'quote_form', method: 'quote_form' });
-	          formMsg.className = 'text-sm text-green-600';
+	          formMsg.className = 'form-status form-status-success text-sm';
 	          formMsg.textContent = 'Thanks. Your quote request was sent, and a confirmation email is on the way.';
 	          form.reset();
 	          submitBtn.disabled = false;
@@ -1992,7 +2014,7 @@ UTM medium: ${data.utmMedium||''}
 UTM campaign: ${data.utmCampaign||''}`
 	        );
 	        window.location.href = `mailto:quote@milehighsolarcare.com?subject=New%20Quote%20Request&body=${body}`;
-	        formMsg.className = 'text-sm text-slate-300';
+	        formMsg.className = 'form-status form-status-info text-sm';
 	        formMsg.textContent = 'Opening your email app as a backup. If it does not open, email quote@milehighsolarcare.com or call/text (970) 699-5484.';
 	        submitBtn.disabled = false;
         submitBtn.textContent = 'Start My Quote';
