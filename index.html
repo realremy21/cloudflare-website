@@ -925,6 +925,7 @@
 	      <nav class="desktop-nav site-nav hidden md:flex items-center gap-6 text-sm">
 	        <a href="index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
 	        <a href="index.html#included" class="navlink hover:text-[var(--gold)]">What’s Included</a>
+	        <a href="/solar-panel-maintenance-denver/" class="navlink hover:text-[var(--gold)]">Maintenance</a>
 	        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
 	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
 	        <a href="/water-guidelines/" class="navlink hover:text-[var(--gold)]">Water Guidelines</a>
@@ -992,10 +993,15 @@
   <section id="services" class="py-16 sm:py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Services</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Solar Panel Cleaning</h3>
           <p class="mt-2 text-slate-200">Warranty-safe solar panel cleaning using pure water and panel-safe tools to remove dust, pollen, bird droppings, and debris that can reduce system performance.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <h3 class="text-lg font-semibold">Solar Panel Maintenance</h3>
+          <p class="mt-2 text-slate-200">Visible maintenance checks, panel-safe cleaning, critter guard notes, and photo documentation for homeowners, HOAs, property managers, and commercial solar assets.</p>
+          <a href="/solar-panel-maintenance-denver/" class="mt-5 inline-flex text-sm font-semibold text-[var(--gold)] hover:underline" data-lead-event="click_local_page" data-lead-label="services_maintenance">View maintenance service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Critter Guard Installation &amp; Maintenance</h3>
@@ -1142,6 +1148,7 @@
     <p class="text-slate-300 mt-3">
       Tap to explore how professional solar maintenance protects your system and your investment.
     </p>
+    <a href="/solar-panel-maintenance-denver/" class="cta-btn cta-secondary mt-6 text-sm" data-lead-event="click_local_page" data-lead-label="why_maintenance_page">View Solar Panel Maintenance</a>
 
     <div class="mt-10 max-w-3xl space-y-4" data-sba>
       <div class="sba-item glass rounded-2xl overflow-hidden">
@@ -1376,7 +1383,7 @@
       <div class="mt-6 flex flex-wrap gap-3">
         <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-denver/" data-lead-event="click_local_page" data-lead-label="service_area_denver">Denver solar panel cleaning</a>
         <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-aurora/" data-lead-event="click_local_page" data-lead-label="service_area_aurora">Aurora solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-denver/#maintenance" data-lead-event="click_local_page" data-lead-label="service_area_maintenance">Solar panel maintenance</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-maintenance-denver/" data-lead-event="click_local_page" data-lead-label="service_area_maintenance">Solar panel maintenance</a>
         <a class="cta-btn cta-secondary text-sm" href="/commercial-rooftop-solar-cleaning/" data-lead-event="click_local_page" data-lead-label="service_area_commercial">Commercial rooftop solar cleaning</a>
         <a class="cta-btn cta-secondary text-sm" href="/solar-panel-critter-guard-denver/" data-lead-event="click_local_page" data-lead-label="service_area_critter_guard">Solar panel critter guard</a>
       </div>
@@ -1407,12 +1414,12 @@
           <select class="glass px-4 py-3 rounded-xl" name="service" aria-label="Service type">
             <option value="">Service needed</option>
             <option value="Solar panel cleaning">Solar panel cleaning</option>
+            <option value="Solar maintenance check">Solar maintenance check</option>
             <option value="Critter guard installation">Critter guard installation</option>
             <option value="Critter guard maintenance">Critter guard maintenance</option>
             <option value="Commercial rooftop solar / O&M support">Commercial rooftop solar / O&amp;M support</option>
             <option value="Attic solar fan cleaning or maintenance">Attic solar fan cleaning or maintenance</option>
             <option value="Plug-in solar panel cleaning">Plug-in solar panel cleaning</option>
-            <option value="Solar maintenance check">Solar maintenance check</option>
             <option value="Not sure">Not sure yet</option>
           </select>
           <select class="glass px-4 py-3 rounded-xl" name="propertyType" aria-label="Property type">
@@ -2082,7 +2089,8 @@ UTM campaign: ${data.utmCampaign||''}`
           "@type": "Service",
           "name": "Solar panel maintenance",
           "serviceType": "Solar panel maintenance, cleaning, critter guard checks, and photo documentation",
-          "areaServed": "Denver Metro and Front Range"
+          "areaServed": "Denver Metro and Front Range",
+          "url": "https://www.milehighsolarcare.com/solar-panel-maintenance-denver/"
         }
       },{
         "@type": "Offer",
