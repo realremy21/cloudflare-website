@@ -21,6 +21,8 @@
   <meta property="og:image" content="https://www.milehighsolarcare.com/images/hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="preload" as="image" href="../images/hero-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="../images/hero-1600.webp" imagesrcset="../images/hero-1600.webp 1600w, ../images/hero.webp 2200w" imagesizes="100vw" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="stylesheet" href="../assets/tailwind.css">
   <style>
     :root{--accent:#0E5B3A;--gold:#D8A020;--glass:rgba(255,255,255,.14);--glass-b:rgba(255,255,255,.35)}
@@ -50,8 +52,8 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
       <a href="../index.html#home" class="flex items-center gap-2" aria-label="Return to Mile High Solar Care homepage">
         <picture class="h-8">
-          <source srcset="../images/logo.webp" type="image/webp" />
-          <img src="../images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="128" height="32" decoding="async" />
+          <source srcset="../images/logo-96.webp 96w, ../images/logo.webp 256w" sizes="35px" type="image/webp" />
+          <img src="../images/logo.png" alt="Mile High Solar Care" class="h-8 w-auto" width="96" height="87" decoding="async" />
         </picture>
         <span class="header-label font-semibold">Mile High Solar Care</span>
       </a>
@@ -72,7 +74,8 @@
   <main>
     <section class="hero">
       <picture>
-        <source srcset="../images/hero.webp" type="image/webp" />
+        <source media="(max-width: 768px)" srcset="../images/hero-mobile.webp" type="image/webp" />
+        <source srcset="../images/hero-1600.webp 1600w, ../images/hero.webp 2200w" sizes="100vw" type="image/webp" />
         <img src="../images/hero.jpg" alt="Clean rooftop solar panels on a Colorado home" width="2200" height="1200" fetchpriority="high" decoding="async" />
       </picture>
       <div class="hero-content w-full px-4 sm:px-6 pb-16 sm:pb-20">
