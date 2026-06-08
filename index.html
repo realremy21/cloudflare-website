@@ -1406,7 +1406,7 @@
 			  <section id="contact" class="py-16 sm:py-20 bg-black text-white">
 			    <div class="max-w-6xl mx-auto px-4">
 			      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Start Your Solar Quote in 60 Seconds</h2>
-				    <p class="mt-2 text-slate-300">Use the short form for solar panel cleaning, critter guard installation, commercial rooftop/O&amp;M support, attic solar fans, plug-in solar panels, or maintenance questions. We review the details and confirm scope, pricing, and earliest availability before service.</p>
+				    <p class="mt-2 text-slate-300">Use the short form for solar panel cleaning, maintenance checks with photo condition reporting, critter guard installation, commercial rooftop/O&amp;M support, attic solar fans, plug-in solar panels, or service questions. We review the details and confirm scope, pricing, and earliest availability before service.</p>
 				    <p class="mt-3 text-sm text-slate-400">The form usually takes about a minute. Most quote requests receive same-day follow-up during business hours.</p>
 
 	      <div class="mt-8 grid gap-8 md:grid-cols-2">
@@ -1426,7 +1426,7 @@
           <select class="glass px-4 py-3 rounded-xl" name="service" aria-label="Service type">
             <option value="">Service needed</option>
             <option value="Solar panel cleaning">Solar panel cleaning</option>
-            <option value="Solar maintenance check">Solar maintenance check</option>
+            <option value="Solar maintenance check / photo condition report">Solar maintenance check / photo condition report</option>
             <option value="Critter guard installation">Critter guard installation</option>
             <option value="Critter guard maintenance">Critter guard maintenance</option>
             <option value="Commercial rooftop solar / O&M support">Commercial rooftop solar / O&amp;M support</option>
@@ -1434,6 +1434,7 @@
             <option value="Plug-in solar panel cleaning">Plug-in solar panel cleaning</option>
             <option value="Not sure">Not sure yet</option>
           </select>
+          <p class="text-xs text-slate-400">For maintenance requests, we can document visible panel condition, roofline debris near the array, critter guard concerns, storm residue, and before/after cleaning results. If we see something outside our lane, we flag it clearly so the right licensed trade or solar partner can review it.</p>
           <select class="glass px-4 py-3 rounded-xl" name="propertyType" aria-label="Property type">
             <option value="">Property type</option>
             <option value="Homeowner / residential">Homeowner / residential</option>
@@ -1450,7 +1451,7 @@
 	          <input class="glass px-4 py-3 rounded-xl" type="text" name="address" placeholder="Service address (city OK)" aria-label="Service address" />
 	          <input class="glass px-4 py-3 rounded-xl" type="text" name="panels" placeholder="# of panels (approx)" aria-label="Number of panels" />
           <input class="glass px-4 py-3 rounded-xl" type="text" name="timing" placeholder="Preferred timing or urgency" aria-label="Preferred timing or urgency" />
-	          <textarea class="glass px-4 py-3 rounded-xl" name="notes" rows="4" placeholder="Any details (cleaning, critter guard install/maintenance, attic solar fan, plug-in solar, two-story, steep roof, debris, timing)"></textarea>
+	          <textarea class="glass px-4 py-3 rounded-xl" name="notes" rows="4" placeholder="Any details (cleaning, maintenance/photo report, critter guard, attic solar fan, plug-in solar, two-story, steep roof, debris, timing)"></textarea>
 		          <button id="submitBtn" class="cta-btn cta-primary glossy-btn text-base font-semibold w-full" type="submit">Start My Quote</button>
 	          <p class="text-xs text-slate-400">By submitting, you agree that Mile High Solar Care may contact you about your quote request. Trouble? Email <a class="text-link" href="mailto:quote@milehighsolarcare.com" data-lead-event="click_email" data-lead-label="form_help_email">quote@milehighsolarcare.com</a> or call/text.</p>
 	          <div id="formMsg" class="hidden text-sm" aria-live="polite"></div>
@@ -2145,7 +2146,7 @@ UTM campaign: ${data.utmCampaign||''}`
 	    },{
 	      "@type": "Question",
 	      "name": "Do you service commercial rooftop solar arrays?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Yes. Mile High Solar Care can help with commercial rooftop solar cleaning, inspection support, photo documentation, and maintenance coordination for Denver Metro and Front Range properties."}
+	      "acceptedAnswer": {"@type": "Answer","text": "Yes. Mile High Solar Care can help with commercial rooftop solar cleaning, visible condition documentation, photo documentation, and maintenance coordination for Denver Metro and Front Range properties."}
 	    },{
 	      "@type": "Question",
 	      "name": "What damage can happen if panels aren’t cleaned?",
