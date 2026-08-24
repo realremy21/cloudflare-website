@@ -79,6 +79,16 @@ Recommended Google Search Console actions after each SEO deployment:
    - `https://www.milehighsolarcare.com/solar-panel-cleaning-aurora/`
    - `https://www.milehighsolarcare.com/solar-panel-maintenance-denver/`
    - `https://www.milehighsolarcare.com/commercial-rooftop-solar-cleaning/`
+   - `https://www.milehighsolarcare.com/robotics-pilot/`
    - `https://www.milehighsolarcare.com/solar-panel-critter-guard-denver/`
    - `https://www.milehighsolarcare.com/water-guidelines/`
 3. If old preview domains appear in search, use Search Console removals or Cloudflare preview-domain controls to reduce duplicate results.
+
+## Robotics Pilot Intake
+
+- The public pilot page is `/robotics-pilot/`.
+- Candidate submissions post JSON to `/api/pilot-interest`.
+- The Pages Function reuses `RESEND_API_KEY`, `QUOTE_TO_EMAIL`, `QUOTE_FROM_EMAIL`, and `QUOTE_FROM_NAME` from the production quote workflow.
+- Valid submissions send an internal candidate summary and a confirmation to the submitter. Do not submit production test data unless sending both emails is intended.
+
+For a Cloudflare dashboard drag-and-drop deployment, bundle `deployment/worker-entry.js` as a single `_worker.js` file and place it at the uploaded asset root. This preserves both `/api/quote` and `/api/pilot-interest` while forwarding all other requests to `env.ASSETS`.

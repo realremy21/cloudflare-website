@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     './index.html',
-    './water-guidelines/**/*.html',
+    './**/*.html',
   ],
   theme: {
     extend: {},
