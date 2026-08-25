@@ -928,6 +928,7 @@
 	        <a href="/solar-panel-maintenance-denver/" class="navlink hover:text-[var(--gold)]">Maintenance</a>
 	        <a href="index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
 	        <a href="index.html#benefits" class="navlink hover:text-[var(--gold)]">Benefits</a>
+	        <a href="index.html#our-story" class="navlink hover:text-[var(--gold)]">Our Story</a>
 	        <a href="/water-guidelines/" class="navlink hover:text-[var(--gold)]">Water Guidelines</a>
 	        <a href="index.html#contact" class="navlink hover:text-[var(--gold)]">Contact</a>
 	      </nav>
@@ -1701,7 +1702,7 @@
   </section>
 
   <!-- Who We Are -->
-  <section class="py-16 sm:py-20 bg-black text-white">
+  <section id="our-story" class="py-16 sm:py-20 bg-black text-white">
     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight max-w-6xl mx-auto px-4">Who We Are</h2>
     <div class="mt-6 max-w-6xl mx-auto px-4">
 	      <img src="images/jeremy-meral.jpg" alt="Jeremy and Meral Runnels, founders of Mile High Solar Care" class="rounded-2xl" style="display:block;width:100%;max-width:min(90%, 340px);margin:0 auto;" width="900" height="1159" loading="lazy" decoding="async">
@@ -1786,11 +1787,16 @@ Founders, Mile High Solar Care</p>
   <script>
     // Active section highlight
     const links = document.querySelectorAll('.navlink');
-    const map = {}; links.forEach(a=>map[a.getAttribute('href').slice(1)] = a);
+    const map = {};
+    links.forEach(a=>{
+      const href = a.getAttribute('href') || '';
+      const hashIndex = href.indexOf('#');
+      if(hashIndex !== -1) map[href.slice(hashIndex + 1)] = a;
+    });
 	    const obs = new IntersectionObserver((entries)=>{
 	      entries.forEach(e=>{ if(e.isIntersecting){ const id = e.target.id; links.forEach(l=>l.classList.remove('active-link')); if(map[id]) map[id].classList.add('active-link'); } });
 	    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-	    ['pricing','included','service-area','benefits','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
+	    ['pricing','included','service-area','benefits','our-story','contact'].forEach(id=>{ const el = document.getElementById(id); if(el) obs.observe(el); });
 
 	    // Mobile sticky CTA: show only after hero
 		    (function initMobileStickyCTA(){
