@@ -1,0 +1,71 @@
+:root{--blog-green:#0E5B3A;--blog-gold:#D8A020;--blog-ink:#18231e;--blog-muted:#506158;--blog-paper:#f7f8f5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blog-paper);color:var(--blog-ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--blog-gold);outline-offset:4px}
+.blog-wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+.skip{position:absolute;left:1rem;top:-5rem;background:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{top:.5rem}
+.blog-header{background:#0d261b;color:#fff;border-bottom:1px solid rgba(255,255,255,.16)}
+.header-inner{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.wordmark{font-size:1.14rem;line-height:1.15;font-weight:800;letter-spacing:-.025em;text-decoration:none;white-space:nowrap}
+.wordmark span{display:block;font-size:.72em;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#e4d4aa}
+.blog-header nav{display:flex;gap:clamp(1rem,2.8vw,2.3rem);align-items:center;flex-wrap:wrap}
+.blog-header nav a{font-size:.88rem;font-weight:700;text-decoration:none;color:#f3f6f3}
+.blog-header nav a:hover,.blog-header nav a[aria-current=page]{text-decoration:underline;text-decoration-color:var(--blog-gold);text-underline-offset:7px}
+.blog-footer{background:#0d261b;color:#d9e3db;margin-top:7rem}
+.footer-inner{min-height:110px;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.85rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:800;color:#246047}
+.eyebrow a{text-decoration:none}
+.article-page{padding-top:4.2rem}
+.article-page>h1,.index-page>h1{font-size:clamp(2.75rem,6vw,5.1rem);line-height:1.02;letter-spacing:-.055em;max-width:900px;margin:1rem 0 1.2rem;font-weight:800}
+.subtitle{font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.48;max-width:750px;color:#42534b;margin:0 0 1.6rem}
+.article-meta{display:flex;gap:.7rem 2rem;flex-wrap:wrap;border-top:1px solid #d9dfd7;padding-top:1.2rem;margin-bottom:2rem;color:#475b50;font-size:.88rem;font-weight:600}
+.lead-image{margin:0 0 3rem}
+.lead-image picture,.feature-image{display:block;overflow:hidden;background:#143c29}
+.lead-image picture{border-radius:5px}
+.lead-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.lead-image figcaption{font-size:.81rem;color:#526057;margin-top:.7rem}
+.takeaway{max-width:860px;background:#e9f0e9;border-left:4px solid var(--blog-green);padding:1.5rem 1.8rem;margin:0 auto 3rem}
+.takeaway h2{font-size:.84rem;letter-spacing:.13em;text-transform:uppercase;color:#124c31;margin:0 0 .6rem}
+.takeaway p{font-size:1.19rem;line-height:1.65;margin:0}
+.contents{max-width:860px;margin:0 auto 3.5rem;padding:1.5rem 1.8rem;border-block:1px solid #cfd9cf}
+.contents h2{margin:0 0 .8rem;font-size:1rem}
+.contents ol{columns:2;column-gap:3rem;margin:0;padding-left:1.3rem}
+.contents li{break-inside:avoid;margin:.45rem 0;font-size:.9rem}
+.contents a{color:#164d33;text-underline-offset:3px}
+.article-prose{max-width:760px;margin:0 auto;font-size:1.08rem;line-height:1.82}
+.article-prose h2{font-size:clamp(1.7rem,3vw,2.1rem);line-height:1.2;letter-spacing:-.035em;margin:3.8rem 0 1.25rem;scroll-margin-top:2rem}
+.article-prose p{margin:1.2rem 0}
+.article-prose ul{padding-left:1.5rem;margin:1.3rem 0 1.7rem}
+.article-prose li{padding-left:.25rem;margin:.65rem 0}
+.article-prose li::marker{color:var(--blog-green)}
+.article-callout{margin:2rem 0;padding:1.2rem 1.5rem;background:#fff;border:1px solid #dce3d9;box-shadow:0 8px 30px rgba(26,51,35,.05)}
+.article-callout p{margin:.3rem 0}
+.article-callout.warning{border-left:4px solid var(--blog-gold)}
+.article-callout.price{border-left:4px solid var(--blog-green)}
+.article-callout h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.12em;color:#22543a;margin:0 0 .6rem}
+.article-close{max-width:760px;margin:4rem auto 2rem;border-top:1px solid #d4dcd4;padding-top:2rem}
+.quote-button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:.85rem 1.5rem;border-radius:100px;background:var(--blog-green);color:#fff;font-weight:800;text-decoration:none}
+.quote-button:hover{background:#0b482e}
+.owner-note{max-width:760px;margin:0 auto;color:#5f6f63;font-size:.88rem;font-style:italic}
+.index-page{padding-top:5rem;min-height:calc(100vh - 190px)}
+.index-intro{font-size:1.3rem;color:#4b5b50;margin-top:0}
+.featured-section{margin-top:5rem}
+.section-label{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #cdd9cf;margin-bottom:1.5rem;padding-bottom:.7rem;gap:1rem}
+.section-label h2{font-size:.86rem;text-transform:uppercase;letter-spacing:.16em;margin:0;color:#24593d}
+.section-label span{font-size:.78rem;color:#68766c}
+.feature-card{display:grid;grid-template-columns:1.2fr 1fr;background:#fff;border:1px solid #dce4db;box-shadow:0 18px 60px rgba(20,45,28,.06)}
+.feature-image img{display:block;width:100%;height:100%;min-height:360px;object-fit:cover}
+.feature-copy{padding:clamp(1.5rem,4vw,3.5rem);display:flex;flex-direction:column;align-items:start}
+.card-kicker{text-transform:uppercase;letter-spacing:.16em;color:#246047;font-size:.77rem;font-weight:800;margin:0 0 1.2rem}
+.feature-copy h3{font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;letter-spacing:-.045em;margin:0 0 1.2rem}
+.feature-copy h3 a{text-decoration:none}
+.feature-copy>p:not(.card-kicker):not(.card-byline){color:#526158;line-height:1.55;margin:0 0 1.4rem}
+.card-byline{font-size:.82rem;color:#647166;margin:0 0 2rem}
+.read-link{margin-top:auto;font-weight:800;color:#0e5b3a;text-underline-offset:5px}
+.read-link span{margin-left:.35rem}
+@media(max-width:800px){.feature-card{grid-template-columns:1fr}.feature-image img{min-height:0;aspect-ratio:16/9}.contents ol{columns:1}}
+@media(max-width:600px){.blog-wrap{width:min(100% - 32px,1120px)}.header-inner{align-items:flex-start;flex-direction:column;gap:1rem;padding-block:1rem}.blog-header nav{width:100%;justify-content:space-between;gap:.5rem}.blog-header nav a{font-size:.8rem}.article-page{padding-top:2.5rem}.article-meta{display:block}.article-meta span{display:block;margin:.35rem 0}.takeaway,.contents{padding:1.2rem}.footer-inner{display:block;padding-block:1.8rem}.blog-footer{margin-top:4rem}}
