@@ -1441,9 +1441,7 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Service Area</h2>
       <p class="mt-2 text-slate-300">
-        <span class="text-[var(--gold)]">Denver Metro</span> & 
-        <span class="text-[var(--gold)]">Front Range</span> — including 
-        Denver, Aurora, Lakewood, Arvada, Thornton, Westminster, Centennial, Littleton, Parker, Highlands Ranch
+        <span class="text-[var(--gold)]">Colorado service area</span> — Aurora, Denver, Golden, Boulder, Fort Collins, and Colorado Springs.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-denver/" data-lead-event="click_local_page" data-lead-label="service_area_denver">Denver solar panel cleaning</a>
@@ -2286,7 +2284,7 @@ Submission ID: ${data.submissionId||''}`
 		    });
 		  </script>
 
-  <!-- LocalBusiness + FAQ schema -->
+  <!-- LocalBusiness schema matches the public Google Business Profile -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2297,77 +2295,16 @@ Submission ID: ${data.submissionId||''}`
     "image": "https://www.milehighsolarcare.com/images/logo.png",
     "telephone": "+1-970-699-5484",
     "email": "quote@milehighsolarcare.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "12600 E Colfax Ave, Unit 443",
-      "addressLocality": "Aurora",
-      "addressRegion": "CO",
-      "postalCode": "80011",
-      "addressCountry": "US"
-    },
     "areaServed": [
-      {"@type": "City", "name": "Denver"},
+      {"@type": "AdministrativeArea", "name": "Colorado"},
       {"@type": "City", "name": "Aurora"},
-      {"@type": "City", "name": "Lakewood"},
-      {"@type": "City", "name": "Arvada"},
-      {"@type": "City", "name": "Centennial"},
-      {"@type": "AdministrativeArea", "name": "Front Range, Colorado"}
+      {"@type": "City", "name": "Denver"},
+      {"@type": "City", "name": "Golden"},
+      {"@type": "City", "name": "Boulder"},
+      {"@type": "City", "name": "Fort Collins"},
+      {"@type": "City", "name": "Colorado Springs"}
     ],
     "url": "https://www.milehighsolarcare.com/",
-    "priceRange": "$$",
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    }],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Solar maintenance services",
-      "itemListElement": [{
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Solar panel cleaning",
-          "serviceType": "Solar panel cleaning",
-          "areaServed": "Denver Metro and Front Range"
-        }
-      },{
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Critter guard installation",
-          "serviceType": "Solar panel critter guard installation",
-          "areaServed": "Denver Metro and Front Range"
-        }
-      },{
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Solar panel maintenance",
-          "serviceType": "Solar panel maintenance, cleaning, critter guard checks, and photo documentation",
-          "areaServed": "Denver Metro and Front Range",
-          "url": "https://www.milehighsolarcare.com/solar-panel-maintenance-denver/"
-        }
-      },{
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Commercial rooftop solar maintenance",
-          "serviceType": "Commercial solar panel cleaning and O&M support",
-          "areaServed": "Denver Metro and Front Range"
-        }
-      },{
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Plug-in and balcony solar planning",
-          "serviceType": "Colorado plug-in solar and balcony solar planning, quote prep, landlord and HOA packet support, and qualified install coordination",
-          "areaServed": "Denver Metro and Front Range",
-          "url": "https://www.milehighsolarcare.com/colorado-plug-in-balcony-solar/"
-        }
-      }]
-    },
     "sameAs": [
       "https://www.instagram.com/milehighsolarcare",
       "https://www.facebook.com/share/16rR6f9PUK/?mibextid=wwXIfr",
@@ -2376,36 +2313,5 @@ Submission ID: ${data.submissionId||''}`
     ]
   }
   </script>
-	  <script type="application/ld+json">
-	  {
-	    "@context": "https://schema.org",
-	    "@type": "FAQPage",
-	    "mainEntity": [{
-	      "@type": "Question",
-	      "name": "Why does solar panel cleanliness affect efficiency?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Dirt and debris can block sunlight and reduce output, so regular cleaning helps your system produce closer to its potential."}
-	    },{
-	      "@type": "Question",
-	      "name": "How does buildup impact solar panel longevity?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Grime and trapped moisture can accelerate wear on surfaces, seals, and frames—routine maintenance helps panels last."}
-	    },{
-	      "@type": "Question",
-	      "name": "Are there safety risks when panels are dirty?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Debris can trap moisture and heat, increasing the chance of electrical issues, and roof surfaces may become slick and hazardous."}
-	    },{
-	      "@type": "Question",
-	      "name": "Can solar maintenance save money?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Higher output can lower utility costs and improve return on investment, especially during high-production seasons."}
-	    },{
-	      "@type": "Question",
-	      "name": "Do you service commercial rooftop solar arrays?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Yes. Mile High Solar Care can help with commercial rooftop solar cleaning, visible condition documentation, photo documentation, and maintenance coordination for Denver Metro and Front Range properties."}
-	    },{
-	      "@type": "Question",
-	      "name": "What damage can happen if panels aren’t cleaned?",
-	      "acceptedAnswer": {"@type": "Answer","text": "Bird droppings and mineral deposits can etch glass and contribute to corrosion if left untreated."}
-	    }]
-		  }
-		  </script>
 </body>
 </html>
