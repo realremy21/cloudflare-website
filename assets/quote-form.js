@@ -32,6 +32,17 @@
     const GA_MEASUREMENT_ID = 'G-BY6MS8MRDG';
     const submitSuccessKey = 'mhsc_quote_submit_success';
     const duplicateWindowMs = 10 * 60 * 1000;
+    const quoteSuccessMessage = [
+      'Thanks — we received your solar care request.',
+      'Jeremy or a member of the Mile High Solar Care team will review your information and follow up shortly.',
+      "Here's what happens next:",
+      '1. We review your system details and service needs.',
+      '2. We confirm the right service and pricing.',
+      "3. We schedule a convenient time if you're ready to move forward.",
+      'For faster help, you can also call or text us directly at (970) 699-5484.',
+      'Thank you for trusting us with your solar investment.',
+      '— Jeremy & Meral, Mile High Solar Care'
+    ].join('\n');
 	    let quoteFormStarted = false;
 	    if(!sessionStorage.getItem(landingKey)) sessionStorage.setItem(landingKey, window.location.href);
 
@@ -220,14 +231,8 @@
 	            }
             rememberSubmission(data);
 		          formMsg.className = 'form-status form-status-success text-sm';
-		          const isCommercialRequest = data.service === 'Commercial rooftop solar / O&M support';
-		          formMsg.textContent = isCommercialRequest
-		            ? (result.confirmationSent === false
-		              ? 'Thanks—your commercial site-review request was received, but the confirmation email may be delayed. We will review scope, access, reporting, and timing before quoting.'
-		              : 'Thanks—your commercial site-review request was received for human review. We will confirm any missing scope, access, reporting, and timing details before quoting. Submission does not create a contract, schedule, or payment obligation.')
-		            : (result.confirmationSent === false
-		              ? `Thanks. Your quote request was received, but the confirmation email may be delayed. During business hours, most requests receive same-day follow-up after review. If you need faster help, call or text ${phoneDisplay}.`
-		              : `Thanks. Your quote request was sent and a confirmation email is on the way. During business hours, most requests receive same-day follow-up after review. If you do not see the confirmation within a few minutes, call or text ${phoneDisplay} or email ${quoteEmail}.`);
+		          formMsg.style.whiteSpace = 'pre-line';
+		          formMsg.textContent = quoteSuccessMessage;
 		          form.reset();
 		          submitBtn.disabled = true;
 	          submitBtn.textContent = 'Request sent';
