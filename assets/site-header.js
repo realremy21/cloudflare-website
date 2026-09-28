@@ -18,9 +18,10 @@
   function sync() {
     setOpen(false);
     if (mq.matches) {
-      overlay.append(nav);
+      overlay.append(nav, ctas);
     } else {
-      row.insertBefore(nav, ctas);
+      row.insertBefore(nav, toggle);
+      row.insertBefore(ctas, toggle);
     }
   }
   toggle.addEventListener('click', () => { if (mq.matches) setOpen(!header.classList.contains('is-mobile-open')); });

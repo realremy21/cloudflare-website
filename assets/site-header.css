@@ -29,6 +29,8 @@
   .site-header .mobile-menu-overlay .navlink{display:block;padding:16px 0;border-bottom:1px solid rgba(247,243,232,.22);font-size:18px;color:#F7F3E8}
   .site-header .mobile-menu-overlay .navlink:last-child{border-bottom:0}
   .site-header .mobile-menu-overlay .navlink:hover{color:#D39A1E}
+  .site-header .mobile-menu-overlay .desktop-ctas{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin-top:18px}
+  .site-header .mobile-menu-overlay .desktop-ctas .cta-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px}
   .site-header.is-mobile-open .line-1{transform:translateY(8px) rotate(45deg)}
   .site-header.is-mobile-open .line-2{opacity:0}
   .site-header.is-mobile-open .line-3{transform:translateY(-8px) rotate(-45deg)}
