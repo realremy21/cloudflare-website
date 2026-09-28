@@ -14,14 +14,16 @@
   <meta property="og:image" content="https://www.milehighsolarcare.com/images/newsletter/issue-1/family-hero-sep25.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/tailwind.css">
   <link rel="stylesheet" href="/assets/blog.css">
+  <link rel="stylesheet" href="/assets/newsletter-bridge.css">
   <style>
     .newsletter-list { margin: 2rem 0 5rem; }
     .newsletter-item { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); gap: 1.5rem; align-items: center; padding: 1.5rem; background: #fff; border: 1px solid #e7e0d2; border-radius: 16px; box-shadow: 0 8px 30px rgba(15,46,39,.08); }
     .newsletter-item img { display: block; width: 100%; height: 175px; object-fit: contain; }
     .newsletter-item h2 { margin: .4rem 0; }
     .newsletter-item p { margin: .5rem 0; }
-    .newsletter-item a { color: #173f35; }
+    .newsletter-item h2 a { color: #D39A1E; }
     @media (max-width: 600px) { .newsletter-item { grid-template-columns: 1fr; } .newsletter-item img { height: 145px; } }
   </style>
 </head>
@@ -31,9 +33,11 @@
   <a class="wordmark" href="/" aria-label="Mile High Solar Care home">Mile High <span>Solar Care</span></a>
   <nav aria-label="Main navigation"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/newsletter/" aria-current="page">Newsletter</a><a href="/contact/">Contact</a></nav>
 </div></header>
-<main id="main" class="blog-wrap index-page">
+<div class="journal-bridge archive-bridge"><div class="blog-wrap">
   <p class="eyebrow">Mile High Solar Care</p>
   <h1>Newsletter</h1>
+</div></div>
+<main id="main" class="blog-wrap index-page newsletter-index">
   <section class="newsletter-list" aria-label="Newsletter issues">
     <article class="newsletter-item">
       <a href="/newsletter/issue-1/" aria-label="Read Issue No. 1"><img src="/images/newsletter/issue-1/mhsc-logo-official-email-centered.png" alt="Mile High Solar Care" width="600" height="543"></a>
@@ -41,12 +45,12 @@
         <p class="eyebrow">Fall 2026 · Issue No. 1</p>
         <h2><a href="/newsletter/issue-1/">A note from our family</a></h2>
         <p><time datetime="2026-09-26">September 26, 2026</time></p>
-        <a class="read-link" href="/newsletter/issue-1/">Read Issue #1 <span aria-hidden="true">↗</span></a>
+        <a class="cta-btn cta-primary" href="/newsletter/issue-1/">Read Issue #1 <span aria-hidden="true">↗</span></a>
       </div>
     </article>
   </section>
-  <aside class="article-callout" aria-label="Blog"><p><a class="read-link" href="/blog/">Between issues? Browse our articles</a></p></aside>
+  <aside class="article-callout" aria-label="Blog"><p><a class="cta-btn cta-primary" href="/blog/">Between issues? Browse our articles</a></p></aside>
 </main>
-<footer class="blog-footer"><div class="blog-wrap footer-inner"><p>Mile High Solar Care</p><p>Serving Denver, Aurora &amp; the Front Range</p></div></footer>
+<!-- MHSC_SITE_FOOTER -->
 </body>
 </html>

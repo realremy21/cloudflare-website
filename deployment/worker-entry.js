@@ -3,7 +3,7 @@
 // compile the source files in /functions directly.
 import { onRequest as handleQuote } from '../functions/api/quote.js';
 import { onRequest as handlePilotInterest } from '../functions/api/pilot-interest.js';
-import { injectContactSection, usesContactPartial } from '../src/inject-contact.js';
+import { injectSharedPagePartials, usesSharedPagePartial } from '../src/inject-contact.js';
 
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -33,7 +33,7 @@ export default {
     }
 
     const response = await env.ASSETS.fetch(request);
-    if (request.method !== 'GET' || !usesContactPartial(url.pathname)) return response;
-    return injectContactSection(response, url.pathname);
+    if (request.method !== 'GET' || !usesSharedPagePartial(url.pathname)) return response;
+    return injectSharedPagePartials(response, url.pathname);
   },
 };

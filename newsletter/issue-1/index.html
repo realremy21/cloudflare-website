@@ -27,6 +27,7 @@
   <meta property="og:image" content="https://www.milehighsolarcare.com/images/newsletter/issue-1/family-hero-sep25.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/tailwind.css">
   <style>
     .issue-site-header { background:#0d261b; color:#fff; border-bottom:1px solid rgba(255,255,255,.16); font:14px/1.5 Arial,Helvetica,sans-serif; }
     .issue-site-header-inner { max-width:1120px; min-height:80px; margin:auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:32px; }
@@ -44,15 +45,19 @@
     .issue-related li { margin:7px 0; }
     @media (max-width:600px) { .issue-site-header-inner { align-items:flex-start; flex-direction:column; gap:16px; padding:16px; } .issue-site-header nav { width:100%; justify-content:space-between; gap:8px; } .issue-site-header nav a { font-size:.8rem; } .issue-related { margin-left:12px; margin-right:12px; } }
   </style>
+  <link rel="stylesheet" href="/assets/newsletter-bridge.css">
 </head>
-<body style="margin:0; padding:0; background-color:#F3F0E8; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+<body class="issue-web" style="margin:0; padding:0; background-color:#F3F0E8; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 
 
   <header class="issue-site-header"><div class="issue-site-header-inner">
     <a class="wordmark" href="/" aria-label="Mile High Solar Care home">Mile High <span>Solar Care</span></a>
     <nav aria-label="Main navigation"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/newsletter/" aria-current="page">Newsletter</a><a href="/contact/">Contact</a></nav>
   </div></header>
-  <p class="issue-date"><a href="/newsletter/">Newsletter</a> · Issue No. 1 · <time datetime="2026-09-26">September 26, 2026</time></p>
+  <div class="journal-bridge issue-bridge"><div class="blog-wrap">
+    <p class="journal-masthead">Mile High Solar Care <span>Journal</span></p>
+    <p class="issue-date"><a href="/newsletter/">Newsletter</a> · Issue No. 1 · <time datetime="2026-09-26">September 26, 2026</time></p>
+  </div></div>
   <main id="main">
 
   <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
@@ -126,7 +131,7 @@
               <h1 class="h1" style="margin:10px 0 14px 0; font-family:Georgia,'Times New Roman',serif; font-size:36px; line-height:42px; font-weight:normal; color:#173F35;">
                 A note from our family
               </h1>
-              <div style="width:52px; height:3px; background-color:#C89A3D; border-radius:3px; margin:0 0 22px 0;"></div>
+              <div style="width:52px; height:3px; background-color:#0B4A30; border-radius:3px; margin:0 0 22px 0;"></div>
 
               <p class="body-copy" style="margin:0 0 18px 0; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:26px; color:#2B332F;">Hi,</p>
               <p class="body-copy" style="margin:0 0 18px 0; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:26px; color:#2B332F;">Jeremy here from Mile High Solar Care.</p>
@@ -140,9 +145,9 @@
             <td style="padding:0 42px; background-color:#FFFFFF;">
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                  <td style="width:44%; height:1px; background-color:#E8D3A1; font-size:1px; line-height:1px;">&nbsp;</td>
-                  <td align="center" style="width:12%; color:#C89A3D; font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:16px;">◆</td>
-                  <td style="width:44%; height:1px; background-color:#E8D3A1; font-size:1px; line-height:1px;">&nbsp;</td>
+                  <td style="width:44%; height:1px; background-color:#0B4A30; font-size:1px; line-height:1px;">&nbsp;</td>
+                  <td align="center" style="width:12%; color:#0B4A30; font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:16px;">◆</td>
+                  <td style="width:44%; height:1px; background-color:#0B4A30; font-size:1px; line-height:1px;">&nbsp;</td>
                 </tr>
               </table>
             </td>
@@ -218,9 +223,9 @@
             <td style="padding:0 42px; background-color:#FFFFFF;">
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                  <td style="width:44%; height:1px; background-color:#E8D3A1; font-size:1px; line-height:1px;">&nbsp;</td>
-                  <td align="center" style="width:12%; color:#C89A3D; font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:16px;">◆</td>
-                  <td style="width:44%; height:1px; background-color:#E8D3A1; font-size:1px; line-height:1px;">&nbsp;</td>
+                  <td style="width:44%; height:1px; background-color:#0B4A30; font-size:1px; line-height:1px;">&nbsp;</td>
+                  <td align="center" style="width:12%; color:#0B4A30; font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:16px;">◆</td>
+                  <td style="width:44%; height:1px; background-color:#0B4A30; font-size:1px; line-height:1px;">&nbsp;</td>
                 </tr>
               </table>
             </td>
@@ -333,15 +338,6 @@
             </td>
           </tr>
 
-          <!-- FOOTER -->
-          <tr>
-            <td class="pad-x-sm" style="padding:24px 32px 28px 32px; background-color:#0F2E27; text-align:center;">
-              <p style="margin:0 0 8px 0; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:19px; color:#F3F0E8; font-weight:bold; letter-spacing:0.4px;">Mile High Solar Care LLC</p>
-              <p style="margin:0 0 8px 0; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:19px; color:#D6DDD8;">12600 E Colfax Ave #443 · Aurora, CO 80011</p>
-              <p style="margin:0; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:19px; color:#D6DDD8;">(970) 699-5484 · <a href="https://milehighsolarcare.com/" style="color:#E8D3A1; text-decoration:none;">milehighsolarcare.com</a></p>
-            </td>
-          </tr>
-
         </table>
 
       </td>
@@ -357,5 +353,6 @@
     </ul>
   </aside>
   </main>
+  <!-- MHSC_SITE_FOOTER -->
 </body>
 </html>
