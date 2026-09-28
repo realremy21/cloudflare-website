@@ -1,6 +1,5 @@
 :root{--mhsc-journal-gold:#D39A1E;--mhsc-journal-green:#0B4A30;--mhsc-site-font:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;--gold:#D8A020}
 .newsletter-archive,.issue-web{font-family:var(--mhsc-site-font)}
-.newsletter-archive .blog-header,.issue-web .issue-site-header{background:var(--mhsc-journal-green);font-family:var(--mhsc-site-font)}
 .blog-wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
 .journal-bridge{background:linear-gradient(180deg,#fffaf0 0%,#faf3e2 72%,#f3f0e8 100%);border-top:3px solid var(--mhsc-journal-gold);border-bottom:4px solid var(--mhsc-journal-green)}
 .archive-bridge{padding:3.6rem 0 3.2rem}
