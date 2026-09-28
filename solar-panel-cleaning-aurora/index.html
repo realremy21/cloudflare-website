@@ -38,6 +38,8 @@
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.34),rgba(0,0,0,.84));z-index:1}
     .hero-content{position:relative;z-index:2}
     @media (max-width:768px){.desktop-nav{display:none}.hero{min-height:640px}.header-label{display:none}}
+    .site-primary-nav{display:flex;align-items:center;gap:1.25rem;white-space:nowrap;background:rgba(8,25,19,.92);border-radius:10px;padding:8px 12px}
+    @media(max-width:1020px){header>div{flex-wrap:wrap}.site-primary-nav{order:3;width:100%;justify-content:center;gap:clamp(.7rem,4vw,1.5rem);padding-bottom:.25rem;font-size:.8rem}}
   </style>
 </head>
 <body>
@@ -50,12 +52,7 @@
         </picture>
         <span class="header-label font-semibold">Mile High Solar Care</span>
       </a>
-      <nav class="desktop-nav flex items-center gap-6 text-sm">
-        <a href="../index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
-        <a href="../solar-panel-maintenance-denver/" class="navlink hover:text-[var(--gold)]">Maintenance</a>
-        <a href="../index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
-        <a href="../water-guidelines/" class="navlink hover:text-[var(--gold)]">Water Guidelines</a>
-      </nav>
+      <nav class="site-primary-nav flex items-center gap-6 text-sm" aria-label="Main navigation"><a href="/" class="navlink hover:text-[var(--gold)]">Home</a><a href="/blog/" class="navlink hover:text-[var(--gold)]">Blog</a><a href="/newsletter/" class="navlink hover:text-[var(--gold)]">Newsletter</a><a href="/#contact" class="navlink hover:text-[var(--gold)]">Contact</a></nav>
       <div class="flex items-center gap-3">
         <a href="tel:+19706995484" class="cta-btn cta-secondary font-semibold" data-lead-event="click_call" data-lead-label="aurora_header_call">Call</a>
         <a href="../?service=cleaning#contact" class="cta-btn cta-primary font-semibold" data-lead-event="click_quote_cta" data-lead-label="aurora_header_quote">Get a Quote</a>

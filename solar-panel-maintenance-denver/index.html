@@ -45,6 +45,8 @@
     .check-list li::before{content:"";width:.55rem;height:.55rem;margin-top:.55rem;border-radius:999px;background:var(--gold);box-shadow:0 0 0 4px rgba(216,160,32,.16);flex:0 0 auto}
     .metric-card{border-radius:18px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);padding:1rem}
     @media (max-width:768px){.desktop-nav{display:none}.hero{min-height:620px}.header-label{display:none}}
+    .site-primary-nav{display:flex;align-items:center;gap:1.25rem;white-space:nowrap;background:rgba(8,25,19,.92);border-radius:10px;padding:8px 12px}
+    @media(max-width:1020px){header>div{flex-wrap:wrap}.site-primary-nav{order:3;width:100%;justify-content:center;gap:clamp(.7rem,4vw,1.5rem);padding-bottom:.25rem;font-size:.8rem}}
   </style>
 </head>
 <body>
@@ -57,13 +59,7 @@
         </picture>
         <span class="header-label font-semibold">Mile High Solar Care</span>
       </a>
-      <nav class="desktop-nav flex items-center gap-6 text-sm">
-        <a href="../index.html#pricing" class="navlink hover:text-[var(--gold)]">Pricing</a>
-        <a href="../index.html#included" class="navlink hover:text-[var(--gold)]">What's Included</a>
-        <a href="../solar-panel-maintenance-denver/" class="navlink hover:text-[var(--gold)]">Maintenance</a>
-        <a href="../index.html#service-area" class="navlink hover:text-[var(--gold)]">Service Area</a>
-        <a href="../water-guidelines/" class="navlink hover:text-[var(--gold)]">Water Guidelines</a>
-      </nav>
+      <nav class="site-primary-nav flex items-center gap-6 text-sm" aria-label="Main navigation"><a href="/" class="navlink hover:text-[var(--gold)]">Home</a><a href="/blog/" class="navlink hover:text-[var(--gold)]">Blog</a><a href="/newsletter/" class="navlink hover:text-[var(--gold)]">Newsletter</a><a href="/#contact" class="navlink hover:text-[var(--gold)]">Contact</a></nav>
       <div class="flex items-center gap-3">
         <a href="tel:+19706995484" class="cta-btn cta-secondary font-semibold" data-lead-event="click_call" data-lead-label="maintenance_header_call">Call</a>
         <a href="../?service=maintenance#contact" class="cta-btn cta-primary font-semibold" data-lead-event="click_quote_cta" data-lead-label="maintenance_header_quote">Get a Quote</a>
