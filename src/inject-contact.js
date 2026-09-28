@@ -18,6 +18,7 @@ const HEADER_ROUTES = new Set([
   '/blog/2025-solar-tax-credit-october-15-filing-deadline/',
   '/blog/plug-in-solar-colorado-certification-guide/',
   '/blog/xcel-rate-increase-fall-solar-panel-cleaning/',
+  '/blog/hail-damage-solar-panels/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
