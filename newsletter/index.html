@@ -17,16 +17,17 @@
   <link rel="stylesheet" href="/assets/tailwind.css">
   <link rel="stylesheet" href="/assets/blog.css">
   <link rel="stylesheet" href="/assets/newsletter-bridge.css">
-  <link rel="stylesheet" href="/assets/site-header.css">
-  <script defer src="/assets/site-header.js"></script>
+  <link rel="stylesheet" href="/assets/site-header.css?v=lockup-2">
+  <script defer src="/assets/site-header.js?v=lockup-2"></script>
   <style>
     .newsletter-list { margin: 2rem 0 5rem; }
     .newsletter-item { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); gap: 1.5rem; align-items: center; padding: 1.5rem; background: #fff; border: 1px solid #e7e0d2; border-radius: 16px; box-shadow: 0 8px 30px rgba(15,46,39,.08); }
-    .newsletter-item img { display: block; width: 100%; height: 175px; object-fit: contain; }
+    .newsletter-item > a:first-child { display: block; overflow: hidden; }
+    .newsletter-item img { display: block; width: 100%; height: 175px; object-fit: cover; object-position: center 75%; transform: scale(1.25); transform-origin: center bottom; }
     .newsletter-item h2 { margin: .4rem 0; }
     .newsletter-item p { margin: .5rem 0; }
     .newsletter-item h2 a { color: #D39A1E; }
-    @media (max-width: 600px) { .newsletter-item { grid-template-columns: 1fr; } .newsletter-item img { height: 145px; } }
+    @media (max-width: 600px) { .newsletter-item { grid-template-columns: 1fr; } .newsletter-item img { height: 185px; } }
   </style>
 </head>
 <body class="newsletter-archive">
@@ -39,7 +40,7 @@
 <main id="main" class="blog-wrap index-page newsletter-index">
   <section class="newsletter-list" aria-label="Newsletter issues">
     <article class="newsletter-item">
-      <a href="/newsletter/issue-1/" aria-label="Read Issue No. 1"><img src="/images/newsletter/issue-1/mhsc-logo-official-email-centered.png" alt="Mile High Solar Care" width="600" height="543"></a>
+      <a href="/newsletter/issue-1/" aria-label="Read Issue No. 1"><img src="/images/newsletter/issue-1/family-hero-sep25.jpg" alt="Jeremy, Meral, Gracie and Aurora among golden aspens" width="900" height="1200"></a>
       <div>
         <p class="eyebrow">Fall 2026 · Issue No. 1</p>
         <h2><a href="/newsletter/issue-1/">A note from our family</a></h2>
