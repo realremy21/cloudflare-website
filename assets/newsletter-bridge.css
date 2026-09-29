@@ -1,0 +1,31 @@
+:root{--mhsc-journal-gold:#D39A1E;--mhsc-journal-green:#0B4A30;--mhsc-site-font:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;--gold:#D8A020}
+.newsletter-archive,.issue-web{font-family:var(--mhsc-site-font)}
+.blog-wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+.journal-bridge{background:linear-gradient(180deg,#fffaf0 0%,#faf3e2 72%,#f3f0e8 100%);border-top:3px solid var(--mhsc-journal-gold);border-bottom:4px solid var(--mhsc-journal-green)}
+.archive-bridge{padding:3.6rem 0 3.2rem}
+.archive-bridge .eyebrow{color:var(--mhsc-journal-green)}
+.archive-bridge h1{color:var(--mhsc-journal-gold);font-size:clamp(2.75rem,6vw,5.1rem);line-height:1.02;letter-spacing:-.055em;margin:1rem 0 0;font-weight:800}
+.newsletter-index{padding-top:0}
+.newsletter-index .newsletter-item h2,.newsletter-index .newsletter-item h2 a{color:var(--mhsc-journal-gold)}
+.newsletter-index .article-callout{border-left:4px solid var(--mhsc-journal-green)}
+.newsletter-index .cta-btn{margin-top:.5rem}
+.newsletter-index .cta-btn,footer{font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}
+.issue-bridge{padding:2.15rem 0 2.3rem;text-align:center}
+.issue-bridge .journal-masthead{margin:0;color:var(--mhsc-journal-gold);font-size:24px;line-height:31px;font-weight:800;letter-spacing:-.025em}
+.issue-bridge .journal-masthead span{display:inline-block;border-bottom:3px solid var(--mhsc-journal-green);padding-bottom:.15rem}
+.issue-bridge .issue-date{max-width:none;margin:1rem 0 0;padding:0;color:var(--mhsc-journal-green);font:700 13px/1.5 var(--mhsc-site-font)}
+.issue-bridge .issue-date a{color:inherit}
+.issue-web [style*="font-family"]{font-family:var(--mhsc-site-font) !important}
+.issue-web main h1,.issue-web main h2,.issue-web main h3{font-family:var(--mhsc-site-font) !important;font-weight:800 !important;color:var(--mhsc-journal-gold) !important}
+.issue-web main h3 a{color:inherit !important}
+.issue-web .issue-related{border-top:4px solid var(--mhsc-journal-green)}
+.issue-web .issue-related h2{font:800 24px/1.3 var(--mhsc-site-font) !important;color:var(--mhsc-journal-gold) !important}
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.78rem 1.35rem;border-radius:9999px;font-weight:700;letter-spacing:.01em;text-decoration:none;transition:transform 150ms ease,box-shadow 150ms ease,background-color 150ms ease,border-color 150ms ease;will-change:transform}
+.cta-btn:active{transform:translateY(0) scale(.99)}
+.cta-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.cta-primary{background:#0E5B3A;color:#fff;border:1px solid rgba(255,255,255,.10);box-shadow:0 10px 20px rgba(0,0,0,.30);font-weight:800}
+.cta-primary:hover{color:#fff;box-shadow:0 14px 28px rgba(0,0,0,.34);transform:translateY(-1px)}
+footer .text-link{color:#fff;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em;transition:color 150ms ease}
+footer .text-link:hover{color:var(--gold)}
+footer .text-link:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:600px){.blog-wrap{width:min(100% - 32px,1120px)}.archive-bridge{padding:2.5rem 0 2.25rem}.issue-bridge{padding:1.65rem 0 1.85rem}.issue-bridge .journal-masthead{font-size:21px;line-height:28px}}

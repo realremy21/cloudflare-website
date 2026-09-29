@@ -61,6 +61,8 @@ Recommended GA4 key events:
 - `sitemap.xml` and `404.html` must live at the deployed asset root.
 - `robots.txt` uses the absolute sitemap URL required by crawlers.
 - Canonical host redirect from `milehighsolarcare.com` to `www.milehighsolarcare.com` should be configured as a Cloudflare Redirect Rule. Cloudflare Pages `_redirects` only accepts relative source paths, so the host-level redirect does not belong in this repository file.
+- Cloudflare Pages adds `X-Robots-Tag: noindex` to its preview URLs by default ([Pages documentation](https://developers.cloudflare.com/pages/configuration/preview-deployments/#x-robots-tag-noindex-on-preview-deployments)). The site-wide `_headers` file does **not** set `X-Robots-Tag`; the `noindex, nofollow` headers in `functions/api/` and `deployment/worker-entry.js` apply to API JSON responses only. Do not add a wildcard `noindex` rule to `_headers`.
+- Before a manual production release, compare `curl -I` for the exact preview URL and `https://www.milehighsolarcare.com/`: the preview should have `X-Robots-Tag: noindex`, while the canonical production host should have no `X-Robots-Tag`. An immutable production `*.pages.dev` deployment URL can also receive Cloudflare's `noindex` because it is a Pages URL; the public production host is `www.milehighsolarcare.com`. Verify each changed page still declares its `www` canonical URL. Repeat this check on the public host after deployment.
 
 Recommended Cloudflare Redirect Rule:
 
