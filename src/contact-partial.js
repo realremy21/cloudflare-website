@@ -98,7 +98,7 @@ export function renderContactSection({ home = false } = {}) {
 		          <div class="quote-trust-card p-5 text-sm text-slate-200">
 			            <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">What happens next</p>
 			            <p class="mt-2 text-lg font-semibold text-white">Fast intake, careful quote, no surprise add-ons.</p>
-			            <ul class="quote-trust-list mt-4">
+			            <ul class="quote-trust-list mt-4" style="list-style:none; padding-left:0;">
 			              <li>
 			                <span class="quote-trust-check" aria-hidden="true">✓</span>
 			                <span><strong class="text-white">We confirm receipt.</strong> You should see an on-page success message and a confirmation email.</span>
@@ -121,8 +121,6 @@ export function renderContactSection({ home = false } = {}) {
 			              </li>
 			            </ul>
 		          </div>
-		          <p><span class="font-semibold">Phone:</span> <a class="text-link" href="tel:${CONTACT.phone}" data-lead-event="click_call" data-lead-label="contact_phone">${CONTACT.displayPhone}</a></p>
-		          <p><span class="font-semibold">Text:</span> <a class="text-link" href="sms:${CONTACT.phone}" data-lead-event="click_sms" data-lead-label="contact_text">${CONTACT.displayPhone}</a></p>
 		          <p><span class="font-semibold">Email:</span> <a class="text-link" href="mailto:${CONTACT.email}" data-lead-event="click_email" data-lead-label="contact_email">${CONTACT.email}</a></p>
 		          <p class="text-sm text-slate-400">Hours: ${CONTACT.hours}</p>
                   <p class="text-sm text-slate-400">Service area: ${CONTACT.serviceArea}</p>
