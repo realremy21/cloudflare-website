@@ -9,6 +9,7 @@ const CONTACT_PATHS = new Set(['/', '/index.html', '/contact/', '/contact/index.
 const FOOTER_PATHS = new Set(['/', '/index.html', '/newsletter/', '/newsletter/index.html', '/newsletter/issue-1/', '/newsletter/issue-1/index.html']);
 const HEADER_ROUTES = new Set([
   '/', '/blog/', '/contact/', '/newsletter/', '/newsletter/issue-1/',
+  '/our-story/october-founder-letter/',
   '/solar-panel-cleaning-denver/', '/solar-panel-cleaning-aurora/',
   '/solar-panel-maintenance-denver/', '/solar-panel-critter-guard-denver/',
   '/commercial-rooftop-solar-cleaning/', '/colorado-plug-in-balcony-solar/',
