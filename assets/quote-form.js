@@ -33,14 +33,14 @@
     const submitSuccessKey = 'mhsc_quote_submit_success';
     const duplicateWindowMs = 10 * 60 * 1000;
     const quoteSuccessMessage = [
-      'Thanks — we received your solar care request.',
+      'Thanks — we received your service request.',
       'Jeremy or a member of the Mile High Solar Care team will review your information and follow up shortly.',
       "Here's what happens next:",
-      '1. We review your system details and service needs.',
+      '1. We review your project details and service needs.',
       '2. We confirm the right service and pricing.',
       "3. We schedule a convenient time if you're ready to move forward.",
       'For faster help, you can also call or text us directly at (970) 699-5484.',
-      'Thank you for trusting us with your solar investment.',
+      'Thank you for contacting Mile High Solar Care.',
       '— Jeremy & Meral, Mile High Solar Care'
     ].join('\n');
 	    let quoteFormStarted = false;
@@ -151,7 +151,10 @@
         'critter-repair': 'Limited critter guard repair',
         'critter-install': 'Critter guard installation',
         commercial: 'Commercial rooftop solar / O&M support',
-        plugin: 'Plug-in / balcony solar planning'
+        plugin: 'Plug-in / balcony solar planning',
+        lights: 'Holiday light installation',
+        windows: 'Window cleaning',
+        gutters: 'Gutter cleaning'
       };
       const requestedService = params.get('service');
       const serviceValue = servicePresets[requestedService];
@@ -173,6 +176,19 @@
       organizationGroup.classList.toggle('hidden', serviceSelect.value !== 'Commercial rooftop solar / O&M support');
     }
 
+    function updatePhoneRequirement(){
+      const method = form.querySelector('[name="preferredContact"]').value;
+      const required = method === 'Text' || method === 'Call';
+      const phone = form.querySelector('[name="phone"]');
+      phone.required = required;
+      document.getElementById('quote-phone-requirement').textContent = required
+        ? 'Required for text or call follow-up'
+        : method === 'Email' ? 'Optional for email follow-up' : 'Required for text or call follow-up';
+    }
+
+    updatePhoneRequirement();
+    form.querySelector('[name="preferredContact"]').addEventListener('change', updatePhoneRequirement);
+    form.addEventListener('reset', ()=>setTimeout(updatePhoneRequirement, 0));
     applyQuotePreset();
     updateCommercialFields();
     form.querySelector('[name="service"]')?.addEventListener('change', updateCommercialFields);
@@ -200,6 +216,7 @@
       submitBtn.textContent = 'Sending...';
 
 		      const data = Object.fromEntries(new FormData(form).entries());
+      data.phone = String(data.phone || '').trim();
       const validationError = validateQuoteForm(data);
       if(validationError){
 	      trackLeadEvent('quote_form_validation_error', {
