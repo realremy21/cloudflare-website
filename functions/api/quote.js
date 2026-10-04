@@ -86,10 +86,10 @@ function formatCustomerEmail(lead) {
   return [
     `Hi ${lead.name},`,
     '',
-    'Thanks for requesting a solar service quote from Mile High Solar Care. We received your request and will review the details so we can reply with pricing and earliest availability.',
+    'Thanks for requesting a service quote from Mile High Solar Care. We received your request and will review the details so we can reply with pricing and earliest availability.',
     '',
     'What happens next:',
-    '1. We review the service address, property type, panel count, service type, and any notes.',
+    '1. We review the service address, property type, requested service, and any notes, including panel count when relevant.',
     '2. We follow up by your preferred contact method.',
     '3. We confirm scope, pricing, earliest availability, and any prep notes before service.',
     '',
@@ -141,6 +141,10 @@ export const onRequest = async ({ request, env }) => {
   const lead = buildLead(data, request);
   if (!lead.name || !isEmail(lead.email)) {
     return jsonResponse({ error: 'Please enter a valid name and email.' }, 400);
+  }
+
+  if ((lead.preferredContact === 'Text' || lead.preferredContact === 'Call') && !lead.phone) {
+    return jsonResponse({ error: 'Please enter a phone number for call or text follow-up.' }, 400);
   }
 
   if (!env.RESEND_API_KEY) {

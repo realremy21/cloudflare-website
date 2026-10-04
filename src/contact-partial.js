@@ -20,7 +20,7 @@ const CERTIFICATIONS = `<div id="certifications" class="pt-2">
 export function renderContactSection({ home = false } = {}) {
   return `<section id="contact" class="py-16 sm:py-20 bg-black text-white">
 			    <div class="max-w-6xl mx-auto px-4">
-				      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Start Your Solar Quote in 60 Seconds</h2>
+				      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Start Your Service Quote</h2>
 					    <p class="mt-2 text-slate-300">Share the best contact route, service address or nearest cross streets, rough panel count if you know it, and what you want checked. We review every request before quoting so pricing, access, scope, and timing are clear before service.</p>
 					    <p class="mt-3 text-sm text-slate-400">The form usually takes about a minute. Most quote requests receive same-day follow-up during business hours.</p>
 
@@ -45,9 +45,9 @@ export function renderContactSection({ home = false } = {}) {
           <input id="quote-name" class="glass px-4 py-3 rounded-xl" type="text" name="name" autocomplete="name" placeholder="Your name" required />
           <label class="grid gap-2 text-sm font-semibold text-slate-200" for="quote-email">Email <span class="text-xs font-normal text-slate-400">Required</span></label>
           <input id="quote-email" class="glass px-4 py-3 rounded-xl" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
-          <label class="grid gap-2 text-sm font-semibold text-slate-200" for="quote-phone">Phone <span class="text-xs font-normal text-slate-400">Recommended for urgent requests</span></label>
+          <label class="grid gap-2 text-sm font-semibold text-slate-200" for="quote-phone">Phone <span class="text-xs font-normal text-slate-400"><span id="quote-phone-requirement">Required for text or call follow-up</span></span></label>
           <input id="quote-phone" class="glass px-4 py-3 rounded-xl" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="(###) ###-####" />
-          <p class="text-xs text-slate-400">A phone number helps us resolve urgent or same-day quote questions faster. Email-only is okay, but check your inbox for the confirmation.</p>
+          <p class="text-xs text-slate-400">Choose Email for email-only follow-up. Text or Call requires a phone number. Email is required for your request confirmation.</p>
           <label class="grid gap-2 text-sm font-semibold text-slate-200" for="quote-service">Service needed <span class="text-xs font-normal text-slate-400">Required</span></label>
           <select id="quote-service" class="glass px-4 py-3 rounded-xl" name="service" required>
             <option value="">Service needed</option>
@@ -60,9 +60,12 @@ export function renderContactSection({ home = false } = {}) {
             <option value="Attic solar fan cleaning or maintenance">Attic solar fan cleaning or maintenance</option>
             <option value="Plug-in solar panel cleaning">Plug-in solar panel cleaning</option>
             <option value="Plug-in / balcony solar planning">Plug-in / balcony solar planning</option>
+            <option value="Holiday light installation">Holiday light installation</option>
+            <option value="Window cleaning">Window cleaning</option>
+            <option value="Gutter cleaning">Gutter cleaning</option>
             <option value="Not sure">Not sure yet</option>
           </select>
-          <p class="text-xs text-slate-400">Not sure is fine. Choose the closest option and use the notes box for cleaning, critter guard, maintenance photos, storm residue, bird activity, commercial/HOA access, or timing details.</p>
+          <p class="text-xs text-slate-400">Not sure is fine. Choose the closest option and use the notes box for cleaning, critter guard, maintenance photos, storm residue, bird activity, commercial/HOA access, seasonal services, or timing details.</p>
           <label class="grid gap-2 text-sm font-semibold text-slate-200" for="quote-property">Property type <span class="text-xs font-normal text-slate-400">Optional</span></label>
           <select id="quote-property" class="glass px-4 py-3 rounded-xl" name="propertyType">
             <option value="">Property type</option>
