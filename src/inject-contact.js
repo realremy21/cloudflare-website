@@ -20,6 +20,7 @@ const HEADER_ROUTES = new Set([
   '/blog/plug-in-solar-colorado-certification-guide/',
   '/blog/xcel-rate-increase-fall-solar-panel-cleaning/',
   '/blog/hail-damage-solar-panels/',
+  '/blog/freedom-forever-bankruptcy/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
