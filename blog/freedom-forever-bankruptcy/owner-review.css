@@ -1,0 +1,28 @@
+
+.freedom-owner-review .article-page{padding-top:2rem}
+.freedom-owner-review .review-status{margin:0 0 1.4rem;font-size:.73rem;letter-spacing:.12em;font-weight:700;color:#506158}
+.freedom-owner-review .editorial-hero{display:grid;grid-template-columns:1.55fr 1fr;border-top:3px solid #d8a020;border-bottom:1px solid #cfd9cf;background:#fff}
+.freedom-owner-review .editorial-hero-copy{padding:2.8rem 2.5rem}
+.freedom-owner-review .editorial-hero h1{font-size:clamp(2.5rem,3.65vw,3.5rem);line-height:1.06;letter-spacing:-.045em;font-weight:800;margin:1.1rem 0 1.7rem}
+.freedom-owner-review .editorial-hero .article-meta{font-size:.78rem;margin:0;line-height:1.5}
+.freedom-owner-review .editorial-brand-panel{background:#0d3625;color:#f7f3e8;padding:3rem 2.4rem;display:flex;flex-direction:column;justify-content:center}
+.freedom-owner-review .editorial-brand-panel img{display:block;width:100%;max-width:280px;height:auto;margin-bottom:3rem}
+.freedom-owner-review .brand-panel-title{font-size:2rem;line-height:1.2;letter-spacing:-.035em;margin:0 0 1rem}
+.freedom-owner-review .brand-panel-location{font-size:.8rem;letter-spacing:.08em;margin:0;color:#e5dfce}
+.freedom-owner-review .brand-panel-rule{height:2px;background:#d8a020;width:54px;margin:2rem 0 1rem}
+.freedom-owner-review .brand-panel-note{font-size:.85rem;margin:0;color:#e5dfce}
+.freedom-owner-review .review-note{max-width:760px;margin:2rem auto 2.5rem;border-left:3px solid #d8a020;padding:.2rem 1.1rem;color:#506158}
+.freedom-owner-review .review-note h2{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin:0 0 .4rem;color:#0e5b3a}
+.freedom-owner-review .review-note p{font-size:.85rem;line-height:1.6;margin:0}
+.freedom-owner-review .article-prose h3{font-size:1.2rem;font-weight:700;line-height:1.4;margin:2rem 0 .8rem;color:#164d33}
+@media(max-width:700px){.freedom-owner-review .editorial-hero{grid-template-columns:1fr}.freedom-owner-review .editorial-hero-copy{padding:1.8rem 1.35rem}.freedom-owner-review .editorial-hero h1{font-size:2.45rem}.freedom-owner-review .editorial-brand-panel{padding:1.5rem 1.35rem}.freedom-owner-review .editorial-brand-panel img{max-width:210px;margin-bottom:1.25rem}.freedom-owner-review .brand-panel-title{font-size:1.5rem}.freedom-owner-review .brand-panel-rule{margin:1.1rem 0 .7rem}.freedom-owner-review .review-status{font-size:.65rem;line-height:1.6}.freedom-owner-review .review-note{margin-top:1.5rem}}
+
+
+
+/* Graphic-led owner-review draft; not published. */
+.freedom-owner-review .editorial-hero-graphic-led{display:block;overflow:hidden}
+.freedom-owner-review .editorial-hero-graphic{margin:0;width:100%;background:#0d261b;border-bottom:1px solid #cfd9cf}
+.freedom-owner-review .editorial-hero-graphic .editorial-hero-image{display:block;width:100%;max-width:none;height:auto;aspect-ratio:1200/630;object-fit:contain;margin:0}
+.freedom-owner-review .editorial-hero-graphic-led .editorial-hero-copy{max-width:1000px;margin:0 auto;padding:2.5rem 2.5rem 2.2rem}
+.freedom-owner-review .editorial-hero-graphic-led h1{max-width:920px;font-size:clamp(2.1rem,3.65vw,3.5rem);line-height:1.08;margin:1rem 0 1.6rem;overflow-wrap:break-word}
+@media(max-width:700px){.freedom-owner-review .editorial-hero-graphic-led .editorial-hero-copy{padding:1.7rem 1.35rem 1.5rem}.freedom-owner-review .editorial-hero-graphic-led h1{font-size:clamp(1.95rem,8vw,2.45rem);line-height:1.1;margin:.85rem 0 1.25rem}}
