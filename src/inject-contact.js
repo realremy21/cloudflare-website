@@ -21,6 +21,7 @@ const HEADER_ROUTES = new Set([
   '/blog/xcel-rate-increase-fall-solar-panel-cleaning/',
   '/blog/hail-damage-solar-panels/',
   '/blog/freedom-forever-bankruptcy/',
+  '/blog/pigeon-proofing-solar-panels-denver/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
