@@ -26,6 +26,7 @@ const HEADER_ROUTES = new Set([
   '/blog/core-electric-battery-storage-colorado-solar-homes/',
   '/blog/solar-panel-cleaning-cost-denver/',
   '/blog/pigeon-proofing-solar-panels-denver/',
+  '/blog/solar-installer-bankrupt-now-what/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
