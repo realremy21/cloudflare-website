@@ -27,6 +27,7 @@ const HEADER_ROUTES = new Set([
   '/blog/solar-panel-cleaning-cost-denver/',
   '/blog/pigeon-proofing-solar-panels-denver/',
   '/blog/solar-installer-bankrupt-now-what/',
+  '/blog/mosaic-solar-bankruptcy-who-services-your-loan/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
