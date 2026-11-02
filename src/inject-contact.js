@@ -29,6 +29,7 @@ const HEADER_ROUTES = new Set([
   '/blog/solar-installer-bankrupt-now-what/',
   '/blog/mosaic-solar-bankruptcy-who-services-your-loan/',
   '/blog/xcel-denver-franchise-vote-what-it-means-for-solar-homes/',
+  '/blog/solar-panel-inspection-denver-what-it-covers/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
