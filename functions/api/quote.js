@@ -1,6 +1,11 @@
 // Cloudflare Pages Function for quote requests.
 // Required production secret: RESEND_API_KEY.
+// Lead safety (added 2026-11-06): every validated lead is written to the
+// LEADS_KV namespace (when bound) BEFORE any email is sent, and the internal
+// notification goes to BOTH the quotes group and a direct backup inbox, so a
+// single failed or swallowed email can never lose a lead again.
 const DEFAULT_TO_EMAIL = 'quote@milehighsolarcare.com';
+const DEFAULT_BACKUP_EMAIL = 'jeremy@milehighsolarcare.com';
 const DEFAULT_FROM_EMAIL = 'quote@milehighsolarcare.com';
 const DEFAULT_FROM_NAME = 'Mile High Solar Care';
 
@@ -99,6 +104,19 @@ function formatCustomerEmail(lead) {
   ].join('\n');
 }
 
+async function saveLead(env, key, record) {
+  if (!env.LEADS_KV) {
+    return false;
+  }
+  try {
+    await env.LEADS_KV.put(key, JSON.stringify(record));
+    return true;
+  } catch (err) {
+    console.error('Lead KV save failed', err);
+    return false;
+  }
+}
+
 async function sendEmail(env, payload) {
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -153,19 +171,41 @@ export const onRequest = async ({ request, env }) => {
   }
 
   const toEmail = clean(env.QUOTE_TO_EMAIL) || DEFAULT_TO_EMAIL;
+  const backupEmail = clean(env.LEAD_BACKUP_EMAIL) || DEFAULT_BACKUP_EMAIL;
   const fromEmail = clean(env.QUOTE_FROM_EMAIL) || DEFAULT_FROM_EMAIL;
   const fromName = clean(env.QUOTE_FROM_NAME) || DEFAULT_FROM_NAME;
   const from = `${fromName} <${fromEmail}>`;
 
-  try {
-    await sendEmail(env, {
-      from,
-      to: [toEmail],
-      reply_to: lead.email,
-      subject: `New quote request from ${lead.name}`,
-      text: formatInternalEmail(lead),
-    });
+  // 1. Persist the lead BEFORE any email is attempted.
+  const leadKey = `quote:${lead.submittedAt}:${lead.email}`;
+  const saved = await saveLead(env, leadKey, { kind: 'quote', ...lead });
 
+  // 2. Internal notification to BOTH destinations, independently, so one
+  //    failure or one swallowed copy can never lose the lead.
+  const internalPayload = {
+    from,
+    reply_to: lead.email,
+    subject: `New quote request from ${lead.name}`,
+    text: formatInternalEmail(lead),
+  };
+  const delivery = { savedToKv: saved, group: false, backupInbox: false, customer: false };
+  try {
+    await sendEmail(env, { ...internalPayload, to: [toEmail] });
+    delivery.group = true;
+  } catch {
+    console.error('Internal lead email to group failed');
+  }
+  if (backupEmail && backupEmail !== toEmail) {
+    try {
+      await sendEmail(env, { ...internalPayload, to: [backupEmail] });
+      delivery.backupInbox = true;
+    } catch {
+      console.error('Internal lead email to backup inbox failed');
+    }
+  }
+
+  // 3. Customer confirmation (best effort once the lead itself is safe).
+  try {
     await sendEmail(env, {
       from,
       to: [lead.email],
@@ -173,9 +213,18 @@ export const onRequest = async ({ request, env }) => {
       subject: 'We received your Mile High Solar Care quote request',
       text: formatCustomerEmail(lead),
     });
-
-    return jsonResponse({ success: true });
+    delivery.customer = true;
   } catch {
-    return jsonResponse({ error: 'Email delivery failed' }, 502);
+    console.error('Customer confirmation email failed');
   }
+
+  // 4. Stamp the saved record with what actually got delivered.
+  if (saved) {
+    await saveLead(env, leadKey, { kind: 'quote', ...lead, delivery });
+  }
+
+  if (saved || delivery.group || delivery.backupInbox) {
+    return jsonResponse({ success: true });
+  }
+  return jsonResponse({ error: 'Email delivery failed' }, 502);
 };
