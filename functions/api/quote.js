@@ -2,10 +2,12 @@
 // Required production secret: RESEND_API_KEY.
 // Lead safety (added 2026-11-06): every validated lead is written to the
 // LEADS_KV namespace (when bound) BEFORE any email is sent, and the internal
-// notification goes to BOTH the quotes group and a direct backup inbox, so a
+// notification goes to the quotes group, a direct backup inbox, and Muse's
+// own inbox, so a
 // single failed or swallowed email can never lose a lead again.
 const DEFAULT_TO_EMAIL = 'quote@milehighsolarcare.com';
 const DEFAULT_BACKUP_EMAIL = 'jeremy@milehighsolarcare.com';
+const DEFAULT_MUSE_EMAIL = 'jeremy-runnels-muse@muse.ai';
 const DEFAULT_FROM_EMAIL = 'quote@milehighsolarcare.com';
 const DEFAULT_FROM_NAME = 'Mile High Solar Care';
 
@@ -172,6 +174,7 @@ export const onRequest = async ({ request, env }) => {
 
   const toEmail = clean(env.QUOTE_TO_EMAIL) || DEFAULT_TO_EMAIL;
   const backupEmail = clean(env.LEAD_BACKUP_EMAIL) || DEFAULT_BACKUP_EMAIL;
+  const museEmail = clean(env.LEAD_MUSE_EMAIL) || DEFAULT_MUSE_EMAIL;
   const fromEmail = clean(env.QUOTE_FROM_EMAIL) || DEFAULT_FROM_EMAIL;
   const fromName = clean(env.QUOTE_FROM_NAME) || DEFAULT_FROM_NAME;
   const from = `${fromName} <${fromEmail}>`;
@@ -188,7 +191,7 @@ export const onRequest = async ({ request, env }) => {
     subject: `New quote request from ${lead.name}`,
     text: formatInternalEmail(lead),
   };
-  const delivery = { savedToKv: saved, group: false, backupInbox: false, customer: false };
+  const delivery = { savedToKv: saved, group: false, backupInbox: false, museInbox: false, customer: false };
   try {
     await sendEmail(env, { ...internalPayload, to: [toEmail] });
     delivery.group = true;
@@ -201,6 +204,14 @@ export const onRequest = async ({ request, env }) => {
       delivery.backupInbox = true;
     } catch {
       console.error('Internal lead email to backup inbox failed');
+    }
+  }
+  if (museEmail && museEmail !== toEmail && museEmail !== backupEmail) {
+    try {
+      await sendEmail(env, { ...internalPayload, to: [museEmail] });
+      delivery.museInbox = true;
+    } catch {
+      console.error('Internal lead email to Muse inbox failed');
     }
   }
 
@@ -223,7 +234,7 @@ export const onRequest = async ({ request, env }) => {
     await saveLead(env, leadKey, { kind: 'quote', ...lead, delivery });
   }
 
-  if (saved || delivery.group || delivery.backupInbox) {
+  if (saved || delivery.group || delivery.backupInbox || delivery.museInbox) {
     return jsonResponse({ success: true });
   }
   return jsonResponse({ error: 'Email delivery failed' }, 502);
