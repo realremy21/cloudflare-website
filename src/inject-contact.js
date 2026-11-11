@@ -32,6 +32,7 @@ const HEADER_ROUTES = new Set([
   '/blog/solar-panel-inspection-denver-what-it-covers/',
   '/blog/denver-question-2k-passed-xcel-franchise-what-it-means-for-solar-homes/',
   '/blog/colorado-new-governor-weiser-puc-what-it-means-for-solar-homes/',
+  '/blog/solar-access-colorado-plug-in-solar-launch/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
