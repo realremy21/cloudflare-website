@@ -12,6 +12,7 @@ const HEADER_ROUTES = new Set([
   '/our-story/october-founder-letter/',
   '/solar-panel-cleaning-denver/', '/solar-panel-cleaning-aurora/',
   '/solar-panel-cleaning-colorado-springs/', '/solar-panel-critter-guard-colorado-springs/',
+  '/colorado-springs/',
   '/solar-care-plans/',
   '/solar-panel-maintenance-denver/', '/solar-panel-critter-guard-denver/',
   '/commercial-rooftop-solar-cleaning/', '/colorado-plug-in-balcony-solar/',
