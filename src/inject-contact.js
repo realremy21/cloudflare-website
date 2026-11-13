@@ -14,6 +14,10 @@ const HEADER_ROUTES = new Set([
   '/solar-panel-cleaning-colorado-springs/', '/solar-panel-critter-guard-colorado-springs/',
   '/colorado-springs/',
   '/orphaned-solar-systems/',
+  '/commercial-solar-maintenance-denver/',
+  '/solar-panel-cleaning-arvada/', '/solar-panel-cleaning-lakewood/',
+  '/solar-panel-cleaning-littleton/', '/solar-panel-inspection-denver/',
+  '/solar-panel-snow-removal-denver/',
   '/solar-care-plans/',
   '/solar-panel-maintenance-denver/', '/solar-panel-critter-guard-denver/',
   '/commercial-rooftop-solar-cleaning/', '/colorado-plug-in-balcony-solar/',
@@ -35,6 +39,10 @@ const HEADER_ROUTES = new Set([
   '/blog/denver-question-2k-passed-xcel-franchise-what-it-means-for-solar-homes/',
   '/blog/colorado-new-governor-weiser-puc-what-it-means-for-solar-homes/',
   '/blog/solar-access-colorado-plug-in-solar-launch/',
+  '/blog/colorado-puc-meter-collar-hearing-recap/',
+  '/blog/colorado-springs-utilities-solar-rate-change-2027/',
+  '/blog/solar-panel-snow-removal-denver-winter-guide/',
+  '/blog/xcel-solar-bank-election-colorado/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
