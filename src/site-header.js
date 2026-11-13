@@ -2,6 +2,7 @@
 export function renderSiteHeader({ current = '', home = false, quoteHref = '/#contact', quoteLabel = 'Start Quote' } = {}) {
   const nav = [
     ['/', 'Home', 'home'],
+    ['/#our-story', 'Our Story', 'story'],
     ['/solar-care-plans/', 'Solar Care Plans', 'plans'],
     ['/blog/', 'Blog', 'blog'],
     ['/newsletter/', 'Newsletter', 'newsletter'],
