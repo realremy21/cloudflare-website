@@ -554,40 +554,18 @@
     #reviews-showcase .reviews-marquee{
       position: relative;
       margin-top: 1.75rem;
-      overflow: hidden;
-      border-radius: 1rem;
-    }
-    #reviews-showcase .reviews-marquee::before,
-    #reviews-showcase .reviews-marquee::after{
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: clamp(28px, 4vw, 56px);
-      pointer-events: none;
-      z-index: 2;
-    }
-    #reviews-showcase .reviews-marquee::before{
-      left: 0;
-      background: linear-gradient(to right, #000 0%, rgba(0,0,0,0) 100%);
-    }
-    #reviews-showcase .reviews-marquee::after{
-      right: 0;
-      background: linear-gradient(to left, #000 0%, rgba(0,0,0,0) 100%);
     }
     #reviews-showcase .reviews-track{
       display: flex;
-      flex-wrap: nowrap;
-      width: max-content;
-      gap: 0;
-      animation: reviews-scroll 70s linear infinite;
-      will-change: transform;
+      width: 100%;
     }
     #reviews-showcase .reviews-group{
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
       padding: 0.4rem 0;
-      flex-shrink: 0;
+      width: 100%;
     }
     #reviews-showcase .review-card{
       flex: 0 0 auto;
@@ -635,30 +613,11 @@
       color: #e2e8f0;
       font-weight: 600;
     }
-    @media (hover:hover){
-      #reviews-showcase .reviews-marquee:hover .reviews-track{animation-play-state: paused}
-    }
-    #reviews-showcase .reviews-marquee.is-touching .reviews-track{animation-play-state: paused}
     @media (max-width: 768px){
-      #reviews-showcase .reviews-marquee{
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scroll-snap-type: x proximity;
-      }
       #reviews-showcase .review-card{
         flex: 0 0 auto;
         width: min(86vw, 340px);
-        scroll-snap-align: start;
       }
-    }
-    @media (prefers-reduced-motion: reduce){
-      #reviews-showcase .reviews-track{animation: none}
-    }
-    @keyframes reviews-scroll{
-      from{transform: translate3d(0,0,0)}
-      to{transform: translate3d(-50%,0,0)}
     }
 
     /* Hero CTAs */
@@ -1018,13 +977,13 @@
     <div class="max-w-6xl mx-auto px-4 grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
       <div>
         <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">Ongoing solar care</p>
-        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">A maintenance plan built around your array</h2>
-        <p class="mt-3 text-slate-300">Ask about a recurring Solar Care Plan for panel-safe cleaning, photo documentation, and visible roofline or critter-guard observations. We recommend a cadence after reviewing the property, access, and system needs.</p>
-        <p class="mt-3 text-sm text-slate-400">Plan scope and pricing are custom—nothing renews or schedules automatically.</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Solar Care Plans with published pricing</h2>
+        <p class="mt-3 text-slate-300">Pick a published Solar Care Plan — $27 to $54 a month — and we handle the rest: professional cleanings through the year, an annual 12-point inspection with a written health report, and before-and-after photos at every visit. We contact you when a cleaning is due; you just pick the window.</p>
+        <p class="mt-3 text-sm text-slate-400">Enroll online in minutes, monthly or annual. Monthly plans have no contract and cancel anytime; your rate is locked for 12 months.</p>
       </div>
       <div class="glass p-6 rounded-2xl">
-        <h3 class="text-lg font-semibold">Get a care-plan recommendation</h3>
-        <p class="mt-2 text-sm text-slate-300">Tell us what has been serviced, what you want documented, and whether the property is residential, HOA-managed, or commercial.</p>
+        <h3 class="text-lg font-semibold">Three plans, priced by panel count</h3>
+        <p class="mt-2 text-sm text-slate-300">Essential $27/mo, Plus $42/mo, and Total $54/mo for a typical 13–24 panel home, with annual options that cost less. Smaller and larger systems are priced by panel band on the plans page.</p>
         <a href="/solar-care-plans/" class="cta-btn cta-primary glossy-btn mt-5 text-sm" data-lead-event="click_local_page" data-lead-label="solar_care_plan_page">See the Solar Care Plans</a>
       </div>
     </div>
@@ -1310,6 +1269,7 @@
   <section id="reviews-showcase" class="py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Customers Are Saying</h2>
+      <p class="mt-2 text-slate-300">Rated <span class="font-semibold text-white">5.0</span> on Google across 42 reviews.</p>
       <div class="reviews-marquee" aria-label="Customer reviews">
         <div class="reviews-track">
           <div class="reviews-group">
@@ -1347,14 +1307,6 @@
             </article>
             <article class="review-card">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"5.0 Star Rating across all reviews. We are grateful for every customer who trusts us with their home."</p>
-              <div class="review-meta">
-                <p class="review-name">Mile High Solar Care</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
               <p class="review-quote">"Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what I long suspected. Those panels do get reeeeally marred and dusty. Now, they sparkle! With their infectious 'can do' attitude and positivity, Jeremy and Meral make quick work of the cleaning. I look forward to their return to keep my solar panels in tip-top shape."</p>
               <div class="review-meta">
                 <p class="review-name">Nancy</p>
@@ -1363,64 +1315,6 @@
             </article>
             <article class="review-card">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a noticeable layer of dust and buildup. They were professional, explained everything clearly, and handled our steep roof safely. Panels look crystal clear now and we’ve already seen improved performance. We’ll definitely have them back in the next 6–12 months!"</p>
-              <div class="review-meta">
-                <p class="review-name">Daniel</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-          </div>
-          <div class="reviews-group" aria-hidden="true">
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-quote">"Excellent job from start to finish. Communication was clear, scheduling was easy, and the results were immediately noticeable. My panels looked brand new afterward, and I could tell the difference right away. Professional, respectful, and clearly knowledgeable. Highly recommend."</p>
-              <div class="review-meta">
-                <p class="review-name">Jake</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-quote">"Excellent customer service and work quality. Super easy to work with and very kind people."</p>
-              <div class="review-meta">
-                <p class="review-name">Gavin</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-quote">"Very friendly 10/10 recommend."</p>
-              <div class="review-meta">
-                <p class="review-name">Nova</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-quote">"They showed up on time and did a very good job. They pointed out issues with my panels and provided before and after photos. I definitely recommend them for your panel needs and will use them again."</p>
-              <div class="review-meta">
-                <p class="review-name">Gregory</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-quote">"5.0 Star Rating across all reviews. We are grateful for every customer who trusts us with their home."</p>
-              <div class="review-meta">
-                <p class="review-name">Mile High Solar Care</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
-              <p class="review-quote">"Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what I long suspected. Those panels do get reeeeally marred and dusty. Now, they sparkle! With their infectious 'can do' attitude and positivity, Jeremy and Meral make quick work of the cleaning. I look forward to their return to keep my solar panels in tip-top shape."</p>
-              <div class="review-meta">
-                <p class="review-name">Nancy</p>
-                <span class="review-source">Google</span>
-              </div>
-            </article>
-            <article class="review-card">
-              <p class="review-stars">★★★★★</p>
               <p class="review-quote">"Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a noticeable layer of dust and buildup. They were professional, explained everything clearly, and handled our steep roof safely. Panels look crystal clear now and we’ve already seen improved performance. We’ll definitely have them back in the next 6–12 months!"</p>
               <div class="review-meta">
                 <p class="review-name">Daniel</p>
@@ -1430,7 +1324,7 @@
           </div>
         </div>
       </div>
-      <a href="https://www.google.com/search?q=Mile+High+Solar+Care+reviews" target="_blank" rel="noopener noreferrer" class="mt-5 inline-block text-sm text-[var(--gold)] hover:underline" data-lead-event="click_reviews" data-lead-label="read_more_reviews">Read more reviews</a>
+      <a href="https://www.google.com/search?q=Mile+High+Solar+Care+reviews" target="_blank" rel="noopener noreferrer" class="mt-5 inline-block text-sm text-[var(--gold)] hover:underline" data-lead-event="click_reviews" data-lead-label="read_more_reviews">Read all 42 reviews on Google</a>
     </div>
   </section>
 
