@@ -395,23 +395,48 @@
     }
     .water-compliance-marquee{
       position: relative;
+      overflow: hidden;
+    }
+    .water-compliance-marquee::before,
+    .water-compliance-marquee::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width: clamp(18px, 4vw, 52px);
+      pointer-events:none;
+      z-index:2;
+    }
+    .water-compliance-marquee::before{
+      left:0;
+      background: linear-gradient(to right, rgba(2,12,8,1) 0%, rgba(2,12,8,0) 100%);
+    }
+    .water-compliance-marquee::after{
+      right:0;
+      background: linear-gradient(to left, rgba(3,15,10,1) 0%, rgba(3,15,10,0) 100%);
     }
     .water-compliance-track{
-      display:block;
+      display:flex;
+      width:max-content;
+      flex-wrap:nowrap;
+      animation: water-banner-scroll 44s linear infinite;
+      will-change: transform;
     }
     .water-compliance-group{
-      display:block;
+      display:flex;
+      align-items:center;
+      flex-shrink:0;
     }
     .water-compliance-copy{
       display:flex;
       align-items:center;
       gap:0.7rem;
       padding:0.7rem 1.2rem;
-      white-space:normal;
+      white-space:nowrap;
       color: rgba(248,250,252,0.92);
       font-size: 0.8rem;
       letter-spacing: 0.01em;
-      line-height: 1.45;
+      line-height: 1;
     }
     .water-compliance-link{
       display:inline-flex;
@@ -434,6 +459,18 @@
       outline:2px solid rgba(216,160,32,0.8);
       outline-offset:3px;
     }
+    .water-compliance-separator{
+      width:6px;
+      height:6px;
+      flex:0 0 auto;
+      margin-right:1.2rem;
+      border-radius:9999px;
+      background: rgba(216,160,32,0.72);
+      box-shadow: 0 0 10px rgba(216,160,32,0.28);
+    }
+    @media (hover:hover){
+      .water-compliance-marquee:hover .water-compliance-track{animation-play-state: paused}
+    }
     @media (max-width: 768px){
       .water-compliance-shell{padding: 0 0.6rem}
       .water-compliance-copy{
@@ -444,6 +481,41 @@
       .water-compliance-link{
         padding:0.28rem 0.65rem;
       }
+      .water-compliance-separator{
+        margin-right:0.95rem;
+      }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .water-compliance-marquee{
+        overflow:visible;
+      }
+      .water-compliance-marquee::before,
+      .water-compliance-marquee::after{
+        display:none;
+      }
+      .water-compliance-track{
+        display:block;
+        width:auto;
+        animation:none;
+      }
+      .water-compliance-group{
+        display:block;
+      }
+      .water-compliance-group[aria-hidden="true"]{
+        display:none;
+      }
+      .water-compliance-copy{
+        white-space:normal;
+        padding:0.8rem 0;
+        line-height:1.45;
+      }
+      .water-compliance-separator{
+        display:none;
+      }
+    }
+    @keyframes water-banner-scroll{
+      from{transform: translate3d(0,0,0)}
+      to{transform: translate3d(-50%,0,0)}
     }
 
     /* Before/After slider */
@@ -654,6 +726,13 @@
               <p class="water-compliance-copy">
                 <span>Water-Efficient Solar Cleaning — Fully Compliant with Local Guidelines. Mile High Solar Care follows all Denver Metro &amp; Front Range water regulations and uses controlled, low-water cleaning methods designed for efficiency and sustainability.</span> <a href="/water-guidelines" class="water-compliance-link">Check your local city or county guidelines</a>
               </p>
+              <span class="water-compliance-separator" aria-hidden="true"></span>
+            </div>
+            <div class="water-compliance-group" aria-hidden="true" inert>
+              <p class="water-compliance-copy">
+                <span>Water-Efficient Solar Cleaning — Fully Compliant with Local Guidelines. Mile High Solar Care follows all Denver Metro &amp; Front Range water regulations and uses controlled, low-water cleaning methods designed for efficiency and sustainability.</span> <a href="/water-guidelines" class="water-compliance-link">Check your local city or county guidelines</a>
+              </p>
+              <span class="water-compliance-separator" aria-hidden="true"></span>
             </div>
           </div>
         </div>
@@ -791,7 +870,7 @@
           <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
 		            <picture>
 		              <source srcset="images/feature-fast-360.webp 360w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" type="image/webp" />
-		              <img src="images/feature-fast-480.jpg" srcset="images/feature-fast-480.jpg 480w, images/feature-fast.jpg 900w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" class="absolute inset-0 w-full h-full object-cover opacity-60" width="480" height="480" loading="lazy" decoding="async" alt="" />
+		              <img src="images/feature-fast-480.jpg" srcset="images/feature-fast-480.jpg 480w, images/feature-fast.jpg 900w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" class="absolute inset-0 w-full h-full object-cover opacity-40" width="480" height="480" loading="lazy" decoding="async" alt="" />
 		            </picture>
             <div class="relative z-10">
               <h3 class="font-semibold text-white text-sm">Fast Scheduling</h3>

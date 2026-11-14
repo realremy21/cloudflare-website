@@ -14,6 +14,7 @@ const HEADER_ROUTES = new Set([
   '/solar-panel-cleaning-colorado-springs/', '/solar-panel-critter-guard-colorado-springs/',
   '/colorado-springs/',
   '/orphaned-solar-systems/',
+  '/solar-battery-service/',
   '/commercial-solar-maintenance-denver/',
   '/solar-panel-cleaning-arvada/', '/solar-panel-cleaning-lakewood/',
   '/solar-panel-cleaning-littleton/', '/solar-panel-inspection-denver/',
