@@ -291,33 +291,36 @@ Submission ID: ${data.submissionId||''}`
 		    });
 })();
 
-// Quote-anchor landing fix (2026-11-14, v2): the #contact section sits below
-// the lazy-loaded Instagram embed. Native anchor jumps measured the target
-// before the embed expanded, landing visitors on the Instagram grid; other
-// page scripts can also shift the landing mid-form. Anchor to the section
-// top explicitly and correct in BOTH directions until the heading sits at
-// the top of the viewport.
+// Quote-anchor landing fix (2026-11-14, v3): the Instagram embed above the
+// form now has reserved space (min-height in the page CSS), so the form no
+// longer moves as the feed loads. One smooth scroll to the section top, plus
+// a single gentle settle check as a backstop — no visible jump corrections.
 (() => {
   const SECTION_ID = 'contact';
   const HEADER_OFFSET = 90;
   function section(){ return document.getElementById(SECTION_ID); }
-  function go(instant){
-    const el = section(); if(!el) return;
-    const y = Math.max(0, window.scrollY + el.getBoundingClientRect().top - HEADER_OFFSET);
-    window.scrollTo({ top: y, behavior: instant ? 'instant' : 'smooth' });
+  function targetY(){
+    const el = section(); if(!el) return null;
+    return Math.max(0, Math.round(window.scrollY + el.getBoundingClientRect().top - HEADER_OFFSET));
   }
-  function offMark(el){ const t = el.getBoundingClientRect().top; return t > 170 || t < -60; }
-  function settle(){
-    [900, 1800, 3000, 4500].forEach(ms => setTimeout(() => { const el = section(); if (el && offMark(el)) go(true); }, ms));
+  function go(smooth){
+    const y = targetY(); if (y === null) return;
+    window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'instant' });
   }
-  if (window.location.hash === '#contact') {
-    window.addEventListener('load', () => { setTimeout(() => go(true), 350); settle(); });
+  function settleOnce(){
+    setTimeout(() => {
+      const y = targetY(); if (y === null) return;
+      if (Math.abs(window.scrollY - y) > 24) go(true);
+    }, 1800);
   }
+  if (window.location.hash === '#contact') { go(false); settleOnce(); }
   document.addEventListener('click', (e) => {
-    const a = e.target && e.target.closest ? e.target.closest('a[href="#contact"]') : null;
+    const a = e.target && e.target.closest ? e.target.closest('a[href$="#contact"]') : null;
     if (!a) return;
+    const url = new URL(a.href, window.location.href);
+    if (url.pathname !== window.location.pathname) return; // cross-page: navigate normally
     e.preventDefault();
     try { history.replaceState(null, '', '#contact'); } catch(_){}
-    go(false); settle();
+    go(true); settleOnce();
   });
 })();

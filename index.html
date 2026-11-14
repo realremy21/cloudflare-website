@@ -27,10 +27,10 @@
   <link rel="preload" as="image" href="/images/home-hero-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" as="image" href="/images/hero-1600.webp" imagesrcset="/images/hero-1600.webp 1600w, /images/hero.webp 2200w" imagesizes="100vw" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="stylesheet" href="/assets/tailwind.css">
-  <script defer src="/assets/quote-form.js?v=anchorfix2"></script>
-  <link rel="stylesheet" href="/assets/site-header.css?v=lockup-2">
+  <script defer src="/assets/quote-form.js?v=anchorfix3"></script>
+  <link rel="stylesheet" href="/assets/site-header.css?v=lockup-3">
   <link rel="stylesheet" href="/assets/founder-letter.css?v=approved-logo-1">
-  <script defer src="/assets/site-header.js?v=lockup-2"></script>
+  <script defer src="/assets/site-header.js?v=lockup-3"></script>
   <style>
     :root{
       --ink: #0B4A30;
@@ -547,7 +547,7 @@
     .social-bubble:hover{transform: translateY(-1px); box-shadow: 0 0 0 6px rgba(14,91,58,0.18)}
     .social-bubble:active{transform: translateY(0)}
     .social-bubble:focus-visible{outline: 2px solid rgba(245,190,80,0.55); outline-offset: 3px}
-    .social-embed{width:100%}
+    .social-embed{width:100%;min-height:940px} @media (max-width:767px){.social-embed{min-height:1180px}}
     .social-embed iframe{display:block; width:100% !important; max-width:100% !important; border:0}
 
     /* Reviews marquee */
@@ -561,7 +561,7 @@
     #reviews-showcase .reviews-track{
       display: flex;
       width: max-content;
-      animation: mhsc-marquee 120s linear infinite;
+      animation: mhsc-marquee 280s linear infinite;
     }
     #reviews-showcase .reviews-marquee:hover .reviews-track{
       animation-play-state: paused;
@@ -1689,6 +1689,37 @@ Founders, Mile High Solar Care</p>
   </section>
 
   <!-- Pricing -->
+  <section id="commercial" class="py-16 sm:py-20 text-white" style="background:#0B4A30;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold)">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:grid;gap:36px;align-items:center" class="commercial-grid">
+        <div>
+          <p class="eyebrow" style="color:var(--gold)">Commercial Solar Care</p>
+          <h2 class="font-display" style="font-size:clamp(28px,4vw,40px);line-height:1.15;margin-top:10px">Built for properties and portfolios, too.</h2>
+          <p style="margin-top:16px;color:#E9E4D8;font-size:17px;line-height:1.65">Scheduled cleaning, documented inspections, and storm reports for commercial arrays across the Denver metro and the Front Range — from portfolio rooftops to utility-scale ground-mount fields. Vendor-ready onboarding, photo-documented reporting after every visit, and one point of contact: the owners.</p>
+          <ul style="margin-top:18px;display:grid;gap:10px;font-size:16px;color:#F3EFE6">
+            <li>✓&nbsp; Recurring maintenance programs, quoted per site in writing</li>
+            <li>✓&nbsp; W-9, certificate of insurance, and safety policy on request</li>
+            <li>✓&nbsp; Portfolio scheduling — multiple sites, one rhythm, one report standard</li>
+          </ul>
+          <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:14px">
+            <a href="/commercial-solar-maintenance-denver/" class="cta-btn" style="background:var(--gold);color:#0B4A30;font-weight:700;padding:12px 22px;border-radius:10px;text-decoration:none">Explore Commercial Maintenance</a>
+            <a href="#contact" class="cta-btn" style="background:transparent;color:#fff;border:1px solid var(--gold);padding:12px 22px;border-radius:10px;text-decoration:none">Start a Quote</a>
+          </div>
+        </div>
+        <div>
+          <img src="/images/commercial-denver-hero.jpg" alt="Commercial solar array maintained by Mile High Solar Care" loading="lazy" style="width:100%;height:auto;border-radius:16px;display:block">
+        </div>
+      </div>
+      <div style="margin-top:34px;border-top:1px solid rgba(211,154,30,.45);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 34px;justify-content:space-between;font-size:15px;color:#F3EFE6">
+        <span><strong style="color:var(--gold)">Lifetime guarantee</strong> on critter guard workmanship</span>
+        <span><strong style="color:var(--gold)">Warranty-safe process</strong> — pure water, panel-safe brushes, no pressure washers</span>
+        <span><strong style="color:var(--gold)">Photo-documented</strong> inspections and reports</span>
+        <span><strong style="color:var(--gold)">Written quote</strong> before any work starts</span>
+      </div>
+    </div>
+    <style>@media(min-width:900px){.commercial-grid{grid-template-columns:1.05fr .95fr}}</style>
+  </section>
+
   <section id="pricing" class="py-16 sm:py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Simple, Transparent Pricing</h2>

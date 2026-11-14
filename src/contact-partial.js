@@ -25,8 +25,8 @@ export function renderContactSection({ home = false } = {}) {
 					    <p class="mt-3 text-sm text-slate-400">The form usually takes about a minute. Most quote requests receive same-day follow-up during business hours.</p>
 
 	      <div class="mt-6 flex flex-wrap gap-3" aria-label="Call or text Mile High Solar Care">
-        <a class="cta-btn cta-primary text-sm" href="tel:${CONTACT.phone}" data-lead-event="click_call" data-lead-label="contact_primary_call">Call <span style="color:var(--gold)">${CONTACT.displayPhone}</span></a>
-        <a class="cta-btn cta-secondary text-sm" href="sms:${CONTACT.phone}" data-lead-event="click_sms" data-lead-label="contact_primary_text">Text <span style="color:var(--gold)">${CONTACT.displayPhone}</span></a>
+        <a class="cta-btn cta-primary text-sm" href="tel:${CONTACT.phone}" data-lead-event="click_call" data-lead-label="contact_primary_call">Call <span style="color:var(--gold);margin-left:6px">${CONTACT.displayPhone}</span></a>
+        <a class="cta-btn text-sm" style="background:var(--gold);color:#fff;border:1px solid var(--gold)" href="sms:${CONTACT.phone}" data-lead-event="click_sms" data-lead-label="contact_primary_text">Text <span style="color:#fff;margin-left:6px">${CONTACT.displayPhone}</span></a>
       </div>
       <div class="mt-8 grid gap-8 md:grid-cols-2">
         <form id="qform" class="grid grid-cols-1 gap-4" action="mailto:${CONTACT.quoteEmail}" data-phone-display="${CONTACT.displayPhone}" data-quote-email="${CONTACT.quoteEmail}" method="post" enctype="text/plain" novalidate>

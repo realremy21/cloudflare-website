@@ -4,6 +4,7 @@ export function renderSiteHeader({ current = '', home = false, quoteHref = '/#co
     ['/', 'Home', 'home'],
     ['/#our-story', 'Our Story', 'story'],
     ['/solar-care-plans/', 'Solar Care Plans', 'plans'],
+    ['/commercial-solar-maintenance-denver/', 'Commercial', 'commercial'],
     ['/blog/', 'Blog', 'blog'],
     ['/newsletter/', 'Newsletter', 'newsletter'],
     ['/contact/', 'Contact', 'contact'],

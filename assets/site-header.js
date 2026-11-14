@@ -6,7 +6,7 @@
   const nav = header.querySelector('.desktop-nav');
   const ctas = header.querySelector('.desktop-ctas');
   const row = header.querySelector('.site-header-inner');
-  const mq = window.matchMedia('(max-width: 1020px)');
+  const mq = window.matchMedia('(max-width: 1180px)');
   if (!toggle || !overlay || !nav || !ctas || !row) return;
 
   function setOpen(open) {
