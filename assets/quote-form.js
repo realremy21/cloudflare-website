@@ -291,22 +291,24 @@ Submission ID: ${data.submissionId||''}`
 		    });
 })();
 
-// Quote-anchor landing fix (2026-11-14): the #contact section sits below the
-// lazy-loaded Instagram embed. Native anchor jumps measure the target before
-// the embed expands, so visitors landed on the Instagram grid instead of the
-// form. Re-scroll to the section after layout settles; same-page #contact
-// clicks get a smooth scroll plus settle corrections.
+// Quote-anchor landing fix (2026-11-14, v2): the #contact section sits below
+// the lazy-loaded Instagram embed. Native anchor jumps measured the target
+// before the embed expanded, landing visitors on the Instagram grid; other
+// page scripts can also shift the landing mid-form. Anchor to the section
+// top explicitly and correct in BOTH directions until the heading sits at
+// the top of the viewport.
 (() => {
   const SECTION_ID = 'contact';
+  const HEADER_OFFSET = 90;
   function section(){ return document.getElementById(SECTION_ID); }
-  function needsCorrection(el){ return el && el.getBoundingClientRect().top > 140; }
   function go(instant){
     const el = section(); if(!el) return;
-    el.style.scrollMarginTop = '96px';
-    el.scrollIntoView({ behavior: instant ? 'instant' : 'smooth', block: 'start' });
+    const y = Math.max(0, window.scrollY + el.getBoundingClientRect().top - HEADER_OFFSET);
+    window.scrollTo({ top: y, behavior: instant ? 'instant' : 'smooth' });
   }
+  function offMark(el){ const t = el.getBoundingClientRect().top; return t > 170 || t < -60; }
   function settle(){
-    [900, 1800, 3000].forEach(ms => setTimeout(() => { const el = section(); if (needsCorrection(el)) go(true); }, ms));
+    [900, 1800, 3000, 4500].forEach(ms => setTimeout(() => { const el = section(); if (el && offMark(el)) go(true); }, ms));
   }
   if (window.location.hash === '#contact') {
     window.addEventListener('load', () => { setTimeout(() => go(true), 350); settle(); });
