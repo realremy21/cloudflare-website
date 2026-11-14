@@ -5,8 +5,7 @@ export function renderSiteHeader({ current = '', home = false, quoteHref = '/#co
     ['/#our-story', 'Our Story', 'story'],
     ['/solar-care-plans/', 'Solar Care Plans', 'plans'],
     ['/commercial-solar-maintenance-denver/', 'Commercial', 'commercial'],
-    ['/blog/', 'Blog', 'blog'],
-    ['/newsletter/', 'Newsletter', 'newsletter'],
+    ['/blog/', 'Blog & Newsletter', 'blog'],
     ['/contact/', 'Contact', 'contact'],
   ].map(([href, label, key]) => `<a href="${href}" class="navlink"${current === key ? ' aria-current="page"' : ''}>${label}</a>`).join('');
 
