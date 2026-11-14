@@ -1421,9 +1421,26 @@ Founders, Mile High Solar Care</p>
 			        </ul>
 			      </nav>
 			      <div class="social-embed mt-8 max-w-[1000px] mx-auto">
-			        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-				        <div class="elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151" data-elfsight-app-lazy></div>
-			      </div>
+          <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+            <a href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener noreferrer" class="group relative block aspect-square overflow-hidden rounded-2xl" aria-label="Mile High Solar Care on Instagram">
+              <img src="images/blog-heroes/orphan-guide-inline-cleaned-array-v2.jpg" alt="Freshly cleaned solar array gleaming in the sun" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+              <span class="absolute bottom-2 left-2 z-10 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-semibold text-white">Freshly cleaned</span>
+            </a>
+            <a href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener noreferrer" class="group relative block aspect-square overflow-hidden rounded-2xl" aria-label="Mile High Solar Care on Instagram">
+              <img src="images/blog-heroes/orphan-guide-hero-panel-diagnostics.jpg" alt="MHSC technician running electrical diagnostics on a rooftop solar array" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+              <span class="absolute bottom-2 left-2 z-10 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-semibold text-white">Panel diagnostics</span>
+            </a>
+            <a href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener noreferrer" class="group relative block aspect-square overflow-hidden rounded-2xl" aria-label="Mile High Solar Care on Instagram">
+              <img src="images/blog-heroes/orphan-guide-inline-cleaning-action.jpg" alt="Cleaning a rooftop solar array with a soft brush and pure water" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+              <span class="absolute bottom-2 left-2 z-10 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-semibold text-white">Cleaning in progress</span>
+            </a>
+            <a href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener noreferrer" class="group relative block aspect-square overflow-hidden rounded-2xl" aria-label="Mile High Solar Care on Instagram">
+              <img src="images/critter-guard-finished-perimeter.jpg" alt="Finished critter guard mesh fitted around a rooftop solar array" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+              <span class="absolute bottom-2 left-2 z-10 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-semibold text-white">Critter guard install</span>
+            </a>
+          </div>
+          <p class="mt-4 text-center text-sm text-slate-300">Follow <a href="https://www.instagram.com/milehighsolarcare" target="_blank" rel="noopener noreferrer" class="font-semibold text-white underline">@milehighsolarcare</a> on Instagram for recent jobs, tips, and updates.</p>
+        </div>
 			    </div>
 			  </section>
 
@@ -1584,33 +1601,7 @@ Founders, Mile High Solar Care</p>
 	      if('ResizeObserver' in window) new ResizeObserver(measure).observe(ba);
 	    })();
 
-	    // Load the Instagram widget only when the social section is close to view.
-	    (function initDeferredElfsight(){
-	      const embed = document.querySelector('.elfsight-app-fde68d7b-c666-4c85-8a05-a11923ee0151');
-	      if(!embed) return;
-	      let loaded = false;
-	      function load(){
-	        if(loaded) return;
-	        loaded = true;
-	        const script = document.createElement('script');
-	        script.src = 'https://elfsightcdn.com/platform.js';
-	        script.async = true;
-	        document.head.appendChild(script);
-	      }
-	      if('IntersectionObserver' in window){
-	        const io = new IntersectionObserver((entries)=>{
-	          if(entries.some(entry => entry.isIntersecting)){
-	            io.disconnect();
-	            load();
-	          }
-	        }, { rootMargin: '800px 0px' });
-	        io.observe(embed);
-	      } else {
-	        load();
-	      }
-	      const idle = window.requestIdleCallback || ((cb)=> window.setTimeout(cb, 3500));
-	      idle(load, { timeout: 6000 });
-	    })();
+
 
 
 		  </script>
