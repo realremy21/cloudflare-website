@@ -747,7 +747,9 @@
 	  </div>
 
 				  <!-- Hero with parallax -->
-					  <section id="home" class="hero hero-media relative min-h-[680px] pt-24 overflow-hidden">
+					  
+
+  <section id="home" class="hero hero-media relative min-h-[680px] pt-24 overflow-hidden">
 					    <div id="heroParallax" class="home-hero absolute inset-0 -z-10 will-change-transform">
 					      <picture class="absolute inset-0">
 					        <source media="(max-width: 768px)" srcset="images/home-hero-mobile.webp" type="image/webp" />
@@ -770,7 +772,7 @@
 			    </div>
 			  </section>
 
-		  <section class="hero-mobile-details md:hidden text-white" aria-label="Hero details">
+  <section class="hero-mobile-details md:hidden text-white" aria-label="Hero details">
 		    <div class="hero-mobile-surface">
 		      <div class="max-w-4xl mx-auto px-4 py-10">
 		        <p class="hero-subheadline text-lg">
@@ -784,6 +786,29 @@
 		      </div>
 		    </div>
 		  </section>
+
+  <!-- Proof strip -->
+  <section class="proof-strip py-6 bg-black text-white border-t border-slate-800/60" aria-label="Why homeowners trust Mile High Solar Care">
+    <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-center text-sm sm:text-base text-slate-300">
+      <span><strong class="text-[var(--gold)]">5.0 ★</strong> on Google</span>
+      <span><strong class="text-[var(--gold)]">42</strong> Google reviews</span>
+      <span>Husband-and-wife owned</span>
+      <span>Denver metro &amp; the Front Range</span>
+    </div>
+  </section>
+
+  <!-- Before/After Slider (interactive) -->
+  <section id="gallery" class="py-16 sm:py-20 bg-black text-white">
+		    <div class="max-w-6xl mx-auto px-4">
+		      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
+      <div class="mt-6 ba" id="ba">
+        <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1400" height="939" loading="lazy" decoding="async">
+        <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1400" height="933" loading="lazy" decoding="async">
+        <div class="handle" id="handle"></div>
+        <div class="knob" id="knob" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- Services -->
   <section id="services" class="py-16 sm:py-20 bg-black text-white">
@@ -811,72 +836,6 @@
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Panel Removal &amp; Certified Recycling</h3>
           <p class="mt-2 text-slate-200">Damaged or end-of-life panels shouldn't end up in a landfill — and with us, they don't. We safely remove panels that are cracked, storm-damaged, or retired, and send every one to a certified recycler. You receive a Certificate of Recycling for your records — exactly the documentation insurers and commercial owners ask for. From $95 per panel; larger removals quoted per project.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Included / Badges -->
-	  <section id="included" class="py-16 sm:py-20 bg-black text-white">
-	    <div class="max-w-6xl mx-auto px-4">
-	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What’s Included & Why It’s Warranty‑Safe</h2>
-	      <div class="included-layout mt-8 grid gap-6 md:grid-cols-2">
-	        <ul class="space-y-3 text-slate-300 glass p-6 rounded-2xl">
-	          <li>✔️ Pure‑water system (no minerals left behind)</li>
-	          <li>✔️ Panel‑safe soft brushes (no abrasives)</li>
-	          <li>✔️ No harsh chemicals (manufacturer‑friendly)</li>
-          <li>✔️ Before/After photo proof of results</li>
-          <li>✔️ Inverter screenshot on request</li>
-          <li>✔️ Optional critter guard installation to prevent nesting and debris buildup.</li>
-        </ul>
-	        <div class="included-cards grid grid-cols-2 sm:grid-cols-4 gap-3">
-	          <!-- Warranty-Safe -->
-	          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-		            <picture>
-		              <source srcset="images/feature-warranty-360.webp 360w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" type="image/webp" />
-		              <img src="images/feature-warranty-480.jpg" srcset="images/feature-warranty-480.jpg 480w, images/feature-warranty.jpg 900w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" class="absolute inset-0 w-full h-full object-cover opacity-60" width="480" height="320" loading="lazy" decoding="async" alt="" />
-		            </picture>
-	            <div class="relative z-10">
-	              <h3 class="font-semibold text-white text-sm">Warranty‑Safe</h3>
-              <p class="text-slate-200 text-xs">Pure‑water, panel‑safe tools</p>
-            </div>
-          </div>
-
-          <!-- Photo Proof -->
-          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-		            <picture>
-		              <source srcset="images/feature-photo-proof-360.webp 360w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" type="image/webp" />
-		              <img src="images/feature-photo-proof-480.jpg" srcset="images/feature-photo-proof-480.jpg 480w, images/feature-photo-proof.jpg 900w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" class="absolute inset-0 w-full h-full object-cover opacity-60" width="320" height="480" loading="lazy" decoding="async" alt="" />
-		            </picture>
-            <div class="relative z-10">
-              <h3 class="font-semibold text-white text-sm">Photo Proof</h3>
-              <p class="text-slate-200 text-xs">Before/after shots of every job</p>
-            </div>
-          </div>
-
-          <!-- Local & Insured -->
-          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-		            <picture>
-		              <source srcset="images/feature-local-360.webp 360w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" type="image/webp" />
-		              <img src="images/feature-local-480.jpg" srcset="images/feature-local-480.jpg 480w, images/feature-local.jpg 900w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" class="absolute inset-0 w-full h-full object-cover opacity-60" width="480" height="320" loading="lazy" decoding="async" alt="" />
-		            </picture>
-            <div class="relative z-10">
-              <h3 class="font-semibold text-white text-sm">Local & Insured</h3>
-              <p class="text-slate-200 text-xs">Aurora‑based, fully covered</p>
-            </div>
-          </div>
-
-          <!-- Fast Scheduling -->
-          <div class="relative rounded-2xl overflow-hidden glass h-32 flex items-end p-4">
-		            <picture>
-		              <source srcset="images/feature-fast-360.webp 360w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" type="image/webp" />
-		              <img src="images/feature-fast-480.jpg" srcset="images/feature-fast-480.jpg 480w, images/feature-fast.jpg 900w" sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 50vw" class="absolute inset-0 w-full h-full object-cover opacity-60 brightness-50" width="480" height="480" loading="lazy" decoding="async" alt="" />
-		            </picture>
-            <div class="relative z-10">
-              <h3 class="font-semibold text-white text-sm">Fast Scheduling</h3>
-              <p class="text-slate-200 text-xs">Clear ETAs, quick turnaround</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -980,282 +939,6 @@
     </div>
   </section>
 
-  <section id="commercial-solar" class="py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="glass p-6 sm:p-8 rounded-2xl grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">Commercial, HOA &amp; property teams</p>
-          <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Request a site-specific maintenance review</h2>
-          <p class="mt-3 text-slate-300">Share the property, array size, access constraints, desired reporting, recurring-service needs, and any vendor-onboarding requirements. We will review fit before proposing scope or timing.</p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <a href="?service=commercial#contact" class="cta-btn cta-primary glossy-btn text-sm" data-lead-event="click_quote_cta" data-lead-label="commercial_site_review">Start a commercial request</a>
-          <a href="/robotics-pilot/" class="cta-btn cta-secondary text-sm" data-lead-event="click_local_page" data-lead-label="commercial_robotics_pilot">Explore the robotics pilot</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- WHY SOLAR MAINTENANCE IS IMPORTANT -->
-<section id="why-solar-maintenance" class="bg-black text-white py-16 sm:py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-4xl font-bold">Why Solar Maintenance Is Important</h2>
-    <p class="text-slate-300 mt-3">
-      Tap to explore how professional solar maintenance protects your system and your investment.
-    </p>
-    <a href="/solar-panel-maintenance-denver/" class="cta-btn cta-secondary mt-6 text-sm" data-lead-event="click_local_page" data-lead-label="why_maintenance_page">View Solar Panel Maintenance</a>
-
-    <div class="mt-10 max-w-3xl space-y-4" data-sba>
-      <div class="sba-item glass rounded-2xl overflow-hidden">
-        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
-          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
-              <path d="M12 3a9 9 0 1 0 9 9"></path>
-              <path d="M12 12l6-6"></path>
-              <path d="M12 12l-3 3"></path>
-            </svg>
-          </span>
-          <span class="flex-1">
-            <span class="block text-lg font-semibold">Efficiency</span>
-            <span class="block mt-2 text-slate-200">Dirty panels can reduce production and raise your effective cost per kWh.</span>
-          </span>
-          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </span>
-        </button>
-        <div class="sba-panel">
-          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
-            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
-              <li>Example loss: 10% on ~9,000 kWh/year is ~900 kWh/year.</li>
-              <li>At $0.14/kWh, that’s ~$126/year; at 20% it’s ~$252/year.</li>
-              <li>That lost production repeats every year until cleaned (rates vary by utility and usage).</li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sba-item glass rounded-2xl overflow-hidden">
-        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
-          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M12 7v6l3 2"></path>
-            </svg>
-          </span>
-          <span class="flex-1">
-            <span class="block text-lg font-semibold">Longevity</span>
-            <span class="block mt-2 text-slate-200">Buildup can trap moisture and heat, accelerating wear and avoidable service calls.</span>
-          </span>
-          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </span>
-        </button>
-        <div class="sba-panel">
-          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
-            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
-              <li>A single troubleshooting trip or electrician visit commonly runs ~$150–$300+.</li>
-              <li>Replacing a damaged panel can be ~$250–$500+ for the part, plus labor and time.</li>
-              <li>Protecting components helps your system reach its intended 25–30 year life.</li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sba-item glass rounded-2xl overflow-hidden">
-        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
-          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
-              <path d="M12 3l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V7l8-4z"></path>
-              <path d="M12 8v5"></path>
-              <path d="M12 16h.01"></path>
-            </svg>
-          </span>
-          <span class="flex-1">
-            <span class="block text-lg font-semibold">Safety</span>
-            <span class="block mt-2 text-slate-200">Debris and hotspots can increase electrical risk and roof hazards.</span>
-          </span>
-          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </span>
-        </button>
-        <div class="sba-panel">
-          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
-            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
-              <li>Electrical diagnostics or repairs can cost ~$200–$600+ depending on access and parts.</li>
-              <li>A roof leak or damaged flashing repair can be ~$300–$1,500+.</li>
-              <li>Regular maintenance reduces the chance of small issues turning into expensive ones.</li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sba-item glass rounded-2xl overflow-hidden">
-        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
-          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
-              <path d="M3 12l4-4 5 5 9-9"></path>
-              <path d="M3 17h18"></path>
-            </svg>
-          </span>
-          <span class="flex-1">
-            <span class="block text-lg font-semibold">Bird &amp; Critter Protection</span>
-            <span class="block mt-2 text-slate-200">Open gaps beneath panels can attract nesting birds and pests that leave debris and put wiring at risk.</span>
-          </span>
-          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </span>
-        </button>
-        <div class="sba-panel">
-          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
-            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
-              <li>Birds often nest under solar panels because the space is sheltered, elevated, and protected from weather.</li>
-              <li>Solar panel bird proofing uses professional critter guard materials to block access beneath the array.</li>
-              <li>Critter guard helps reduce nesting, droppings, and debris while protecting wiring and other system components.</li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-400">The right protection helps keep your solar array cleaner, quieter, and easier to maintain over time.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sba-item glass rounded-2xl overflow-hidden">
-        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
-          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
-              <path d="M12 2v20"></path>
-              <path d="M17 7H10a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6H7"></path>
-            </svg>
-          </span>
-          <span class="flex-1">
-            <span class="block text-lg font-semibold">Cost Savings</span>
-            <span class="block mt-2 text-slate-200">Higher output lowers utility costs and helps you hit ROI sooner.</span>
-          </span>
-          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </span>
-        </button>
-        <div class="sba-panel">
-          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
-            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
-              <li>If you’re losing ~$150–$300/year in production, that’s ~$750–$1,500 over 5 years.</li>
-              <li>Cleaning often costs less than one year of avoidable production loss (home size varies).</li>
-              <li>Keeping output high improves payback and protects your investment.</li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sba-item glass rounded-2xl overflow-hidden">
-        <button type="button" class="sba-toggle w-full px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 text-left" aria-expanded="false">
-          <span class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/20">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[var(--accent)]">
-              <path d="M12 3l10 18H2L12 3z"></path>
-              <path d="M12 9v4"></path>
-              <path d="M12 17h.01"></path>
-            </svg>
-          </span>
-          <span class="flex-1">
-            <span class="block text-lg font-semibold">Damage Prevention</span>
-            <span class="block mt-2 text-slate-200">Mineral deposits and droppings can etch glass and create permanent performance loss.</span>
-          </span>
-          <span class="sba-chevron mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </span>
-        </button>
-        <div class="sba-panel">
-          <div class="sba-panel-inner px-5 pb-5 sm:px-6 sm:pb-6">
-            <ul class="mt-3 space-y-2 text-slate-200 list-disc pl-5">
-              <li>Etching can’t always be restored with cleaning—replacement is sometimes the only fix.</li>
-              <li>Even one panel replacement can total ~$400–$900+ installed depending on access.</li>
-              <li>Regular washes prevent buildup from becoming irreversible damage.</li>
-            </ul>
-            <p class="mt-3 text-xs text-slate-400">Estimates shown are examples; actual production and costs depend on system size, shading, local rates, and condition.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-		  <!-- Before/After Slider (interactive) -->
-			  <section id="gallery" class="py-16 sm:py-20 bg-black text-white">
-		    <div class="max-w-6xl mx-auto px-4">
-		      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
-      <div class="mt-6 ba" id="ba">
-        <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1400" height="939" loading="lazy" decoding="async">
-        <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1400" height="933" loading="lazy" decoding="async">
-        <div class="handle" id="handle"></div>
-        <div class="knob" id="knob" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-	  <!-- Benefits -->
-	  <section id="benefits" class="py-16 sm:py-20 bg-black text-white">
-	    <div class="max-w-6xl mx-auto px-4">
-	      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Homeowners Care About When Choosing a Solar Cleaner</h2>
-	      <div class="mt-8 grid gap-6 md:grid-cols-3">
-	        <div class="glass p-6 rounded-2xl">
-	          <h3 class="text-lg font-semibold">Warranty-Safe Methods</h3>
-	          <p class="mt-2 text-slate-200">Panel-safe tools, pure water, and manufacturer-approved techniques designed to protect your system.</p>
-	        </div>
-	        <div class="glass p-6 rounded-2xl">
-	          <h3 class="text-lg font-semibold">Clear Communication &amp; Photo Proof</h3>
-	          <p class="mt-2 text-slate-200">Transparent pricing, fast scheduling, and before/after photos on every job.</p>
-	        </div>
-	        <div class="glass p-6 rounded-2xl">
-	          <h3 class="text-lg font-semibold">Careful, Professional Service</h3>
-	          <p class="mt-2 text-slate-200">Respectful work around roofs, landscaping, and live electrical equipment.</p>
-	        </div>
-	      </div>
-	    </div>
-	  </section>
-
-  <!-- Service Area -->
-  <section id="service-area" class="py-16 sm:py-20 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Service Area</h2>
-      <p class="mt-2 text-slate-300">
-        <span class="text-[var(--gold)]">Colorado service area</span> — Aurora, Denver, Littleton, Arvada, Lakewood, Golden, Boulder, Fort Collins, and <a href="/colorado-springs/" class="text-[var(--gold)] hover:underline">Colorado Springs</a>.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-denver/" data-lead-event="click_local_page" data-lead-label="service_area_denver">Denver solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-aurora/" data-lead-event="click_local_page" data-lead-label="service_area_aurora">Aurora solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-maintenance-denver/" data-lead-event="click_local_page" data-lead-label="service_area_maintenance">Solar panel maintenance</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-care-plans/" data-lead-event="click_local_page" data-lead-label="service_area_care_plans">Solar Care Plans</a>
-        <a class="cta-btn cta-secondary text-sm" href="/commercial-rooftop-solar-cleaning/" data-lead-event="click_local_page" data-lead-label="service_area_commercial">Commercial rooftop solar cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-critter-guard-denver/" data-lead-event="click_local_page" data-lead-label="service_area_critter_guard">Solar panel critter guard</a>
-        <a class="cta-btn cta-secondary text-sm" href="/colorado-springs/" data-lead-event="click_local_page" data-lead-label="service_area_springs_hub">Colorado Springs solar services</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-colorado-springs/" data-lead-event="click_local_page" data-lead-label="service_area_springs_cleaning">Colorado Springs solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-inspection-denver/" data-lead-event="click_local_page" data-lead-label="service_area_inspection">Solar panel inspection</a>
-        <a class="cta-btn cta-secondary text-sm" href="/commercial-solar-maintenance-denver/" data-lead-event="click_local_page" data-lead-label="service_area_commercial_maintenance">Commercial solar maintenance</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-littleton/" data-lead-event="click_local_page" data-lead-label="service_area_littleton">Littleton solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-arvada/" data-lead-event="click_local_page" data-lead-label="service_area_arvada">Arvada solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-lakewood/" data-lead-event="click_local_page" data-lead-label="service_area_lakewood">Lakewood solar panel cleaning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-critter-guard-colorado-springs/" data-lead-event="click_local_page" data-lead-label="service_area_springs_critter_guard">Colorado Springs critter guard</a>
-        <a class="cta-btn cta-secondary text-sm" href="/colorado-plug-in-balcony-solar/" data-lead-event="click_local_page" data-lead-label="service_area_plugin_balcony_solar">Plug-in / balcony solar planning</a>
-        <a class="cta-btn cta-secondary text-sm" href="/robotics-pilot/" data-lead-event="click_local_page" data-lead-label="service_area_robotics_pilot">Colorado robotics pilot</a>
-      </div>
-    </div>
-  </section>
-
-		  <!-- MHSC_CONTACT_PARTIAL -->
-
   <!-- Reviews -->
   <section id="reviews-showcase" class="py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
     <div class="max-w-6xl mx-auto px-4">
@@ -1325,24 +1008,26 @@
     <div class="mt-6 max-w-6xl mx-auto px-4">
 	      <img src="images/jeremy-meral.jpg" alt="Jeremy and Meral Runnels, founders of Mile High Solar Care" class="rounded-2xl" style="display:block;width:100%;max-width:min(90%, 340px);margin:0 auto;" width="900" height="1159" loading="lazy" decoding="async">
     </div>
-    <details class="mt-6 max-w-6xl mx-auto px-4">
-      <summary data-who-story class="font-semibold">Read Our Story ▾</summary>
+    <div class="mt-2">
       <p class="mt-4 text-slate-300">Mile High Solar Care was built from lived experience, hard lessons, and a deep conviction that people deserve better.</p>
+      <p class="mt-4 text-slate-300">When Meral was diagnosed with an extremely aggressive form of breast cancer, we experienced those systems from the other side—at our most vulnerable. Watching how she was treated, even as an employee, removed any remaining illusion. It became painfully clear how easily people can be reduced to numbers, schedules, or policies.</p>
+      <p class="mt-4 text-slate-300">Mile High Solar Care exists because we believe work should honor people—not exploit them. That trust is earned, not assumed. And that when someone invites you to work on their home, you owe them honesty, excellence, and respect.</p>
+      <p class="mt-4 text-slate-300 whitespace-pre-line">— Jeremy &amp; Meral Runnels
+Founders, Mile High Solar Care</p>
+    </div>
+    <details class="mt-6">
+      <summary data-who-story class="font-semibold">Read the full story ▾</summary>
       <p class="mt-4 text-slate-300">Before starting this company with my wife, Meral, I spent over six years in corporate America. I began at the very bottom—answering phones—and worked my way up to collaborating directly with executive leadership and CEOs. Along the way, I learned a great deal about innovation, problem-solving, and how large organizations operate.</p>
       <p class="mt-4 text-slate-300">But I also learned something else.</p>
       <p class="mt-4 text-slate-300">I saw firsthand how often people are treated as expendable. How loyalty is praised—until it’s inconvenient. How “values” look good on a wall, but don’t always show up when people need them most.</p>
       <p class="mt-4 text-slate-300">After a layoff and a transition into healthcare, I believed I had found something different. I thought working in a hospital system would mean helping people in a more direct, meaningful way. But over time, it became clear that many of the same corporate priorities still existed—metrics over people, systems over compassion.</p>
       <p class="mt-4 text-slate-300">Then everything changed.</p>
-      <p class="mt-4 text-slate-300">When Meral was diagnosed with an extremely aggressive form of breast cancer, we experienced those systems from the other side—at our most vulnerable. Watching how she was treated, even as an employee, removed any remaining illusion. It became painfully clear how easily people can be reduced to numbers, schedules, or policies.</p>
       <p class="mt-4 text-slate-300">That season clarified everything.</p>
       <p class="mt-4 text-slate-300">We realized that if we wanted to build something rooted in integrity, care, and accountability, we had to build it ourselves.</p>
-      <p class="mt-4 text-slate-300">Mile High Solar Care exists because we believe work should honor people—not exploit them. That trust is earned, not assumed. And that when someone invites you to work on their home, you owe them honesty, excellence, and respect.</p>
       <p class="mt-4 text-slate-300">We’re not interested in cutting corners or chasing volume. We’re here to do things the right way—show up when we say we will, communicate clearly, stand behind our work, and treat every customer like a neighbor.</p>
       <p class="mt-4 text-slate-300">This business is also about freedom—the freedom to choose integrity over pressure, family over burnout, and long-term impact over short-term gain. The American Dream was never about working endlessly for someone else’s bottom line. It was about building something meaningful, with the people you love, that serves others well.</p>
       <p class="mt-4 text-slate-300">We’re grateful for the road that led us here, for the faith that guides us, and for every customer who trusts us with their home.</p>
       <p class="mt-4 text-slate-300">That trust is not something we take lightly.</p>
-      <p class="mt-4 text-slate-300 whitespace-pre-line">— Jeremy &amp; Meral Runnels
-Founders, Mile High Solar Care</p>
     </details>
     <article class="founder-feature" aria-labelledby="october-letter-heading">
       <div><p class="letter-kicker">October 2026 · A letter from our co-owner</p>
@@ -1352,8 +1037,52 @@ Founders, Mile High Solar Care</p>
     </article>
   </section>
 
-				  <!-- Social -->
-				  <section class="social-section py-10 sm:py-12 bg-black text-white border-t border-slate-800/60">
+  <!-- Service Area -->
+  <section id="service-area" class="py-16 sm:py-20 bg-black text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Service Area</h2>
+      <p class="mt-2 text-slate-300">
+        <span class="text-[var(--gold)]">Colorado service area</span> — Aurora, Denver, Littleton, Arvada, Lakewood, Golden, Boulder, Fort Collins, and <a href="/colorado-springs/" class="text-[var(--gold)] hover:underline">Colorado Springs</a>.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-denver/" data-lead-event="click_local_page" data-lead-label="service_area_denver">Denver solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-aurora/" data-lead-event="click_local_page" data-lead-label="service_area_aurora">Aurora solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-maintenance-denver/" data-lead-event="click_local_page" data-lead-label="service_area_maintenance">Solar panel maintenance</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-care-plans/" data-lead-event="click_local_page" data-lead-label="service_area_care_plans">Solar Care Plans</a>
+        <a class="cta-btn cta-secondary text-sm" href="/commercial-rooftop-solar-cleaning/" data-lead-event="click_local_page" data-lead-label="service_area_commercial">Commercial rooftop solar cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-critter-guard-denver/" data-lead-event="click_local_page" data-lead-label="service_area_critter_guard">Solar panel critter guard</a>
+        <a class="cta-btn cta-secondary text-sm" href="/colorado-springs/" data-lead-event="click_local_page" data-lead-label="service_area_springs_hub">Colorado Springs solar services</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-colorado-springs/" data-lead-event="click_local_page" data-lead-label="service_area_springs_cleaning">Colorado Springs solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-inspection-denver/" data-lead-event="click_local_page" data-lead-label="service_area_inspection">Solar panel inspection</a>
+        <a class="cta-btn cta-secondary text-sm" href="/commercial-solar-maintenance-denver/" data-lead-event="click_local_page" data-lead-label="service_area_commercial_maintenance">Commercial solar maintenance</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-littleton/" data-lead-event="click_local_page" data-lead-label="service_area_littleton">Littleton solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-arvada/" data-lead-event="click_local_page" data-lead-label="service_area_arvada">Arvada solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-cleaning-lakewood/" data-lead-event="click_local_page" data-lead-label="service_area_lakewood">Lakewood solar panel cleaning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/solar-panel-critter-guard-colorado-springs/" data-lead-event="click_local_page" data-lead-label="service_area_springs_critter_guard">Colorado Springs critter guard</a>
+        <a class="cta-btn cta-secondary text-sm" href="/colorado-plug-in-balcony-solar/" data-lead-event="click_local_page" data-lead-label="service_area_plugin_balcony_solar">Plug-in / balcony solar planning</a>
+        <a class="cta-btn cta-secondary text-sm" href="/robotics-pilot/" data-lead-event="click_local_page" data-lead-label="service_area_robotics_pilot">Colorado robotics pilot</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="commercial-solar" class="py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="glass p-6 sm:p-8 rounded-2xl grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">Commercial, HOA &amp; property teams</p>
+          <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Request a site-specific maintenance review</h2>
+          <p class="mt-3 text-slate-300">Share the property, array size, access constraints, desired reporting, recurring-service needs, and any vendor-onboarding requirements. We will review fit before proposing scope or timing.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <a href="?service=commercial#contact" class="cta-btn cta-primary glossy-btn text-sm" data-lead-event="click_quote_cta" data-lead-label="commercial_site_review">Start a commercial request</a>
+          <a href="/robotics-pilot/" class="cta-btn cta-secondary text-sm" data-lead-event="click_local_page" data-lead-label="commercial_robotics_pilot">Explore the robotics pilot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="social-section py-10 sm:py-12 bg-black text-white border-t border-slate-800/60">
 				    <div class="max-w-6xl mx-auto px-4 text-center">
 				      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight">Stay Connected</h2>
 			      <p class="mt-2 text-sm text-slate-300">Follow along for recent jobs, tips, and updates.</p>
@@ -1397,6 +1126,8 @@ Founders, Mile High Solar Care</p>
 			      </div>
 			    </div>
 			  </section>
+
+  <!-- MHSC_CONTACT_PARTIAL -->
 
   <!-- MHSC_SITE_FOOTER -->
 
