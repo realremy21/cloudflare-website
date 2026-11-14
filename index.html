@@ -750,6 +750,70 @@
   body{font-family:'Outfit',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif}
   h1,h2,h3{font-family:'Fraunces',Georgia,'Times New Roman',serif}
 </style>
+
+<style>
+  /* ===== Mobile-condensed homepage (PREVIEW) — desktop rendering unchanged.
+     Outside the mobile media query every wrapper below is display:contents or
+     display:none, so desktop layout is identical to the live page. All
+     behavioral rules live in max-width:768px (the site's mobile breakpoint),
+     mirroring the site's existing .sba-panel accordion technique. ===== */
+  .svc-panel{display:contents}
+  .svc-panel-inner{display:contents}
+  .svc-chevron{display:none}
+  .who-rest{display:contents}
+  .who-rest-panel{display:contents}
+  .who-rest-inner{display:contents}
+  .who-toggle{display:none}
+  .ba-slide{display:contents;margin:0}
+  .ba-label{display:none}
+  .price-tabs{display:none}
+
+  @media (max-width: 768px){
+    /* Services accordion */
+    #services .svc-item{padding:1.1rem 1.25rem}
+    #services .svc-toggle{display:flex;align-items:center;justify-content:space-between;gap:.75rem;cursor:pointer}
+    .svc-chevron{display:inline-block;color:var(--gold);font-size:.95em;line-height:1;transition:transform 180ms ease}
+    #services .svc-item.is-open .svc-chevron{transform:rotate(180deg)}
+    .svc-panel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows 240ms ease,opacity 240ms ease}
+    .svc-panel-inner{display:block;overflow:hidden;min-height:0}
+    #services .svc-item.is-open .svc-panel{grid-template-rows:1fr;opacity:1}
+
+    /* Who We Are: read more */
+    .who-rest{display:block}
+    .who-rest-panel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows 260ms ease,opacity 260ms ease}
+    .who-rest-inner{display:block;overflow:hidden;min-height:0}
+    .who-rest.is-open .who-rest-panel{grid-template-rows:1fr;opacity:1}
+    .who-toggle{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;padding:.35rem 0;background:none;border:0;color:var(--gold);font:inherit;font-weight:600;cursor:pointer}
+    .who-chevron{display:inline-block;transition:transform 180ms ease}
+    .who-rest.is-open .who-chevron{transform:rotate(180deg)}
+
+    /* Gallery: horizontal swipe strip (before / after) */
+    #ba{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    #ba::-webkit-scrollbar{display:none}
+    #ba .ba-slide{display:block;position:relative;flex:0 0 100%;margin:0;scroll-snap-align:start}
+    #ba img{width:100%;height:16rem;object-fit:cover}
+    #ba .after{position:static;clip-path:none !important}
+    #ba .handle,#ba .knob{display:none}
+    #ba .ba-label{display:inline-flex;position:absolute;top:.65rem;left:.65rem;padding:.28rem .6rem;border-radius:9999px;background:rgba(0,0,0,.72);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.02em}
+
+    /* Pricing / care plans: one tabbed block */
+    .price-tabs{display:block;background:#000;padding:3.25rem 0 0}
+    #pricing{padding-top:1.25rem}
+    #solar-care-plan{padding-top:1.25rem}
+    .tab-off{display:none}
+
+    /* Commercial band: compact card spacing */
+    #commercial{padding-top:2.5rem;padding-bottom:2.5rem}
+    #commercial .commercial-grid{gap:20px !important}
+    #commercial img{max-height:210px;object-fit:cover}
+    #commercial .max-w-7xl>div:last-child{margin-top:22px !important;padding-top:16px !important;gap:8px 18px !important;font-size:14px !important}
+  }
+
+  /* Instagram embed: shorter visible block on small screens */
+  @media (max-width: 767px){
+    .social-embed{min-height:0;height:470px;overflow:hidden;border-radius:16px}
+  }
+</style>
 </head>
 	<body class="antialiased text-slate-900">
     <div class="water-compliance-banner" role="region" aria-label="Water compliance announcement">
@@ -841,10 +905,15 @@
     </div>
     <div class="mt-2 max-w-6xl mx-auto px-4">
       <p class="mt-4 text-slate-300">Mile High Solar Care was built from lived experience, hard lessons, and a deep conviction that people deserve better.</p>
+      <div class="who-rest" data-who-rest>
+        <div class="who-rest-panel"><div class="who-rest-inner">
       <p class="mt-4 text-slate-300">When Meral was diagnosed with an extremely aggressive form of breast cancer, we experienced those systems from the other side—at our most vulnerable. Watching how she was treated, even as an employee, removed any remaining illusion. It became painfully clear how easily people can be reduced to numbers, schedules, or policies.</p>
       <p class="mt-4 text-slate-300">Mile High Solar Care exists because we believe work should honor people—not exploit them. That trust is earned, not assumed. And that when someone invites you to work on their home, you owe them honesty, excellence, and respect.</p>
       <p class="mt-4 text-slate-300 whitespace-pre-line">— Jeremy &amp; Meral Runnels
 Founders, Mile High Solar Care</p>
+        </div></div>
+        <button type="button" class="who-toggle" data-who-toggle aria-expanded="false"><span class="who-toggle-label">Read more</span> <span class="who-chevron" aria-hidden="true">▾</span></button>
+      </div>
     </div>
     <details class="mt-6 max-w-6xl mx-auto px-4">
       <summary data-who-story class="font-semibold">Read the full story ▾</summary>
@@ -1649,8 +1718,8 @@ Founders, Mile High Solar Care</p>
 		    <div class="max-w-6xl mx-auto px-4">
 		      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See the Difference</h2>
       <div class="mt-6 ba" id="ba">
-        <img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1400" height="939" loading="lazy" decoding="async">
-        <img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1400" height="933" loading="lazy" decoding="async">
+        <figure class="ba-slide"><img src="images/solar_dirty.jpg" alt="Dirty solar panel" width="1400" height="939" loading="lazy" decoding="async"><figcaption class="ba-label">Before</figcaption></figure>
+        <figure class="ba-slide"><img class="after" src="images/solar_clean.jpg" alt="Clean solar panel" width="1400" height="933" loading="lazy" decoding="async"><figcaption class="ba-label">After</figcaption></figure>
         <div class="handle" id="handle"></div>
         <div class="knob" id="knob" aria-hidden="true"></div>
       </div>
@@ -1662,27 +1731,37 @@ Founders, Mile High Solar Care</p>
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Services</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold text-[var(--gold)]">Solar Panel Cleaning</h3>
+        <div class="glass p-6 rounded-2xl svc-item">
+          <h3 class="text-lg font-semibold text-[var(--gold)] svc-toggle">Solar Panel Cleaning <span class="svc-chevron" aria-hidden="true">▾</span></h3>
+          <div class="svc-panel"><div class="svc-panel-inner">
           <p class="mt-2 text-slate-200">Warranty-safe solar panel cleaning using pure water and panel-safe tools to remove dust, pollen, bird droppings, and debris that can reduce system performance.</p>
+        </div></div>
         </div>
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold text-[var(--gold)]">Solar Panel Maintenance</h3>
+        <div class="glass p-6 rounded-2xl svc-item">
+          <h3 class="text-lg font-semibold text-[var(--gold)] svc-toggle">Solar Panel Maintenance <span class="svc-chevron" aria-hidden="true">▾</span></h3>
+          <div class="svc-panel"><div class="svc-panel-inner">
           <p class="mt-2 text-slate-200">Visible maintenance checks, panel-safe cleaning, critter guard notes, and photo documentation for homeowners, HOAs, property managers, and commercial solar assets.</p>
           <a href="/solar-panel-maintenance-denver/" class="mt-5 inline-flex text-sm font-semibold text-[var(--gold)] hover:underline" data-lead-event="click_local_page" data-lead-label="services_maintenance">View maintenance service</a>
+        </div></div>
         </div>
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold text-[var(--gold)]">Critter Guard Installation &amp; Maintenance</h3>
+        <div class="glass p-6 rounded-2xl svc-item">
+          <h3 class="text-lg font-semibold text-[var(--gold)] svc-toggle">Critter Guard Installation &amp; Maintenance <span class="svc-chevron" aria-hidden="true">▾</span></h3>
+          <div class="svc-panel"><div class="svc-panel-inner">
           <p class="mt-2 text-slate-200">Birds and other critters can nest beneath solar panels, causing debris buildup, noise, and potential damage to wiring and system components. We install and maintain professional critter guard systems that help protect your solar array and keep it operating cleanly and efficiently.</p>
+        </div></div>
         </div>
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold text-[var(--gold)]">Plug-In / Balcony Solar Planning</h3>
+        <div class="glass p-6 rounded-2xl svc-item">
+          <h3 class="text-lg font-semibold text-[var(--gold)] svc-toggle">Plug-In / Balcony Solar Planning <span class="svc-chevron" aria-hidden="true">▾</span></h3>
+          <div class="svc-panel"><div class="svc-panel-inner">
           <p class="mt-2 text-slate-200">Colorado plug-in and balcony solar planning for custom quote prep, landlord/HOA packets, product-document review, maintenance planning, and qualified install coordination when required.</p>
           <a href="/colorado-plug-in-balcony-solar/" class="mt-5 inline-flex text-sm font-semibold text-[var(--gold)] hover:underline" data-lead-event="click_local_page" data-lead-label="services_plugin_balcony_solar">View planning lane</a>
+        </div></div>
         </div>
-        <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold text-[var(--gold)]">Panel Removal &amp; Certified Recycling</h3>
+        <div class="glass p-6 rounded-2xl svc-item">
+          <h3 class="text-lg font-semibold text-[var(--gold)] svc-toggle">Panel Removal &amp; Certified Recycling <span class="svc-chevron" aria-hidden="true">▾</span></h3>
+          <div class="svc-panel"><div class="svc-panel-inner">
           <p class="mt-2 text-slate-200">Damaged or end-of-life panels shouldn't end up in a landfill — and with us, they don't. We safely remove panels that are cracked, storm-damaged, or retired, and send every one to a certified recycler. You receive a Certificate of Recycling for your records — exactly the documentation insurers and commercial owners ask for. From $95 per panel; larger removals quoted per project.</p>
+        </div></div>
         </div>
       </div>
     </div>
@@ -1712,13 +1791,23 @@ Founders, Mile High Solar Care</p>
       </div>
       <div style="margin-top:34px;border-top:1px solid rgba(211,154,30,.45);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 34px;justify-content:space-between;font-size:15px;color:#F3EFE6">
         <span><strong style="color:var(--gold)">Lifetime guarantee</strong> on critter guard workmanship</span>
-        <span><strong style="color:var(--gold)">Warranty-safe process</strong> — pure water, panel-safe brushes, no pressure washers</span>
+        <span><strong style="color:var(--gold)">Warranty-safe process</strong> — panel-safe methods, careful low-pressure rinse where debris needs it</span>
         <span><strong style="color:var(--gold)">Photo-documented</strong> inspections and reports</span>
         <span><strong style="color:var(--gold)">Written quote</strong> before any work starts</span>
       </div>
     </div>
     <style>@media(min-width:900px){.commercial-grid{grid-template-columns:1.05fr .95fr}}</style>
   </section>
+
+  <!-- Mobile-only pricing / care-plan tabs: hidden on desktop, both sections stay stacked there. -->
+  <div class="price-tabs">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="need-tabs" style="display:flex;flex-wrap:wrap;gap:.5rem" role="tablist" aria-label="Pricing and care plans">
+        <button type="button" class="price-tab cta-btn cta-primary" role="tab" aria-selected="true" data-price-tab="pricing">Cleaning &amp; Services</button>
+        <button type="button" class="price-tab cta-btn cta-secondary" role="tab" aria-selected="false" data-price-tab="plans">Care Plans</button>
+      </div>
+    </div>
+  </div>
 
   <section id="pricing" class="py-16 sm:py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4">
@@ -2132,6 +2221,79 @@ Founders, Mile High Solar Care</p>
       "https://www.linkedin.com/company/mile-high-solar-care/"
     ]
   }
+  </script>
+
+  <script>
+    // Mobile-condensed homepage behaviors (PREVIEW). Everything is gated to
+    // the site's mobile breakpoint (max-width:768px); on desktop nothing is
+    // enhanced and both pricing sections remain visible exactly as before.
+    (function initMobileCondensed(){
+      var mq = window.matchMedia('(max-width: 768px)');
+      var done = false;
+      function enhance(){
+        if(done || !mq.matches) return;
+        done = true;
+        // Services accordion: first item open; opening one closes the others.
+        var items = Array.prototype.slice.call(document.querySelectorAll('#services .svc-item'));
+        function setOpen(item, open){
+          item.classList.toggle('is-open', open);
+          var t = item.querySelector('.svc-toggle');
+          if(t) t.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        items.forEach(function(item, idx){
+          var toggle = item.querySelector('.svc-toggle');
+          setOpen(item, idx === 0);
+          if(!toggle) return;
+          toggle.setAttribute('role', 'button');
+          toggle.setAttribute('tabindex', '0');
+          toggle.addEventListener('click', function(){
+            var willOpen = !item.classList.contains('is-open');
+            items.forEach(function(it){ setOpen(it, false); });
+            setOpen(item, willOpen);
+          });
+          toggle.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle.click(); }
+          });
+        });
+        // Who We Are: read more / read less.
+        var who = document.querySelector('[data-who-rest]');
+        var whoBtn = document.querySelector('[data-who-toggle]');
+        if(who && whoBtn){
+          whoBtn.addEventListener('click', function(){
+            var open = who.classList.toggle('is-open');
+            whoBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            var label = whoBtn.querySelector('.who-toggle-label');
+            if(label) label.textContent = open ? 'Read less' : 'Read more';
+          });
+        }
+        // Pricing / care-plan tabs (same pattern as the "What Is Your Need?" tabs).
+        var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-price-tab]'));
+        var pricing = document.getElementById('pricing');
+        var plans = document.getElementById('solar-care-plan');
+        function activate(key){
+          tabs.forEach(function(t){
+            var on = t.getAttribute('data-price-tab') === key;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.classList.toggle('cta-primary', on);
+            t.classList.toggle('cta-secondary', !on);
+          });
+          if(pricing) pricing.classList.toggle('tab-off', key !== 'pricing');
+          if(plans) plans.classList.toggle('tab-off', key !== 'plans');
+        }
+        if(tabs.length && pricing && plans){
+          activate(window.location.hash === '#solar-care-plan' ? 'plans' : 'pricing');
+          tabs.forEach(function(t){
+            t.addEventListener('click', function(){ activate(t.getAttribute('data-price-tab')); });
+          });
+          window.addEventListener('hashchange', function(){
+            if(window.location.hash === '#solar-care-plan') activate('plans');
+            if(window.location.hash === '#pricing') activate('pricing');
+          });
+        }
+      }
+      enhance();
+      if(mq.addEventListener) mq.addEventListener('change', enhance);
+    })();
   </script>
 </body>
 </html>
