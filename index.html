@@ -554,18 +554,32 @@
     #reviews-showcase .reviews-marquee{
       position: relative;
       margin-top: 1.75rem;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
     }
     #reviews-showcase .reviews-track{
       display: flex;
-      width: 100%;
+      width: max-content;
+      animation: mhsc-marquee 120s linear infinite;
+    }
+    #reviews-showcase .reviews-marquee:hover .reviews-track{
+      animation-play-state: paused;
+    }
+    @keyframes mhsc-marquee{
+      to{ transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      #reviews-showcase .reviews-track{ animation: none; }
+      #reviews-showcase .reviews-marquee{ overflow-x: auto; }
     }
     #reviews-showcase .reviews-group{
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
       gap: 1rem;
-      padding: 0.4rem 0;
-      width: 100%;
+      padding: 0.4rem 1rem 0.4rem 0;
+      width: auto;
     }
     #reviews-showcase .review-card{
       flex: 0 0 auto;
@@ -617,6 +631,19 @@
       #reviews-showcase .review-card{
         flex: 0 0 auto;
         width: min(86vw, 340px);
+      }
+    }
+
+    /* Need tabs: gold ring on the open tab; panels use full width */
+    #whats-your-need .need-tab[aria-selected="true"]{
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+    @media (min-width: 768px){
+      #whats-your-need .need-panel ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
       }
     }
 
@@ -844,56 +871,680 @@ Founders, Mile High Solar Care</p>
   <section id="reviews-showcase" class="py-16 sm:py-20 bg-black text-white border-t border-slate-800/60">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Customers Are Saying</h2>
-      <p class="mt-2 text-slate-300">Rated <span class="font-semibold text-white">5.0</span> on Google across 42 reviews.</p>
+      <p class="mt-2 text-slate-300">Rated <span class="font-semibold text-[var(--gold)]">5.0</span> on Google across <span class="font-semibold text-[var(--gold)]">42</span> reviews.</p>
       <p class="mt-3"><a href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" class="text-[var(--gold)] font-semibold underline underline-offset-4">Read our reviews on Google &#8594;</a></p>
       <div class="reviews-marquee" aria-label="Customer reviews">
         <div class="reviews-track">
           <div class="reviews-group">
             <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"Excellent job from start to finish. Communication was clear, scheduling was easy, and the results were immediately noticeable. My panels looked brand new afterward, and I could tell the difference right away. Professional, respectful, and clearly knowledgeable. Highly recommend."</p>
+              <p class="review-quote">&ldquo;Jeremy and his spouse are an amazing independent team who respond quickly to inquiries and in great detail.&rdquo;</p>
               <div class="review-meta">
-                <p class="review-name">Jake</p>
+                <p class="review-name">Jordan Woolf <span style="color:#94a3b8;font-weight:400">· 3 weeks ago</span></p>
                 <span class="review-source">Google</span>
               </div>
             </a>
             <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"Excellent customer service and work quality. Super easy to work with and very kind people."</p>
+              <p class="review-quote">&ldquo;Quick, professional and very communicative. The whole package! Great value and definitely will use again.&rdquo;</p>
               <div class="review-meta">
-                <p class="review-name">Gavin</p>
+                <p class="review-name">Jennifer S <span style="color:#94a3b8;font-weight:400">· 4 weeks ago</span></p>
                 <span class="review-source">Google</span>
               </div>
             </a>
             <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"Very friendly 10/10 recommend."</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care came recommended by neighbors. After receiving several very high price quotes from local roofing&rdquo;</p>
               <div class="review-meta">
-                <p class="review-name">Nova</p>
+                <p class="review-name">Brandon Cox <span style="color:#94a3b8;font-weight:400">· 5 weeks ago</span></p>
                 <span class="review-source">Google</span>
               </div>
             </a>
             <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"They showed up on time and did a very good job. They pointed out issues with my panels and provided before and after photos. I definitely recommend them for your panel needs and will use them again."</p>
+              <p class="review-quote">&ldquo;LOVE MHSC! My solar panels look brand new! Mer and Jer are the absolute best at what they do. I wish I could give more than 5 stars.&rdquo;</p>
               <div class="review-meta">
-                <p class="review-name">Gregory</p>
+                <p class="review-name">Kaela Dover <span style="color:#94a3b8;font-weight:400">· 6 weeks ago</span></p>
                 <span class="review-source">Google</span>
               </div>
             </a>
             <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what I long suspected. Those panels do get reeeeally marred and dusty. Now, they sparkle! With their infectious 'can do' attitude and positivity, Jeremy and Meral make quick work of the cleaning. I look forward to their return to keep my solar panels in tip-top shape."</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care was awesome! Friendly, professional, and they really know their stuff. Our panels are producing way more power after their cleaning, you can actually see the difference.&rdquo;</p>
               <div class="review-meta">
-                <p class="review-name">Nancy</p>
+                <p class="review-name">Sondria Polite <span style="color:#94a3b8;font-weight:400">· 6 weeks ago</span></p>
                 <span class="review-source">Google</span>
               </div>
             </a>
             <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
               <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-              <p class="review-quote">"Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a noticeable layer of dust and buildup. They were professional, explained everything clearly, and handled our steep roof safely. Panels look crystal clear now and we’ve already seen improved performance. We’ll definitely have them back in the next 6–12 months!"</p>
+              <p class="review-quote">&ldquo;Great service!! From providing a quote, to scheduling, and doing the service, everything was great! They were very nice people too and rehoused the baby pigeon to a safe place specialized to take care of them.&rdquo;</p>
               <div class="review-meta">
-                <p class="review-name">Daniel</p>
+                <p class="review-name">Regina Couoh <span style="color:#94a3b8;font-weight:400">· 7 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Such a nice young couple came by and washed our solar panels. They did a super job at a lower rate than anyone else in our area. They were polite, professional and friendly. Highly recommend!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Elaine Haley <span style="color:#94a3b8;font-weight:400">· 8 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Meral and Jeremy did a fantastic job cleaning our solar panels and putting wire around the panels to prevent pigeons.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Sarah F <span style="color:#94a3b8;font-weight:400">· 10 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;We are very pleased with our entire experience with Jeremy &amp; Meral&#x27;s company. Scheduling was very easy.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Carl Maneri <span style="color:#94a3b8;font-weight:400">· 17 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;After discovering a family of pigeons nesting underneath our solar panels, we weren&#x27;t sure who to call. Mile High Solar Care took care of everything.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Linda Beth <span style="color:#94a3b8;font-weight:400">· 17 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Great work and very friendly to work with!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">William Cundiff <span style="color:#94a3b8;font-weight:400">· 18 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Small business with great customer service and proficiency at what they do. We had 18 solar panels that needed cleaning. They were on time, skilled and did a great job.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Ann O&#x27;Donnell <span style="color:#94a3b8;font-weight:400">· 18 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;We had a great experience with getting critter guards put up and our panels cleaned and the team was so polite and professional! I highly recommend working with them and appreciate their service!!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Laura Baker <span style="color:#94a3b8;font-weight:400">· 19 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Meral and Jeremy are owners that truly care about their customers. Their efficiency, responsiveness and knowledge are&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">M <span style="color:#94a3b8;font-weight:400">· 19 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Thanks to the mile high team! Their communication was prompt and clear, they did a great job and were friendly and nice.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Hannah Kasper <span style="color:#94a3b8;font-weight:400">· 20 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;The experience was quick and easy. Very happy with the work performed and they were very prompt, communicative and polite.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Cole White <span style="color:#94a3b8;font-weight:400">· 20 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;The owners of Mile High Solar Care are some of the most genuine, caring people I know. They&#x27;re hardworking and honest.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Harper H <span style="color:#94a3b8;font-weight:400">· 20 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Gained 800 watts/hr from a single cleaning. They did an excellent job. Will be hitting them up again for cleaning throughout the year.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">jason norman <span style="color:#94a3b8;font-weight:400">· 27 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Jeremy and Meral are great! They went above and beyond cleaned everything perfectly and even took the time to explain the process. You can tell they take pride in their work.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Vanessa Esposito <span style="color:#94a3b8;font-weight:400">· 27 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I was very impressed with the performance from mile high solar care. They were exceptionally professional.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Debra Hanson <span style="color:#94a3b8;font-weight:400">· 27 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <div class="review-meta">
+                <p class="review-name">Alecia F <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;What an amazing job done by Mile High Solar Care. My solar panels were full of pigeon sludge beneath them.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jason Wagner <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Super impressed with the level of service. They were thorough, respectful of our home, and made sure everything was done right. The before-and-after difference was huge.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jennifer Cossette <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I just wanna say Mile high solar care. I would recommend them to anybody who has solar panels that need cleaning.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">David Rodriguez <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;This family owned business is great company to have clean your solar panel.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Aaron Baer <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Great experience from start to finish. Super knowledgeable, honest, and detail-oriented. They truly care about doing the job right.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Alex Nix <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;⭐️⭐️⭐️⭐️⭐️&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Dai <span style="color:#94a3b8;font-weight:400">· 30 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I want to thank Jeremy and Meral for their excellent customer service. Communication was smooth and hassle-free.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">ROD Cuts <span style="color:#94a3b8;font-weight:400">· 33 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I had a great experience with Mile High Solar Care! They arrived on time, communicated clearly throughout the entire process, and were very transparent about everything.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Shannon C <span style="color:#94a3b8;font-weight:400">· 34 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I&#x27;ve had my solar panels for over 6 years and never cleaned them. I always assumed I didn&#x27;t have to do anything.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Derek Rinehart <span style="color:#94a3b8;font-weight:400">· 35 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;They came out today per the schedule. Very friendly and explained what they would do. They cleaned the solar panels.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Shelly Pruitt <span style="color:#94a3b8;font-weight:400">· 35 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Jeremy and Meral, did a really good job, and put everything back in its place. Very knowledgeable with solar panels. Will have them come back out again.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Monica Martinez <span style="color:#94a3b8;font-weight:400">· 36 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Good people, good work, excellent price and I will be a return customer without hesitation!!!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Mark Battersby <span style="color:#94a3b8;font-weight:400">· 37 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I have known this couple for years and proud of what they are achieving. They are not just building a business but a&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jill Simpson <span style="color:#94a3b8;font-weight:400">· 37 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Extremely friendly, thorough, clean. Did an amazing job and panels are operating more efficiently.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Ted Carlton <span style="color:#94a3b8;font-weight:400">· 37 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar were very quick to respond to my inquiry. Their quote was very competitive and I was scheduled right&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Todd Bublitz <span style="color:#94a3b8;font-weight:400">· 38 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Daniel Thompson <span style="color:#94a3b8;font-weight:400">· 39 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;They did a very good job. They showed up on time. They pointed out some issues with my panels and provided before and after photos. I definitely recommend them for your panel needs.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Gregory Smith <span style="color:#94a3b8;font-weight:400">· 39 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Nancy Anderson <span style="color:#94a3b8;font-weight:400">· 40 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Very friendly 10/10 recommend.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Nova Ember <span style="color:#94a3b8;font-weight:400">· 40 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Excellent customer service and work quality. Super easy to work with, and very kind people.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Gavin Cleland <span style="color:#94a3b8;font-weight:400">· 44 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care did an excellent job from start to finish. Communication was clear, scheduling was easy, and the&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jake Sims <span style="color:#94a3b8;font-weight:400">· 44 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+          </div>
+          <div class="reviews-group" aria-hidden="true">
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Jeremy and his spouse are an amazing independent team who respond quickly to inquiries and in great detail.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jordan Woolf <span style="color:#94a3b8;font-weight:400">· 3 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Quick, professional and very communicative. The whole package! Great value and definitely will use again.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jennifer S <span style="color:#94a3b8;font-weight:400">· 4 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care came recommended by neighbors. After receiving several very high price quotes from local roofing&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Brandon Cox <span style="color:#94a3b8;font-weight:400">· 5 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;LOVE MHSC! My solar panels look brand new! Mer and Jer are the absolute best at what they do. I wish I could give more than 5 stars.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Kaela Dover <span style="color:#94a3b8;font-weight:400">· 6 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care was awesome! Friendly, professional, and they really know their stuff. Our panels are producing way more power after their cleaning, you can actually see the difference.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Sondria Polite <span style="color:#94a3b8;font-weight:400">· 6 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Great service!! From providing a quote, to scheduling, and doing the service, everything was great! They were very nice people too and rehoused the baby pigeon to a safe place specialized to take care of them.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Regina Couoh <span style="color:#94a3b8;font-weight:400">· 7 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Such a nice young couple came by and washed our solar panels. They did a super job at a lower rate than anyone else in our area. They were polite, professional and friendly. Highly recommend!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Elaine Haley <span style="color:#94a3b8;font-weight:400">· 8 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Meral and Jeremy did a fantastic job cleaning our solar panels and putting wire around the panels to prevent pigeons.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Sarah F <span style="color:#94a3b8;font-weight:400">· 10 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;We are very pleased with our entire experience with Jeremy &amp; Meral&#x27;s company. Scheduling was very easy.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Carl Maneri <span style="color:#94a3b8;font-weight:400">· 17 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;After discovering a family of pigeons nesting underneath our solar panels, we weren&#x27;t sure who to call. Mile High Solar Care took care of everything.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Linda Beth <span style="color:#94a3b8;font-weight:400">· 17 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Great work and very friendly to work with!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">William Cundiff <span style="color:#94a3b8;font-weight:400">· 18 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Small business with great customer service and proficiency at what they do. We had 18 solar panels that needed cleaning. They were on time, skilled and did a great job.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Ann O&#x27;Donnell <span style="color:#94a3b8;font-weight:400">· 18 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;We had a great experience with getting critter guards put up and our panels cleaned and the team was so polite and professional! I highly recommend working with them and appreciate their service!!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Laura Baker <span style="color:#94a3b8;font-weight:400">· 19 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Meral and Jeremy are owners that truly care about their customers. Their efficiency, responsiveness and knowledge are&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">M <span style="color:#94a3b8;font-weight:400">· 19 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Thanks to the mile high team! Their communication was prompt and clear, they did a great job and were friendly and nice.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Hannah Kasper <span style="color:#94a3b8;font-weight:400">· 20 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;The experience was quick and easy. Very happy with the work performed and they were very prompt, communicative and polite.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Cole White <span style="color:#94a3b8;font-weight:400">· 20 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;The owners of Mile High Solar Care are some of the most genuine, caring people I know. They&#x27;re hardworking and honest.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Harper H <span style="color:#94a3b8;font-weight:400">· 20 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Gained 800 watts/hr from a single cleaning. They did an excellent job. Will be hitting them up again for cleaning throughout the year.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">jason norman <span style="color:#94a3b8;font-weight:400">· 27 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Jeremy and Meral are great! They went above and beyond cleaned everything perfectly and even took the time to explain the process. You can tell they take pride in their work.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Vanessa Esposito <span style="color:#94a3b8;font-weight:400">· 27 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I was very impressed with the performance from mile high solar care. They were exceptionally professional.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Debra Hanson <span style="color:#94a3b8;font-weight:400">· 27 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <div class="review-meta">
+                <p class="review-name">Alecia F <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;What an amazing job done by Mile High Solar Care. My solar panels were full of pigeon sludge beneath them.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jason Wagner <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Super impressed with the level of service. They were thorough, respectful of our home, and made sure everything was done right. The before-and-after difference was huge.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jennifer Cossette <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I just wanna say Mile high solar care. I would recommend them to anybody who has solar panels that need cleaning.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">David Rodriguez <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;This family owned business is great company to have clean your solar panel.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Aaron Baer <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Great experience from start to finish. Super knowledgeable, honest, and detail-oriented. They truly care about doing the job right.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Alex Nix <span style="color:#94a3b8;font-weight:400">· 28 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;⭐️⭐️⭐️⭐️⭐️&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Dai <span style="color:#94a3b8;font-weight:400">· 30 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I want to thank Jeremy and Meral for their excellent customer service. Communication was smooth and hassle-free.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">ROD Cuts <span style="color:#94a3b8;font-weight:400">· 33 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I had a great experience with Mile High Solar Care! They arrived on time, communicated clearly throughout the entire process, and were very transparent about everything.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Shannon C <span style="color:#94a3b8;font-weight:400">· 34 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I&#x27;ve had my solar panels for over 6 years and never cleaned them. I always assumed I didn&#x27;t have to do anything.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Derek Rinehart <span style="color:#94a3b8;font-weight:400">· 35 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;They came out today per the schedule. Very friendly and explained what they would do. They cleaned the solar panels.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Shelly Pruitt <span style="color:#94a3b8;font-weight:400">· 35 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Jeremy and Meral, did a really good job, and put everything back in its place. Very knowledgeable with solar panels. Will have them come back out again.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Monica Martinez <span style="color:#94a3b8;font-weight:400">· 36 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Good people, good work, excellent price and I will be a return customer without hesitation!!!&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Mark Battersby <span style="color:#94a3b8;font-weight:400">· 37 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;I have known this couple for years and proud of what they are achieving. They are not just building a business but a&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jill Simpson <span style="color:#94a3b8;font-weight:400">· 37 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Extremely friendly, thorough, clean. Did an amazing job and panels are operating more efficiently.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Ted Carlton <span style="color:#94a3b8;font-weight:400">· 37 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar were very quick to respond to my inquiry. Their quote was very competitive and I was scheduled right&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Todd Bublitz <span style="color:#94a3b8;font-weight:400">· 38 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care did an amazing job cleaning our panels. From the ground they looked fine, but up close there was a&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Daniel Thompson <span style="color:#94a3b8;font-weight:400">· 39 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;They did a very good job. They showed up on time. They pointed out some issues with my panels and provided before and after photos. I definitely recommend them for your panel needs.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Gregory Smith <span style="color:#94a3b8;font-weight:400">· 39 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care offers a new and valuable service for us solar customers. The Before and After photos tell me what&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Nancy Anderson <span style="color:#94a3b8;font-weight:400">· 40 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Very friendly 10/10 recommend.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Nova Ember <span style="color:#94a3b8;font-weight:400">· 40 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Excellent customer service and work quality. Super easy to work with, and very kind people.&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Gavin Cleland <span style="color:#94a3b8;font-weight:400">· 44 weeks ago</span></p>
+                <span class="review-source">Google</span>
+              </div>
+            </a>
+            <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=Mile+High+Solar+Care+Aurora+CO" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="review-quote">&ldquo;Mile High Solar Care did an excellent job from start to finish. Communication was clear, scheduling was easy, and the&rdquo;</p>
+              <div class="review-meta">
+                <p class="review-name">Jake Sims <span style="color:#94a3b8;font-weight:400">· 44 weeks ago</span></p>
                 <span class="review-source">Google</span>
               </div>
             </a>
@@ -911,18 +1562,18 @@ Founders, Mile High Solar Care</p>
     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Is Your Need?</h2>
     <p class="mt-2 text-slate-300">Tell us what your system needs &mdash; we will take it from there.</p>
     <div class="need-tabs mt-8" style="display:flex;flex-wrap:wrap;gap:.5rem" role="tablist" aria-label="Services by need">
-      <button type="button" class="need-tab cta-btn cta-primary" role="tab" aria-selected="true" data-need-tab="cleanings">Cleanings</button>
+      <button type="button" class="need-tab cta-btn cta-primary" role="tab" aria-selected="true" data-need-tab="cleanings">Panel Cleaning</button>
       <button type="button" class="need-tab cta-btn cta-secondary" role="tab" aria-selected="false" data-need-tab="diagnostics">Diagnostics &amp; Checks</button>
       <button type="button" class="need-tab cta-btn cta-secondary" role="tab" aria-selected="false" data-need-tab="plans">Care Plans</button>
       <button type="button" class="need-tab cta-btn cta-secondary" role="tab" aria-selected="false" data-need-tab="critter">Critter Guard</button>
     </div>
     <div class="need-panel mt-8 glass p-6 sm:p-8 rounded-2xl" data-need-panel="cleanings" role="tabpanel">
-      <h3 class="text-2xl font-semibold">Panel Cleaning</h3>
+      <h3 class="text-2xl font-semibold text-[var(--gold)]">Panel Cleaning</h3>
       <p class="mt-2 text-slate-300">Dirt, dust, pollen, and bird droppings quietly steal production. A professional cleaning brings your system back &mdash; with before-and-after photos on every visit.</p>
       <ul class="mt-4 space-y-2 text-slate-200">
-        <li>Up to 12 panels &mdash; <strong class="text-white">$129</strong> per visit</li>
-        <li>13&ndash;24 panels &mdash; <strong class="text-white">$179</strong> per visit</li>
-        <li>25&ndash;40 panels &mdash; <strong class="text-white">$249</strong> per visit</li>
+        <li>Up to 12 panels &mdash; <strong class="text-[var(--gold)]">$129</strong> per visit</li>
+        <li>13&ndash;24 panels &mdash; <strong class="text-[var(--gold)]">$179</strong> per visit</li>
+        <li>25&ndash;40 panels &mdash; <strong class="text-[var(--gold)]">$249</strong> per visit</li>
         <li class="text-slate-400">Two-story homes add $50.</li>
       </ul>
       <div class="mt-6" style="display:flex;flex-wrap:wrap;gap:.75rem">
@@ -934,10 +1585,10 @@ Founders, Mile High Solar Care</p>
       <h3 class="text-2xl font-semibold">Diagnostics &amp; Checks</h3>
       <p class="mt-2 text-slate-300">Something look off &mdash; a bill spike, an app alert, a string gone quiet? We find the cause and tell you plainly what it takes to fix it.</p>
       <ul class="mt-4 space-y-2 text-slate-200">
-        <li>Solar Panel Inspection &mdash; <strong class="text-white">$245</strong></li>
-        <li>Full System Diagnostic &mdash; <strong class="text-white">$295</strong></li>
-        <li>Maintenance Check &mdash; <strong class="text-white">$149</strong></li>
-        <li>Outage Readiness Check &mdash; <strong class="text-white">$149</strong></li>
+        <li>Solar Panel Inspection &mdash; <strong class="text-[var(--gold)]">$245</strong></li>
+        <li>Full System Diagnostic &mdash; <strong class="text-[var(--gold)]">$295</strong></li>
+        <li>Maintenance Check &mdash; <strong class="text-[var(--gold)]">$149</strong></li>
+        <li>Outage Readiness Check &mdash; <strong class="text-[var(--gold)]">$149</strong></li>
       </ul>
       <div class="mt-6" style="display:flex;flex-wrap:wrap;gap:.75rem">
         <a href="/solar-panel-inspection-denver/" class="cta-btn cta-secondary">See Inspections</a>
@@ -948,9 +1599,9 @@ Founders, Mile High Solar Care</p>
       <h3 class="text-2xl font-semibold">Solar Care Plans</h3>
       <p class="mt-2 text-slate-300">Ongoing care, handled. Scheduled cleanings, an annual inspection, and member discounts &mdash; so your system never quietly fades.</p>
       <ul class="mt-4 space-y-2 text-slate-200">
-        <li>Essential &mdash; <strong class="text-white">$27/mo</strong> ($299/yr)</li>
-        <li>Plus &mdash; <strong class="text-white">$42/mo</strong> ($449/yr)</li>
-        <li>Total &mdash; <strong class="text-white">$54/mo</strong> ($579/yr)</li>
+        <li>Essential &mdash; <strong class="text-[var(--gold)]">$27/mo</strong> ($299/yr)</li>
+        <li>Plus &mdash; <strong class="text-[var(--gold)]">$42/mo</strong> ($449/yr)</li>
+        <li>Total &mdash; <strong class="text-[var(--gold)]">$54/mo</strong> ($579/yr)</li>
       </ul>
       <div class="mt-6" style="display:flex;flex-wrap:wrap;gap:.75rem">
         <a href="/solar-care-plans/" class="cta-btn cta-secondary">See the Plans</a>
@@ -961,8 +1612,8 @@ Founders, Mile High Solar Care</p>
       <h3 class="text-2xl font-semibold">Critter Guard</h3>
       <p class="mt-2 text-slate-300">Pigeons and squirrels love the space under your panels &mdash; and the wiring up there. We clean out the mess and seal the array with a lifetime workmanship guarantee.</p>
       <ul class="mt-4 space-y-2 text-slate-200">
-        <li>Full installs typically <strong class="text-white">$1,095&ndash;$1,195</strong></li>
-        <li>Repairs from <strong class="text-white">$300</strong></li>
+        <li>Full installs typically <strong class="text-[var(--gold)]">$1,095&ndash;$1,195</strong></li>
+        <li>Repairs from <strong class="text-[var(--gold)]">$300</strong></li>
         <li><strong class="text-white">Lifetime</strong> workmanship guarantee</li>
       </ul>
       <div class="mt-6" style="display:flex;flex-wrap:wrap;gap:.75rem">
@@ -1012,25 +1663,25 @@ Founders, Mile High Solar Care</p>
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Services</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold">Solar Panel Cleaning</h3>
+          <h3 class="text-lg font-semibold text-[var(--gold)]">Solar Panel Cleaning</h3>
           <p class="mt-2 text-slate-200">Warranty-safe solar panel cleaning using pure water and panel-safe tools to remove dust, pollen, bird droppings, and debris that can reduce system performance.</p>
         </div>
         <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold">Solar Panel Maintenance</h3>
+          <h3 class="text-lg font-semibold text-[var(--gold)]">Solar Panel Maintenance</h3>
           <p class="mt-2 text-slate-200">Visible maintenance checks, panel-safe cleaning, critter guard notes, and photo documentation for homeowners, HOAs, property managers, and commercial solar assets.</p>
           <a href="/solar-panel-maintenance-denver/" class="mt-5 inline-flex text-sm font-semibold text-[var(--gold)] hover:underline" data-lead-event="click_local_page" data-lead-label="services_maintenance">View maintenance service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold">Critter Guard Installation &amp; Maintenance</h3>
+          <h3 class="text-lg font-semibold text-[var(--gold)]">Critter Guard Installation &amp; Maintenance</h3>
           <p class="mt-2 text-slate-200">Birds and other critters can nest beneath solar panels, causing debris buildup, noise, and potential damage to wiring and system components. We install and maintain professional critter guard systems that help protect your solar array and keep it operating cleanly and efficiently.</p>
         </div>
         <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold">Plug-In / Balcony Solar Planning</h3>
+          <h3 class="text-lg font-semibold text-[var(--gold)]">Plug-In / Balcony Solar Planning</h3>
           <p class="mt-2 text-slate-200">Colorado plug-in and balcony solar planning for custom quote prep, landlord/HOA packets, product-document review, maintenance planning, and qualified install coordination when required.</p>
           <a href="/colorado-plug-in-balcony-solar/" class="mt-5 inline-flex text-sm font-semibold text-[var(--gold)] hover:underline" data-lead-event="click_local_page" data-lead-label="services_plugin_balcony_solar">View planning lane</a>
         </div>
         <div class="glass p-6 rounded-2xl">
-          <h3 class="text-lg font-semibold">Panel Removal &amp; Certified Recycling</h3>
+          <h3 class="text-lg font-semibold text-[var(--gold)]">Panel Removal &amp; Certified Recycling</h3>
           <p class="mt-2 text-slate-200">Damaged or end-of-life panels shouldn't end up in a landfill — and with us, they don't. We safely remove panels that are cracked, storm-damaged, or retired, and send every one to a certified recycler. You receive a Certificate of Recycling for your records — exactly the documentation insurers and commercial owners ask for. From $95 per panel; larger removals quoted per project.</p>
         </div>
       </div>
@@ -1046,19 +1697,19 @@ Founders, Mile High Solar Care</p>
       <div class="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Up to 12 Panels</h3>
-          <p class="mt-1 text-3xl font-bold">$129</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$129</p>
           <p class="mt-3 text-sm text-slate-300">Pure‑water wash • Panel‑safe tools</p>
           <a href="?service=cleaning#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_cleaning_up_to_12">Quote this service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">13–24 Panels</h3>
-          <p class="mt-1 text-3xl font-bold">$179</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$179</p>
           <p class="mt-3 text-sm text-slate-300">Includes photo proof</p>
           <a href="?service=cleaning#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_cleaning_13_24">Quote this service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">25–40 Panels</h3>
-          <p class="mt-1 text-3xl font-bold">$249</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$249</p>
           <p class="mt-3 text-sm text-slate-300">Includes photo proof</p>
           <a href="?service=cleaning#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_cleaning_25_40">Quote this service</a>
         </div>
@@ -1068,25 +1719,25 @@ Founders, Mile High Solar Care</p>
       <div class="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Inspection &amp; Report</h3>
-          <p class="mt-1 text-3xl font-bold">$245</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$245</p>
           <p class="mt-3 text-sm text-slate-300">Photos and a written report • Itemized findings</p>
           <a href="?service=maintenance#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_inspection">Quote this service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Electrical Diagnostic</h3>
-          <p class="mt-1 text-3xl font-bold">$295</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$295</p>
           <p class="mt-3 text-sm text-slate-300">Structured troubleshooting • Documented findings</p>
           <a href="?service=maintenance#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_diagnostic">Quote this service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Maintenance Check</h3>
-          <p class="mt-1 text-3xl font-bold">$149</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$149</p>
           <p class="mt-3 text-sm text-slate-300">Maintenance visit • Photo documentation of the array and roofline — no battery scope</p>
           <a href="?service=maintenance#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_maintenance_check">Quote this service</a>
         </div>
         <div class="glass p-6 rounded-2xl">
           <h3 class="text-lg font-semibold">Outage Readiness Check</h3>
-          <p class="mt-1 text-3xl font-bold">$149</p>
+          <p class="mt-1 text-3xl font-bold text-[var(--gold)]">$149</p>
           <p class="mt-3 text-sm text-slate-300">Solar + battery readiness check • Before outage season</p>
           <a href="?service=maintenance#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_outage_readiness">Quote this service</a>
         </div>
@@ -1097,7 +1748,7 @@ Founders, Mile High Solar Care</p>
           <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">Existing guard</p>
           <h3 class="mt-2 text-lg font-semibold">Limited Critter Guard Repair</h3>
           <p class="mt-2 text-slate-200">For a small, accessible section that needs to be re-secured or repaired after a photo and access review.</p>
-          <p class="mt-3 text-3xl font-bold">From $300</p>
+          <p class="mt-3 text-3xl font-bold text-[var(--gold)]">From $300</p>
           <p class="mt-3 text-sm text-slate-300">This is not a whole-array installation price. Final scope is confirmed before scheduling.</p>
           <a href="?service=critter-repair#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_critter_repair">Quote a repair</a>
         </div>
@@ -1105,7 +1756,7 @@ Founders, Mile High Solar Care</p>
           <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">New protection</p>
           <h3 class="mt-2 text-lg font-semibold">Full-Perimeter Critter Guard</h3>
           <p class="mt-2 text-slate-200">Professional solar-array mesh fitted around the accessible perimeter to help block nesting and debris.</p>
-          <p class="mt-3 text-3xl font-bold">Typically $1,095–$1,195</p>
+          <p class="mt-3 text-3xl font-bold text-[var(--gold)]">Typically $1,095–$1,195</p>
           <p class="mt-3 text-sm text-slate-300">Panel count, array layout, roof pitch, perimeter, existing nesting, and safe access determine the final price. Every installation is backed by our LIFETIME workmanship guarantee.</p>
           <a href="?service=critter-install#contact" class="cta-btn cta-secondary mt-5 text-sm" data-lead-event="click_quote_cta" data-lead-label="pricing_critter_install">Quote an installation</a>
         </div>
@@ -1124,12 +1775,12 @@ Founders, Mile High Solar Care</p>
       <div>
         <p class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">Ongoing solar care</p>
         <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Solar Care Plans with published pricing</h2>
-        <p class="mt-3 text-slate-300">Pick a published Solar Care Plan — $27 to $54 a month — and we handle the rest: professional cleanings through the year, an annual 12-point inspection with a written health report, and before-and-after photos at every visit. We contact you when a cleaning is due; you just pick the window.</p>
+        <p class="mt-3 text-slate-300">Pick a published Solar Care Plan — <strong class="text-[var(--gold)]">$27 to $54 a month</strong> — and we handle the rest: professional cleanings through the year, an annual 12-point inspection with a written health report, and before-and-after photos at every visit. We contact you when a cleaning is due; you just pick the window.</p>
         <p class="mt-3 text-sm text-slate-400">Enroll online in minutes, monthly or annual. Monthly plans have no contract and cancel anytime; your rate is locked for 12 months.</p>
       </div>
       <div class="glass p-6 rounded-2xl">
         <h3 class="text-lg font-semibold">Three plans, priced by panel count</h3>
-        <p class="mt-2 text-sm text-slate-300">Essential $27/mo, Plus $42/mo, and Total $54/mo for a typical 13–24 panel home, with annual options that cost less. Smaller and larger systems are priced by panel band on the plans page.</p>
+        <p class="mt-2 text-sm text-slate-300">Essential <strong class="text-[var(--gold)]">$27/mo</strong>, Plus <strong class="text-[var(--gold)]">$42/mo</strong>, and Total <strong class="text-[var(--gold)]">$54/mo</strong> for a typical 13–24 panel home, with annual options that cost less. Smaller and larger systems are priced by panel band on the plans page.</p>
         <a href="/solar-care-plans/" class="cta-btn cta-primary glossy-btn mt-5 text-sm" data-lead-event="click_local_page" data-lead-label="solar_care_plan_page">See the Solar Care Plans</a>
       </div>
     </div>
