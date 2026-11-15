@@ -6,7 +6,7 @@ export const CONTACT = Object.freeze({
   email: 'hello@milehighsolarcare.com',
   quoteEmail: 'quote@milehighsolarcare.com',
   hours: 'Mon–Sat 8:00–6:00',
-  serviceArea: 'Aurora, Denver, Golden, Boulder, Fort Collins, and Colorado Springs',
+  serviceArea: 'Aurora, Denver, Littleton, Arvada, Lakewood, Golden, Boulder, Fort Collins, and Colorado Springs',
 });
 
 const CERTIFICATIONS = `<div id="certifications" class="pt-2">
