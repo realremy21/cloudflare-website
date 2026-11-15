@@ -22,7 +22,7 @@
 /* Graphic-led owner-review draft; not published. */
 .freedom-owner-review .editorial-hero-graphic-led{display:block;overflow:hidden}
 .freedom-owner-review .editorial-hero-graphic{margin:0;width:100%;background:#0d261b;border-bottom:1px solid #cfd9cf}
-.freedom-owner-review .editorial-hero-graphic .editorial-hero-image{display:block;width:100%;max-width:none;height:auto;aspect-ratio:1200/630;object-fit:contain;margin:0}
+.freedom-owner-review .editorial-hero-graphic .editorial-hero-image{display:block;width:100%;max-width:none;height:auto;aspect-ratio:1200/630;object-fit:cover;margin:0}
 .freedom-owner-review .editorial-hero-graphic-led .editorial-hero-copy{max-width:1000px;margin:0 auto;padding:2.5rem 2.5rem 2.2rem}
 .freedom-owner-review .editorial-hero-graphic-led h1{max-width:920px;font-size:clamp(2.1rem,3.65vw,3.5rem);line-height:1.08;margin:1rem 0 1.6rem;overflow-wrap:break-word}
 @media(max-width:700px){.freedom-owner-review .editorial-hero-graphic-led .editorial-hero-copy{padding:1.7rem 1.35rem 1.5rem}.freedom-owner-review .editorial-hero-graphic-led h1{font-size:clamp(1.95rem,8vw,2.45rem);line-height:1.1;margin:.85rem 0 1.25rem}}
