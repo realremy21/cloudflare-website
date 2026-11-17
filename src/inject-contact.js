@@ -44,6 +44,7 @@ const HEADER_ROUTES = new Set([
   '/blog/colorado-springs-utilities-solar-rate-change-2027/',
   '/blog/solar-panel-snow-removal-denver-winter-guide/',
   '/blog/xcel-solar-bank-election-colorado/',
+  '/blog/hail-damage-solar-panels-denver-insurance-claim-guide/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
