@@ -47,6 +47,7 @@ const HEADER_ROUTES = new Set([
   '/blog/hail-damage-solar-panels-denver-insurance-claim-guide/',
   '/blog/apex-solar-solutions-left-colorado/',
   '/blog/foothills-wind-check-solar-panels/',
+  '/blog/solar-detach-and-reset-colorado/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
