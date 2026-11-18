@@ -45,6 +45,7 @@ const HEADER_ROUTES = new Set([
   '/blog/solar-panel-snow-removal-denver-winter-guide/',
   '/blog/xcel-solar-bank-election-colorado/',
   '/blog/hail-damage-solar-panels-denver-insurance-claim-guide/',
+  '/blog/apex-solar-solutions-left-colorado/',
   '/blog/foothills-wind-check-solar-panels/',
 ]);
 const HEADER_QUOTE_LINKS = {
