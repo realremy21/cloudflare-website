@@ -48,6 +48,7 @@ const HEADER_ROUTES = new Set([
   '/blog/apex-solar-solutions-left-colorado/',
   '/blog/foothills-wind-check-solar-panels/',
   '/blog/solar-detach-and-reset-colorado/',
+  '/blog/solar-for-all-appeal-colorado/',
 ]);
 const HEADER_QUOTE_LINKS = {
   '/solar-panel-cleaning-denver/': '/?service=cleaning#contact',
