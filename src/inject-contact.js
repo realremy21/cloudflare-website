@@ -23,6 +23,7 @@ const HEADER_ROUTES = new Set([
   '/solar-panel-maintenance-denver/', '/solar-panel-critter-guard-denver/',
   '/commercial-rooftop-solar-cleaning/', '/colorado-plug-in-balcony-solar/',
   '/robotics-pilot/', '/water-guidelines/',
+  '/blog/enphase-layoffs-colorado-homeowners/',
   '/blog/colorado-solar-for-all-back/',
   '/blog/solar-panel-critter-guard-denver-guide/',
   '/blog/2025-solar-tax-credit-october-15-filing-deadline/',
