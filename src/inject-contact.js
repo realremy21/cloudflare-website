@@ -16,6 +16,7 @@ const HEADER_ROUTES = new Set([
   '/orphaned-solar-systems/',
   '/solar-battery-service/',
   '/sunpower-monitoring-rescue/',
+  '/solar-detach-and-reset/',
   '/commercial-solar-maintenance-denver/',
   '/solar-panel-cleaning-arvada/', '/solar-panel-cleaning-lakewood/',
   '/solar-panel-cleaning-littleton/', '/solar-panel-inspection-denver/',
